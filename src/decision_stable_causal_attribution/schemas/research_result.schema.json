@@ -1,0 +1,626 @@
+{
+  "$defs": {
+    "BudgetDecision": {
+      "additionalProperties": false,
+      "description": "Point-estimate or robust budget allocation and stability assessment.",
+      "properties": {
+        "strategy": {
+          "enum": [
+            "point_estimate",
+            "robust_minimax_regret"
+          ],
+          "title": "Strategy",
+          "type": "string"
+        },
+        "allocations": {
+          "items": {
+            "$ref": "#/$defs/ChannelAllocation"
+          },
+          "title": "Allocations",
+          "type": "array"
+        },
+        "total_budget": {
+          "minimum": 0,
+          "title": "Total Budget",
+          "type": "number"
+        },
+        "expected_objective": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "worst_case_regret": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "stability": {
+          "$ref": "#/$defs/StabilityLabel"
+        },
+        "breakdown_gamma": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "strategy",
+        "allocations",
+        "total_budget",
+        "expected_objective",
+        "worst_case_regret",
+        "stability",
+        "breakdown_gamma"
+      ],
+      "title": "BudgetDecision",
+      "type": "object"
+    },
+    "ChannelAllocation": {
+      "additionalProperties": false,
+      "description": "Budget allocation for one decision channel.",
+      "properties": {
+        "channel_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "budget": {
+          "minimum": 0,
+          "title": "Budget",
+          "type": "number"
+        },
+        "expected_outcome": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Outcome"
+        },
+        "expected_incremental_outcome": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Incremental Outcome"
+        }
+      },
+      "required": [
+        "channel_id",
+        "budget"
+      ],
+      "title": "ChannelAllocation",
+      "type": "object"
+    },
+    "EffectEstimate": {
+      "additionalProperties": false,
+      "description": "Estimated treatment effect and its uncertainty.",
+      "properties": {
+        "treatment_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Treatment Id",
+          "type": "string"
+        },
+        "outcome_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "estimand": {
+          "enum": [
+            "ate",
+            "att",
+            "cate"
+          ],
+          "title": "Estimand",
+          "type": "string"
+        },
+        "estimate": {
+          "title": "Estimate",
+          "type": "number"
+        },
+        "standard_error": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard Error"
+        },
+        "confidence_level": {
+          "default": 0.95,
+          "exclusiveMaximum": 1,
+          "exclusiveMinimum": 0,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "confidence_interval": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence Interval"
+        },
+        "subgroup_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subgroup Id"
+        },
+        "method": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "treatment_id",
+        "outcome_id",
+        "estimand",
+        "estimate",
+        "method"
+      ],
+      "title": "EffectEstimate",
+      "type": "object"
+    },
+    "EvaluationSummary": {
+      "additionalProperties": false,
+      "description": "Evaluation metrics across scenarios or repeated simulation seeds.",
+      "properties": {
+        "scenario_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "repetitions": {
+          "minimum": 1,
+          "title": "Repetitions",
+          "type": "integer"
+        },
+        "metrics": {
+          "items": {
+            "$ref": "#/$defs/MetricValue"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "repetitions"
+      ],
+      "title": "EvaluationSummary",
+      "type": "object"
+    },
+    "ExperimentCandidate": {
+      "additionalProperties": false,
+      "description": "Candidate experiment and its estimated decision value.",
+      "properties": {
+        "experiment_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Experiment Id",
+          "type": "string"
+        },
+        "channel_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Channel Id",
+          "type": "string"
+        },
+        "segment_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segment Id"
+        },
+        "sample_size": {
+          "minimum": 1,
+          "title": "Sample Size",
+          "type": "integer"
+        },
+        "experiment_cost": {
+          "minimum": 0,
+          "title": "Experiment Cost",
+          "type": "number"
+        },
+        "expected_regret_reduction": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "value_of_information": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "selection_method": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Selection Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "experiment_id",
+        "channel_id",
+        "sample_size",
+        "experiment_cost",
+        "expected_regret_reduction",
+        "value_of_information",
+        "selection_method"
+      ],
+      "title": "ExperimentCandidate",
+      "type": "object"
+    },
+    "MetricStatus": {
+      "description": "Availability of a reported metric.",
+      "enum": [
+        "available",
+        "unavailable",
+        "not_applicable"
+      ],
+      "title": "MetricStatus",
+      "type": "string"
+    },
+    "MetricValue": {
+      "additionalProperties": false,
+      "description": "A metric with explicit availability semantics.",
+      "properties": {
+        "name": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "status": {
+          "$ref": "#/$defs/MetricStatus"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "name",
+        "status"
+      ],
+      "title": "MetricValue",
+      "type": "object"
+    },
+    "OverlapDiagnostics": {
+      "additionalProperties": false,
+      "description": "Diagnostics for treatment overlap and weighting quality.",
+      "properties": {
+        "treatment_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Treatment Id",
+          "type": "string"
+        },
+        "propensity_min": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Propensity Min"
+        },
+        "propensity_max": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Propensity Max"
+        },
+        "extreme_propensity_share": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "effective_sample_size": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "maximum_weight_share": {
+          "$ref": "#/$defs/MetricValue"
+        },
+        "covariate_balance": {
+          "items": {
+            "$ref": "#/$defs/MetricValue"
+          },
+          "title": "Covariate Balance",
+          "type": "array"
+        },
+        "overlap_flag": {
+          "title": "Overlap Flag",
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "treatment_id",
+        "extreme_propensity_share",
+        "effective_sample_size",
+        "maximum_weight_share",
+        "overlap_flag"
+      ],
+      "title": "OverlapDiagnostics",
+      "type": "object"
+    },
+    "SensitivityAnalysis": {
+      "additionalProperties": false,
+      "description": "Sensitivity bounds and their methodological provenance.",
+      "properties": {
+        "treatment_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Treatment Id",
+          "type": "string"
+        },
+        "outcome_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Outcome Id",
+          "type": "string"
+        },
+        "method": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Method",
+          "type": "string"
+        },
+        "calibration_description": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Calibration Description",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/SensitivityPoint"
+          },
+          "minItems": 1,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "treatment_id",
+        "outcome_id",
+        "method",
+        "calibration_description",
+        "points"
+      ],
+      "title": "SensitivityAnalysis",
+      "type": "object"
+    },
+    "SensitivityPoint": {
+      "additionalProperties": false,
+      "description": "Sensitivity result for one value of the confounding parameter.",
+      "properties": {
+        "gamma": {
+          "minimum": 1,
+          "title": "Gamma",
+          "type": "number"
+        },
+        "lower_bound": {
+          "title": "Lower Bound",
+          "type": "number"
+        },
+        "upper_bound": {
+          "title": "Upper Bound",
+          "type": "number"
+        },
+        "includes_null": {
+          "title": "Includes Null",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gamma",
+        "lower_bound",
+        "upper_bound",
+        "includes_null"
+      ],
+      "title": "SensitivityPoint",
+      "type": "object"
+    },
+    "StabilityLabel": {
+      "description": "Decision stability classification.",
+      "enum": [
+        "stable",
+        "fragile",
+        "unidentifiable"
+      ],
+      "title": "StabilityLabel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Versioned top-level result document consumed by the frontend.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "run_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "dataset_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Dataset Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "minLength": 1,
+      "title": "Generated At",
+      "type": "string"
+    },
+    "effect_estimates": {
+      "items": {
+        "$ref": "#/$defs/EffectEstimate"
+      },
+      "title": "Effect Estimates",
+      "type": "array"
+    },
+    "overlap_diagnostics": {
+      "items": {
+        "$ref": "#/$defs/OverlapDiagnostics"
+      },
+      "title": "Overlap Diagnostics",
+      "type": "array"
+    },
+    "sensitivity_analyses": {
+      "items": {
+        "$ref": "#/$defs/SensitivityAnalysis"
+      },
+      "title": "Sensitivity Analyses",
+      "type": "array"
+    },
+    "budget_decisions": {
+      "items": {
+        "$ref": "#/$defs/BudgetDecision"
+      },
+      "title": "Budget Decisions",
+      "type": "array"
+    },
+    "experiment_candidates": {
+      "items": {
+        "$ref": "#/$defs/ExperimentCandidate"
+      },
+      "title": "Experiment Candidates",
+      "type": "array"
+    },
+    "evaluation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EvaluationSummary"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id",
+    "dataset_id",
+    "generated_at"
+  ],
+  "title": "ResearchResult",
+  "type": "object"
+}

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decision-stable-causal-attribution"
+version = "0.1.0"
+description = "Research backend for decision-stable causal attribution under hidden confounding"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=1.26,<3",
+    "pandas>=2.2,<4",
+    "scipy>=1.12,<2",
+    "scikit-learn>=1.4,<2",
+    "statsmodels>=0.14,<1",
+    "cvxpy>=1.5,<2",
+    "joblib>=1.3,<2",
+    "pydantic>=2.7,<3",
+    "PyYAML>=6,<7",
+    "pyarrow>=16",
+    "duckdb>=1,<2",
+    "matplotlib>=3.8,<4",
+    "google-cloud-bigquery>=3.20",
+    "db-dtypes>=1.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.5,<1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -1,0 +1,21 @@
+# Set default behavior, that will endeavor to check out and check in LF line endings
+* text=auto eol=lf
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.py text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.parquet binary
+*.gz binary
