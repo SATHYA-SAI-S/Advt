@@ -1,4 +1,3 @@
-
 """Versioned result contracts shared by the research backend and frontend."""
 
 from enum import StrEnum
@@ -54,13 +53,9 @@ class MetricValue(BaseModel):
         if self.status == MetricStatus.AVAILABLE and self.value is None:
             raise ValueError("Available metrics must have a numeric value.")
         if self.status != MetricStatus.AVAILABLE and self.value is not None:
-            raise ValueError(
-                "Unavailable or inapplicable metrics must use value=None."
-            )
+            raise ValueError("Unavailable or inapplicable metrics must use value=None.")
         if self.status != MetricStatus.AVAILABLE and self.reason is None:
-            raise ValueError(
-                "Unavailable or inapplicable metrics require a reason."
-            )
+            raise ValueError("Unavailable or inapplicable metrics require a reason.")
         return self
 
 
@@ -168,10 +163,7 @@ class SensitivityAnalysis(BaseModel):
     @model_validator(mode="after")
     def require_increasing_gamma(self) -> "SensitivityAnalysis":
         gammas = [point.gamma for point in self.points]
-        if any(
-            left >= right
-            for left, right in zip(gammas, gammas[1:], strict=False)
-        ):
+        if any(left >= right for left, right in zip(gammas, gammas[1:], strict=False)):
             raise ValueError("Sensitivity gamma values must be strictly increasing.")
         return self
 

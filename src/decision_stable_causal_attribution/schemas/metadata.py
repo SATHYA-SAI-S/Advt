@@ -1,4 +1,3 @@
-
 """Dataset provenance and capability metadata."""
 
 from enum import StrEnum
@@ -40,8 +39,14 @@ class DatasetMetadata(BaseModel):
     time_start: str | None = None
     time_end: str | None = None
 
-    @field_validator("dataset_id", "source", "description", "unit_of_analysis",
-                     "treatment_definition", "outcome_definition")
+    @field_validator(
+        "dataset_id",
+        "source",
+        "description",
+        "unit_of_analysis",
+        "treatment_definition",
+        "outcome_definition",
+    )
     @classmethod
     def reject_whitespace_only(cls, value: str) -> str:
         """Reject strings that contain no meaningful content."""
@@ -59,9 +64,7 @@ class DatasetMetadata(BaseModel):
         """Keep observational limitations explicit in the dataset contract."""
         if info.data.get("dataset_kind") == DatasetKind.OBSERVATIONAL:
             if value is None or not value.strip():
-                raise ValueError(
-                    "Observational datasets require an explicit observational_caveat."
-                )
+                raise ValueError("Observational datasets require an explicit observational_caveat.")
             return value.strip()
         return value.strip() if value is not None else None
 
@@ -77,7 +80,5 @@ class DatasetMetadata(BaseModel):
             info.data.get("dataset_kind") == DatasetKind.OBSERVATIONAL
             and value == GroundTruthStatus.AVAILABLE
         ):
-            raise ValueError(
-                "Observational datasets cannot claim known causal ground truth."
-            )
+            raise ValueError("Observational datasets cannot claim known causal ground truth.")
         return value

@@ -1,4 +1,3 @@
-
 """Validated configuration for the synthetic causal attribution simulator."""
 
 from enum import StrEnum

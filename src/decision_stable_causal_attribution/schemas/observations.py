@@ -1,4 +1,3 @@
-
 """Canonical observation contracts shared by simulator and data adapters."""
 
 from datetime import UTC, datetime
@@ -141,7 +140,5 @@ class ObservationRecord(BaseModel):
                 "when the outcome is unavailable."
             )
         if not self.outcome_observed and self.outcome is not None:
-            raise ValueError(
-                "An unavailable outcome must be None, not a fabricated numeric value."
-            )
+            raise ValueError("An unavailable outcome must be None, not a fabricated numeric value.")
         return self

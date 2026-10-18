@@ -6,13 +6,12 @@ Covering 2020-11-01 through 2021-01-31 (cohort index window: Nov 1 - Dec 31, 202
 follow-up window through Jan 31, 2021).
 """
 
-from datetime import UTC, datetime
 import logging
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
 
-from google.cloud import bigquery
 import pandas as pd
+from google.cloud import bigquery
 
 from decision_stable_causal_attribution.schemas.dataset import DatasetBundle
 from decision_stable_causal_attribution.schemas.metadata import (
@@ -65,7 +64,11 @@ purchases AS (
 SELECT
   fv.user_pseudo_id,
   fv.first_visit_time,
-  CONCAT(IFNULL(fv.acquisition_source, 'direct'), ' / ', IFNULL(fv.acquisition_medium, 'none')) AS acquisition_channel,
+  CONCAT(
+    IFNULL(fv.acquisition_source, 'direct'),
+    ' / ',
+    IFNULL(fv.acquisition_medium, 'none')
+  ) AS acquisition_channel,
   IFNULL(fv.device_category, 'unknown') AS device_category,
   IFNULL(fv.operating_system, 'unknown') AS operating_system,
   IFNULL(fv.browser, 'unknown') AS browser,
@@ -98,7 +101,7 @@ def extract_ga4_cohort_to_parquet(
     limit: int | None = None,
 ) -> Path:
     """Execute BigQuery cohort query and save results to Parquet.
-    
+
     Uses pathlib for cross-platform OS independence.
     """
     dest = Path(output_path)
@@ -112,7 +115,7 @@ def extract_ga4_cohort_to_parquet(
     logger.info("Submitting GA4 cohort extraction query to BigQuery (project=%s)...", project_id)
     query_job = client.query(query)
     df: pd.DataFrame = query_job.to_dataframe()
-    
+
     logger.info("Query returned %d cohort records. Writing to %s", len(df), dest)
     df.to_parquet(dest, index=False)
     return dest
@@ -124,7 +127,7 @@ def load_ga4_dataset_bundle(
     max_records: int | None = None,
 ) -> DatasetBundle:
     """Load GA4 cohort Parquet and convert to standard DatasetBundle.
-    
+
     Conforms strictly to the observational schema:
     - ground_truth_status = UNAVAILABLE
     - observational_caveat must be provided
@@ -146,7 +149,7 @@ def load_ga4_dataset_bundle(
     observations: list[ObservationRecord] = []
     timestamp = datetime(2020, 11, 1, tzinfo=UTC)
 
-    for idx, row in df.iterrows():
+    for _idx, row in df.iterrows():
         unit_id = f"ga4-{row['user_pseudo_id']}"
         channel = str(row["acquisition_channel"])
 

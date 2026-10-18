@@ -1,4 +1,3 @@
-
 """Tests for dataset bundle integrity and DataFrame conversion."""
 
 import pytest
@@ -85,9 +84,7 @@ def test_observational_bundle_rejects_ground_truth() -> None:
                 DatasetKind.OBSERVATIONAL,
                 GroundTruthStatus.UNAVAILABLE,
             ),
-            observations=(
-                ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),
-            ),
+            observations=(ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),),
             ground_truth=(make_truth(),),
         )
 
@@ -99,9 +96,7 @@ def test_unavailable_ground_truth_must_be_empty() -> None:
                 DatasetKind.RANDOMIZED_BENCHMARK,
                 GroundTruthStatus.UNAVAILABLE,
             ),
-            observations=(
-                ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),
-            ),
+            observations=(ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),),
             ground_truth=(make_truth(),),
         )
 
@@ -110,9 +105,7 @@ def test_available_ground_truth_requires_records() -> None:
     with pytest.raises(ValidationError):
         DatasetBundle(
             metadata=make_metadata(),
-            observations=(
-                ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),
-            ),
+            observations=(ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),),
             ground_truth=(),
         )
 
@@ -140,9 +133,7 @@ def test_observations_frame_excludes_ground_truth() -> None:
 def test_ground_truth_frame_is_separate() -> None:
     bundle = DatasetBundle(
         metadata=make_metadata(),
-        observations=(
-            ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),
-        ),
+        observations=(ObservationRecord(unit_id="u1", treatment=1, outcome=1.0),),
         ground_truth=(make_truth(),),
     )
 

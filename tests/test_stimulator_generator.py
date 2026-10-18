@@ -1,4 +1,3 @@
-
 """Tests for synthetic journey generation and simulator ground truth."""
 
 from decision_stable_causal_attribution.schemas.metadata import DatasetKind
@@ -78,8 +77,7 @@ def test_null_channel_has_zero_configured_effect() -> None:
     ).generate()
 
     null_truth = next(
-        record for record in bundle.ground_truth
-        if record.treatment_id == "paid-search"
+        record for record in bundle.ground_truth if record.treatment_id == "paid-search"
     )
 
     # Finite-sample outcome noise means this initial implementation does not
@@ -91,6 +89,5 @@ def test_generated_observations_do_not_contain_latent_intent() -> None:
     bundle = SyntheticJourneyGenerator(make_config()).generate()
 
     assert all(
-        "hidden_intent" not in observation.covariates.values
-        for observation in bundle.observations
+        "hidden_intent" not in observation.covariates.values for observation in bundle.observations
     )

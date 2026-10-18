@@ -1,4 +1,3 @@
-
 """Synthetic customer journey generation with intervention-based ground truth."""
 
 from dataclasses import dataclass
@@ -66,8 +65,7 @@ class SyntheticJourneyGenerator:
         return DatasetBundle(
             metadata=DatasetMetadata(
                 dataset_id=(
-                    f"simulator-{self.config.scenario.value}"
-                    f"-seed-{self.config.random_seed}"
+                    f"simulator-{self.config.scenario.value}-seed-{self.config.random_seed}"
                 ),
                 dataset_kind=DatasetKind.SIMULATION,
                 source="synthetic_journey_generator",
@@ -106,8 +104,7 @@ class SyntheticJourneyGenerator:
         proxy_noise = rng.normal(loc=0.0, scale=1.0, size=n)
         proxy_quality = self.config.proxy_quality
         observed_intent_proxy = (
-            np.sqrt(proxy_quality) * hidden_intent
-            + np.sqrt(1.0 - proxy_quality) * proxy_noise
+            np.sqrt(proxy_quality) * hidden_intent + np.sqrt(1.0 - proxy_quality) * proxy_noise
         )
 
         exposures = np.zeros((n, len(channels)), dtype=np.int8)
@@ -115,8 +112,7 @@ class SyntheticJourneyGenerator:
         for j, channel in enumerate(channels):
             assignment_logit = float(logit(channel.exposure_probability))
             assignment_strength = (
-                self.config.hidden_intent_strength
-                * channel.confounding_sensitivity
+                self.config.hidden_intent_strength * channel.confounding_sensitivity
             )
             assignment_logit += assignment_strength * hidden_intent
 
@@ -130,9 +126,7 @@ class SyntheticJourneyGenerator:
             # Reduce assignment discrimination when overlap_strength is high.
             # The dedicated poor-overlap scenario intentionally overrides this.
             if scenario != SimulationScenario.POOR_OVERLAP:
-                assignment_logit *= (
-                    1.0 + 3.0 * (1.0 - self.config.overlap_strength)
-                )
+                assignment_logit *= 1.0 + 3.0 * (1.0 - self.config.overlap_strength)
 
             assignment_probability = expit(assignment_logit)
             exposures[:, j] = rng.binomial(
@@ -167,10 +161,7 @@ class SyntheticJourneyGenerator:
         """Calculate conversion probabilities for an exposure matrix."""
         baseline_logit = float(logit(self.config.baseline_conversion_probability))
         baseline_logit_array = (
-            baseline_logit
-            + 0.7 * hidden_intent
-            + 0.2 * age_group
-            - 0.25 * device_mobile
+            baseline_logit + 0.7 * hidden_intent + 0.2 * age_group - 0.25 * device_mobile
         )
 
         exposed_channel_count = exposures.sum(axis=1).astype(float)
@@ -179,10 +170,7 @@ class SyntheticJourneyGenerator:
         for j, channel in enumerate(self.config.channels):
             effect = channel.treatment_effect
 
-            if (
-                self.config.scenario == SimulationScenario.NULL_CHANNEL
-                and j == 0
-            ):
+            if self.config.scenario == SimulationScenario.NULL_CHANNEL and j == 0:
                 effect = 0.0
 
             if self.config.scenario == SimulationScenario.HETEROGENEOUS_EFFECTS:
@@ -219,11 +207,7 @@ class SyntheticJourneyGenerator:
                     channel_id=channel.channel_id,
                     exposed=bool(population.exposures[i, j]),
                     timestamp=timestamp,
-                    cost=(
-                        channel.cost_per_exposure
-                        if population.exposures[i, j] == 1
-                        else 0.0
-                    ),
+                    cost=(channel.cost_per_exposure if population.exposures[i, j] == 1 else 0.0),
                 )
                 for j, channel in enumerate(channels)
             )
@@ -235,9 +219,7 @@ class SyntheticJourneyGenerator:
                         values={
                             "age_group": int(population.age_group[i]),
                             "device_mobile": int(population.device_mobile[i]),
-                            "intent_proxy": float(
-                                population.observed_intent_proxy[i]
-                            ),
+                            "intent_proxy": float(population.observed_intent_proxy[i]),
                         }
                     ),
                     # Treatment is represented per channel in `exposures`.

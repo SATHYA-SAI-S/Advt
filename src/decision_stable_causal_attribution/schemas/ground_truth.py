@@ -1,4 +1,3 @@
-
 """Ground-truth contracts for simulator-controlled causal effects."""
 
 from enum import StrEnum

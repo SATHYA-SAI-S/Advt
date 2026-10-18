@@ -1,4 +1,3 @@
-
 """Tests for simulator configuration validation."""
 
 import pytest

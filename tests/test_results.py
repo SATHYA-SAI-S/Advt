@@ -1,4 +1,3 @@
-
 """Tests for the versioned frontend result contract."""
 
 import pytest
@@ -16,9 +15,9 @@ from decision_stable_causal_attribution.schemas.results import (
 
 def test_available_metric_accepts_zero() -> None:
     metric = MetricValue(
-    name="conversion_lift",
-    value=0.0,
-    status=MetricStatus.AVAILABLE,
+        name="conversion_lift",
+        value=0.0,
+        status=MetricStatus.AVAILABLE,
     )
 
     assert metric.value == 0.0

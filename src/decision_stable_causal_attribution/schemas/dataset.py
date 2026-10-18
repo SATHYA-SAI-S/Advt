@@ -1,6 +1,4 @@
-
 """Validated dataset bundle shared by simulators and data adapters."""
-
 
 import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -30,18 +28,10 @@ class DatasetBundle(BaseModel):
         if len(unit_ids) != len(set(unit_ids)):
             raise ValueError("Observation unit_id values must be unique.")
 
-        if (
-            self.metadata.dataset_kind == DatasetKind.OBSERVATIONAL
-            and self.ground_truth
-        ):
-            raise ValueError(
-                "Observational datasets cannot contain known causal ground truth."
-            )
+        if self.metadata.dataset_kind == DatasetKind.OBSERVATIONAL and self.ground_truth:
+            raise ValueError("Observational datasets cannot contain known causal ground truth.")
 
-        if (
-            self.metadata.ground_truth_status == GroundTruthStatus.UNAVAILABLE
-            and self.ground_truth
-        ):
+        if self.metadata.ground_truth_status == GroundTruthStatus.UNAVAILABLE and self.ground_truth:
             raise ValueError(
                 "Dataset metadata declares ground truth unavailable, "
                 "but ground-truth records were supplied."
@@ -70,13 +60,9 @@ class DatasetBundle(BaseModel):
                 "covariates": observation.covariates.values,
                 "attributes": observation.attributes,
                 "exposures": [
-                    exposure.model_dump(mode="json")
-                    for exposure in observation.exposures
+                    exposure.model_dump(mode="json") for exposure in observation.exposures
                 ],
-                "events": [
-                    event.model_dump(mode="json")
-                    for event in observation.events
-                ],
+                "events": [event.model_dump(mode="json") for event in observation.events],
             }
             for observation in self.observations
         ]
@@ -84,6 +70,4 @@ class DatasetBundle(BaseModel):
 
     def ground_truth_frame(self) -> pd.DataFrame:
         """Return simulator truth separately from observed unit data."""
-        return pd.DataFrame(
-            record.model_dump(mode="json") for record in self.ground_truth
-        )
+        return pd.DataFrame(record.model_dump(mode="json") for record in self.ground_truth)

@@ -1,4 +1,3 @@
-
 """Tests for canonical observation and dataset metadata contracts."""
 
 from datetime import UTC, datetime
@@ -164,7 +163,6 @@ def test_valid_observational_metadata_is_accepted() -> None:
 
     assert metadata.ground_truth_status == GroundTruthStatus.UNAVAILABLE
     assert metadata.observational_caveat is not None
-
 
 
 def make_ground_truth(**overrides: object) -> GroundTruthRecord:
