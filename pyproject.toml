@@ -24,6 +24,10 @@ dependencies = [
     "db-dtypes>=1.2",
 ]
 
+[project.scripts]
+dsca = "decision_stable_causal_attribution.cli:main"
+
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8,<10",
