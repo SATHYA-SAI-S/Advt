@@ -17,19 +17,19 @@
       "color": "#38bdf8",
       "role": "High-intent commercial query bidding",
       "description": "High intent search ads targeting users actively querying product keywords.",
-      "causal_ate": 0.0317,
-      "standard_error": 0.017,
+      "causal_ate": 0.0205,
+      "standard_error": 0.0072,
       "ci": [
-        -0.0018,
-        0.0651
+        0.0064,
+        0.0346
       ],
       "breakdown_gamma": 1.4,
       "stability_label": "fragile",
       "phenomenon_type": "supernova",
       "models": {
         "Causal AIPW": {
-          "credit_share": 0.2207,
-          "ate": 0.0317
+          "credit_share": 0.2862,
+          "ate": 0.0205
         },
         "Shapley": {
           "credit_share": 0.35
@@ -45,84 +45,84 @@
         }
       },
       "gravity_well": {
-        "base_radius": 40.7,
-        "intensity": 0.61,
+        "base_radius": 32.9,
+        "intensity": 0.51,
         "is_negative": false,
         "breakdown_gamma": 1.4,
-        "narrative": "Hidden intent pulls 13.9% correlational credit away from true causal lift."
+        "narrative": "Hidden intent pulls 7.4% correlational credit away from true causal lift."
       },
       "sensitivity_points": [
         {
           "gamma": 1.0,
-          "lower": 0.0317,
-          "upper": 0.0317,
+          "lower": 0.0205,
+          "upper": 0.0205,
           "null": false
         },
         {
           "gamma": 1.2,
-          "lower": 0.0104,
-          "upper": 0.0529,
+          "lower": 0.0036,
+          "upper": 0.0374,
           "null": false
         },
         {
           "gamma": 1.4,
-          "lower": -0.0073,
-          "upper": 0.0706,
+          "lower": -0.0106,
+          "upper": 0.0515,
           "null": true
         },
         {
           "gamma": 1.6,
-          "lower": -0.0222,
-          "upper": 0.0855,
+          "lower": -0.0225,
+          "upper": 0.0635,
           "null": true
         },
         {
           "gamma": 1.8,
-          "lower": -0.035,
-          "upper": 0.0984,
+          "lower": -0.0327,
+          "upper": 0.0737,
           "null": true
         },
         {
           "gamma": 2.0,
-          "lower": -0.0462,
-          "upper": 0.1095,
+          "lower": -0.0416,
+          "upper": 0.0826,
           "null": true
         },
         {
           "gamma": 2.2,
-          "lower": -0.0559,
-          "upper": 0.1192,
+          "lower": -0.0494,
+          "upper": 0.0904,
           "null": true
         },
         {
           "gamma": 2.4,
-          "lower": -0.0645,
-          "upper": 0.1278,
+          "lower": -0.0562,
+          "upper": 0.0972,
           "null": true
         },
         {
           "gamma": 2.6,
-          "lower": -0.0721,
-          "upper": 0.1354,
+          "lower": -0.0623,
+          "upper": 0.1033,
           "null": true
         },
         {
           "gamma": 2.8,
-          "lower": -0.0789,
-          "upper": 0.1423,
+          "lower": -0.0677,
+          "upper": 0.1087,
           "null": true
         },
         {
           "gamma": 3.0,
-          "lower": -0.0851,
-          "upper": 0.1484,
+          "lower": -0.0727,
+          "upper": 0.1136,
           "null": true
         }
       ],
       "budget": {
-        "naive": 3333.33,
+        "naive": 3095.3,
         "robust": 3333.33,
-        "delta": 0.0
+        "delta": 238.03
       },
       "asteroids": [
         {
@@ -138,7 +138,14 @@
           "size": 8,
           "color": "#fbbf24"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.2862,
+        "assist_impact": 0.06,
+        "closing_impact": 0.2,
+        "mean_shap": 0.0205,
+        "direction": "positive"
+      }
     },
     {
       "id": "social_display",
@@ -147,19 +154,19 @@
       "color": "#f472b6",
       "role": "Upper-funnel discovery catalyst",
       "description": "Sponsored visual social impressions that generate initial brand awareness.",
-      "causal_ate": 0.0601,
-      "standard_error": 0.0355,
+      "causal_ate": 0.0206,
+      "standard_error": 0.0094,
       "ci": [
-        -0.0095,
-        0.1298
+        0.0022,
+        0.0389
       ],
-      "breakdown_gamma": 1.6,
+      "breakdown_gamma": 1.4,
       "stability_label": "fragile",
       "phenomenon_type": "supernova",
       "models": {
         "Causal AIPW": {
-          "credit_share": 0.4192,
-          "ate": 0.0601
+          "credit_share": 0.2871,
+          "ate": 0.0206
         },
         "Shapley": {
           "credit_share": 0.33
@@ -175,84 +182,84 @@
         }
       },
       "gravity_well": {
-        "base_radius": 59.9,
-        "intensity": 0.85,
+        "base_radius": 44.1,
+        "intensity": 0.65,
         "is_negative": false,
-        "breakdown_gamma": 1.6,
-        "narrative": "Hidden intent pulls 29.9% correlational credit away from true causal lift."
+        "breakdown_gamma": 1.4,
+        "narrative": "Hidden intent pulls 16.7% correlational credit away from true causal lift."
       },
       "sensitivity_points": [
         {
           "gamma": 1.0,
-          "lower": 0.0601,
-          "upper": 0.0601,
+          "lower": 0.0206,
+          "upper": 0.0206,
           "null": false
         },
         {
           "gamma": 1.2,
-          "lower": 0.0324,
-          "upper": 0.0879,
+          "lower": 0.0009,
+          "upper": 0.0402,
           "null": false
         },
         {
           "gamma": 1.4,
-          "lower": 0.0092,
-          "upper": 0.1111,
-          "null": false
+          "lower": -0.0154,
+          "upper": 0.0566,
+          "null": true
         },
         {
           "gamma": 1.6,
-          "lower": -0.0104,
-          "upper": 0.1307,
+          "lower": -0.0293,
+          "upper": 0.0704,
           "null": true
         },
         {
           "gamma": 1.8,
-          "lower": -0.0272,
-          "upper": 0.1474,
+          "lower": -0.0412,
+          "upper": 0.0823,
           "null": true
         },
         {
           "gamma": 2.0,
-          "lower": -0.0417,
-          "upper": 0.162,
+          "lower": -0.0514,
+          "upper": 0.0926,
           "null": true
         },
         {
           "gamma": 2.2,
-          "lower": -0.0545,
-          "upper": 0.1747,
+          "lower": -0.0604,
+          "upper": 0.1016,
           "null": true
         },
         {
           "gamma": 2.4,
-          "lower": -0.0657,
-          "upper": 0.186,
+          "lower": -0.0684,
+          "upper": 0.1095,
           "null": true
         },
         {
           "gamma": 2.6,
-          "lower": -0.0757,
-          "upper": 0.1959,
+          "lower": -0.0754,
+          "upper": 0.1166,
           "null": true
         },
         {
           "gamma": 2.8,
-          "lower": -0.0846,
-          "upper": 0.2049,
+          "lower": -0.0818,
+          "upper": 0.1229,
           "null": true
         },
         {
           "gamma": 3.0,
-          "lower": -0.0927,
-          "upper": 0.2129,
+          "lower": -0.0874,
+          "upper": 0.1286,
           "null": true
         }
       ],
       "budget": {
-        "naive": 3333.33,
+        "naive": 2373.52,
         "robust": 3333.33,
-        "delta": 0.0
+        "delta": 959.81
       },
       "asteroids": [
         {
@@ -268,7 +275,14 @@
           "size": 8,
           "color": "#fbbf24"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.2871,
+        "assist_impact": 0.14,
+        "closing_impact": 0.09,
+        "mean_shap": 0.0206,
+        "direction": "positive"
+      }
     },
     {
       "id": "retargeting",
@@ -277,19 +291,19 @@
       "color": "#a855f7",
       "role": "Cart abandonment recovery & intent closer",
       "description": "Dynamic banners shown to users with high latent intent who already visited.",
-      "causal_ate": 0.0516,
-      "standard_error": 0.0413,
+      "causal_ate": 0.0306,
+      "standard_error": 0.0111,
       "ci": [
-        -0.0294,
-        0.1326
+        0.0087,
+        0.0524
       ],
       "breakdown_gamma": 1.4,
       "stability_label": "fragile",
       "phenomenon_type": "supernova",
       "models": {
         "Causal AIPW": {
-          "credit_share": 0.36,
-          "ate": 0.0516
+          "credit_share": 0.4267,
+          "ate": 0.0306
         },
         "Shapley": {
           "credit_share": 0.32
@@ -305,84 +319,84 @@
         }
       },
       "gravity_well": {
-        "base_radius": 43.2,
-        "intensity": 0.64,
+        "base_radius": 35.2,
+        "intensity": 0.54,
         "is_negative": false,
         "breakdown_gamma": 1.4,
-        "narrative": "Hidden intent pulls 16.0% correlational credit away from true causal lift."
+        "narrative": "Hidden intent pulls 9.3% correlational credit away from true causal lift."
       },
       "sensitivity_points": [
         {
           "gamma": 1.0,
-          "lower": 0.0516,
-          "upper": 0.0516,
+          "lower": 0.0306,
+          "upper": 0.0306,
           "null": false
         },
         {
           "gamma": 1.2,
-          "lower": 0.0222,
-          "upper": 0.081,
+          "lower": 0.0102,
+          "upper": 0.0509,
           "null": false
         },
         {
           "gamma": 1.4,
-          "lower": -0.0023,
-          "upper": 0.1055,
+          "lower": -0.0067,
+          "upper": 0.0678,
           "null": true
         },
         {
           "gamma": 1.6,
-          "lower": -0.023,
-          "upper": 0.1263,
+          "lower": -0.0211,
+          "upper": 0.0822,
           "null": true
         },
         {
           "gamma": 1.8,
-          "lower": -0.0408,
-          "upper": 0.144,
+          "lower": -0.0334,
+          "upper": 0.0945,
           "null": true
         },
         {
           "gamma": 2.0,
-          "lower": -0.0562,
-          "upper": 0.1594,
+          "lower": -0.044,
+          "upper": 0.1051,
           "null": true
         },
         {
           "gamma": 2.2,
-          "lower": -0.0696,
-          "upper": 0.1729,
+          "lower": -0.0533,
+          "upper": 0.1144,
           "null": true
         },
         {
           "gamma": 2.4,
-          "lower": -0.0815,
-          "upper": 0.1848,
+          "lower": -0.0616,
+          "upper": 0.1227,
           "null": true
         },
         {
           "gamma": 2.6,
-          "lower": -0.0921,
-          "upper": 0.1954,
+          "lower": -0.0689,
+          "upper": 0.13,
           "null": true
         },
         {
           "gamma": 2.8,
-          "lower": -0.1016,
-          "upper": 0.2048,
+          "lower": -0.0754,
+          "upper": 0.1365,
           "null": true
         },
         {
           "gamma": 3.0,
-          "lower": -0.1101,
-          "upper": 0.2134,
+          "lower": -0.0813,
+          "upper": 0.1424,
           "null": true
         }
       ],
       "budget": {
-        "naive": 3333.33,
+        "naive": 4531.18,
         "robust": 3333.33,
-        "delta": 0.0
+        "delta": -1197.85
       },
       "asteroids": [
         {
@@ -398,7 +412,14 @@
           "size": 8,
           "color": "#fbbf24"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.4267,
+        "assist_impact": 0.02,
+        "closing_impact": 0.32,
+        "mean_shap": 0.0306,
+        "direction": "positive"
+      }
     },
     {
       "id": "Conversion",
@@ -1294,9 +1315,9 @@
       "glow": "#38bdf8",
       "bias_warning": "Heavy capital pull toward Retargeting due to unadjusted high intent.",
       "allocations": {
-        "paid_search": 3333.33,
-        "social_display": 3333.33,
-        "retargeting": 3333.33
+        "paid_search": 3095.3,
+        "social_display": 2373.52,
+        "retargeting": 4531.18
       }
     },
     "robust_cloud": {

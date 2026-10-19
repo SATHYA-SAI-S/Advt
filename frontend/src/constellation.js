@@ -305,6 +305,18 @@ export class TouchpointConstellation {
     this.updateVisibility();
   }
 
+  updateVisibility() {
+    this.toggleLabels(this.showLabels);
+    this.toggleArcs(this.showArcs);
+    this.toggleParticles(this.showParticles);
+    this.toggleHalos(this.showHalos);
+    this.toggleComets(this.showComets);
+    this.toggleGravityWells(this.showGravityWells);
+    this.toggleHeartbeat(this.showHeartbeat);
+    this.toggleAsteroids(this.showAsteroids);
+    this.toggleNebulae(this.showNebulae);
+  }
+
   // =========================================================================
   // 1. NEBULAE (Capital Allocation Gas Clouds)
   // =========================================================================
@@ -453,7 +465,7 @@ export class TouchpointConstellation {
     const arcMerged = arcEnter.merge(arcSel);
 
     arcMerged
-      .attr('d', d => this.calculateBézierPath(d))
+      .attr('d', d => this.calculateBezierPath(d))
       .attr('stroke-width', d => strokeScale(d.volume))
       .attr('stroke', d => {
         if (d.target === 'Conversion') return 'rgba(16, 185, 129, 0.45)';
@@ -475,7 +487,7 @@ export class TouchpointConstellation {
     this.arcElements = arcMerged;
   }
 
-  calculateBézierPath(arc) {
+  calculateBezierPath(arc) {
     const src = this.nodeMap.get(arc.source);
     const dst = this.nodeMap.get(arc.target);
     if (!src || !dst) return '';
@@ -671,7 +683,9 @@ export class TouchpointConstellation {
       .attr('pointer-events', 'none')
       .attr('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.9))');
 
-    const nodeMerged = nodeEnter.merge(nodeSel);
+    const nodeMerged = nodeEnter.merge(nodeSel)
+      .attr('transform', d => `translate(${d.x}, ${d.y})`);
+
     this.updateNodeVisuals(nodeMerged, 650);
 
     nodeMerged
@@ -688,8 +702,6 @@ export class TouchpointConstellation {
       .domain([0, 0.40])
       .range([18, 48])
       .clamp(true);
-
-    const t = d3.transition().duration(duration).ease(d3.easeCubicOut);
 
     selection.each((d, i, nodes) => {
       const g = d3.select(nodes[i]);
@@ -712,40 +724,66 @@ export class TouchpointConstellation {
       }
 
       const gradId = `url(#grad-${d.id.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()})`;
-      g.select('.star-core')
-        .transition(t)
-        .attr('r', radius)
-        .attr('fill', gradId);
 
-      g.select('.star-aura')
-        .transition(t)
-        .attr('r', radius + 5);
+      if (duration > 0) {
+        const tr = g.transition().duration(duration).ease(d3.easeCubicOut);
 
-      g.select('.uncertainty-halo')
-        .transition(t)
-        .attr('r', haloRadius);
+        tr.select('.star-core')
+          .attr('r', radius)
+          .attr('fill', gradId);
 
-      g.select('.supernova-corona')
-        .transition(t)
-        .attr('r', radius + 10);
+        tr.select('.star-aura')
+          .attr('r', radius + 5);
 
-      g.select('.node-metric-text')
-        .text(sharePct)
-        .transition(t)
-        .attr('font-size', radius > 26 ? '12px' : '10px');
+        tr.select('.uncertainty-halo')
+          .attr('r', haloRadius);
 
-      if (!d.is_endpoint) {
-        const tag = d.phenomenon_type ? d.phenomenon_type.toUpperCase() : d.stability_label.toUpperCase();
-        g.select('.phenomenon-tag')
-          .text(tag)
-          .transition(t)
-          .attr('dy', -(radius + 8));
+        tr.select('.supernova-corona')
+          .attr('r', radius + 10);
+
+        tr.select('.node-metric-text')
+          .attr('font-size', radius > 26 ? '12px' : '10px');
+        g.select('.node-metric-text').text(sharePct);
+
+        if (!d.is_endpoint) {
+          const tag = d.phenomenon_type ? d.phenomenon_type.toUpperCase() : d.stability_label.toUpperCase();
+          g.select('.phenomenon-tag').text(tag);
+          tr.select('.phenomenon-tag')
+            .attr('dy', -(radius + 8));
+        }
+
+        g.select('.node-name-label').text(d.name);
+        tr.select('.node-name-label')
+          .attr('dy', radius + 18);
+      } else {
+        g.select('.star-core')
+          .attr('r', radius)
+          .attr('fill', gradId);
+
+        g.select('.star-aura')
+          .attr('r', radius + 5);
+
+        g.select('.uncertainty-halo')
+          .attr('r', haloRadius);
+
+        g.select('.supernova-corona')
+          .attr('r', radius + 10);
+
+        g.select('.node-metric-text')
+          .text(sharePct)
+          .attr('font-size', radius > 26 ? '12px' : '10px');
+
+        if (!d.is_endpoint) {
+          const tag = d.phenomenon_type ? d.phenomenon_type.toUpperCase() : d.stability_label.toUpperCase();
+          g.select('.phenomenon-tag')
+            .text(tag)
+            .attr('dy', -(radius + 8));
+        }
+
+        g.select('.node-name-label')
+          .text(d.name)
+          .attr('dy', radius + 18);
       }
-
-      g.select('.node-name-label')
-        .text(d.name)
-        .transition(t)
-        .attr('dy', radius + 18);
     });
   }
 
@@ -778,6 +816,10 @@ export class TouchpointConstellation {
       history: [],
       maxHistory: Math.max(8, (cometData.tail_length || 2) * 5)
     };
+  }
+
+  initAsteroidsEngine() {
+    this.renderAsteroidOrbits();
   }
 
   // =========================================================================
@@ -853,11 +895,14 @@ export class TouchpointConstellation {
       const src = this.nodeMap.get(p.arc.source);
       const dst = this.nodeMap.get(p.arc.target);
       if (src && dst) {
-        const pos = this.getPointOnBézier(src, dst, p.progress);
-        d3.select(pMerged.nodes()[idx])
-          .attr('cx', pos.x)
-          .attr('cy', pos.y)
-          .attr('opacity', Math.sin(p.progress * Math.PI) * 0.85);
+        const pos = this.getPointOnBezier(src, dst, p.progress);
+        const nodeEl = pMerged.nodes()[idx];
+        if (nodeEl) {
+          d3.select(nodeEl)
+            .attr('cx', pos.x)
+            .attr('cy', pos.y)
+            .attr('opacity', Math.sin(p.progress * Math.PI) * 0.85);
+        }
       }
     });
   }
@@ -893,7 +938,7 @@ export class TouchpointConstellation {
 
       const src = c.nodes[segIdx];
       const dst = c.nodes[segIdx + 1];
-      const pos = this.getPointOnBézier(src, dst, segT);
+      const pos = this.getPointOnBezier(src, dst, segT);
 
       // Track tail history
       c.history.push({ x: pos.x, y: pos.y });
@@ -956,7 +1001,7 @@ export class TouchpointConstellation {
       .attr('transform', `scale(${scale})`);
   }
 
-  getPointOnBézier(src, dst, t) {
+  getPointOnBezier(src, dst, t) {
     if (src.id === dst.id) {
       const r = 26;
       return {
@@ -1190,7 +1235,17 @@ export class TouchpointConstellation {
   }
 
   highlightJourneyPath(touchpoints) {
-    if (!touchpoints || touchpoints.length === 0) return;
+    if (!touchpoints || touchpoints.length === 0) {
+      this.gArcs.selectAll('.journey-arc')
+        .attr('opacity', 0.65)
+        .attr('stroke', d => {
+          if (d.target === 'Conversion') return 'rgba(16, 185, 129, 0.45)';
+          if (d.target === 'Drop-off') return 'rgba(100, 116, 139, 0.28)';
+          const srcNode = this.nodeMap.get(d.source);
+          return srcNode ? d3.color(srcNode.color).copy({ opacity: 0.35 }).toString() : 'rgba(148, 163, 184, 0.35)';
+        });
+      return;
+    }
     this.gArcs.selectAll('.journey-arc')
       .attr('opacity', arc => {
         for (let i = 0; i < touchpoints.length - 1; i++) {

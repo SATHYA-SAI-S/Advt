@@ -80,9 +80,21 @@ def _get_default_scenario_config(
     )
 
 
+SCENARIO_ALIASES = {
+    "moderate_confounding": SimulationScenario.MILD_CONFOUNDING,
+    "unconfounded": SimulationScenario.NULL_CHANNEL,
+    "strong_confounding": SimulationScenario.HIDDEN_INTENT_HEAVY,
+    "severe_positivity_violation": SimulationScenario.POOR_OVERLAP,
+}
+
+
 def cmd_simulate(args: argparse.Namespace) -> None:
     """Generate synthetic journey data and run full estimation pipeline."""
-    scenario_enum = SimulationScenario(args.scenario)
+    scenario_val = args.scenario
+    if scenario_val in SCENARIO_ALIASES:
+        scenario_enum = SCENARIO_ALIASES[scenario_val]
+    else:
+        scenario_enum = SimulationScenario(scenario_val)
     logger.info("Generating scenario: %s (N=%d, seed=%d)", scenario_enum.value, args.n, args.seed)
 
     cfg = _get_default_scenario_config(scenario_enum, population_size=args.n, seed=args.seed)
@@ -190,10 +202,12 @@ def main() -> None:
     p_sim.add_argument(
         "--scenario",
         default="mild_confounding",
-        choices=[s.value for s in SimulationScenario],
+        choices=[s.value for s in SimulationScenario] + list(SCENARIO_ALIASES.keys()),
         help="Named simulation scenario.",
     )
-    p_sim.add_argument("--n", type=int, default=5_000, help="Sample population size.")
+    p_sim.add_argument(
+        "--n", "--population", dest="n", type=int, default=5_000, help="Sample population size."
+    )
     p_sim.add_argument("--seed", type=int, default=42, help="Random seed.")
     p_sim.add_argument("--budget", type=float, default=10_000.0, help="Total marketing budget.")
     p_sim.add_argument(
@@ -251,7 +265,9 @@ def main() -> None:
 
     # evaluate-all
     p_eval = subparsers.add_parser("evaluate-all", help="Run multi-scenario batch evaluation.")
-    p_eval.add_argument("--n", type=int, default=3_000, help="Sample size per scenario.")
+    p_eval.add_argument(
+        "--n", "--population", dest="n", type=int, default=3_000, help="Sample size per scenario."
+    )
     p_eval.add_argument("--budget", type=float, default=10_000.0, help="Total budget.")
     p_eval.set_defaults(func=cmd_evaluate_all)
 

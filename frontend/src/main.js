@@ -260,7 +260,12 @@ class AttributionApp {
     if (this.journeyExplorer) this.journeyExplorer.setActiveModel(modelName);
   }
 
+  handleModelChange(modelName) {
+    this.switchModel(modelName);
+  }
+
   handleChannelSelect(channel) {
+    if (channel && channel.is_endpoint) return;
     this.selectedChannel = channel;
     this.renderChannelDetails();
   }
@@ -272,7 +277,7 @@ class AttributionApp {
   }
 
   renderChannelDetails() {
-    if (!this.selectedChannel) return;
+    if (!this.selectedChannel || this.selectedChannel.is_endpoint) return;
     const ch = this.selectedChannel;
 
     const nameEl = document.getElementById('detail-channel-name');
@@ -282,25 +287,28 @@ class AttributionApp {
     const assistEl = document.getElementById('det-assist-ratio');
     const spreadEl = document.getElementById('det-spread-badge');
 
-    if (nameEl) nameEl.textContent = ch.name;
-    if (roleEl) roleEl.textContent = ch.role || ch.description;
+    if (nameEl) nameEl.textContent = ch.name || ch.id;
+    if (roleEl) roleEl.textContent = ch.role || ch.description || 'Marketing Touchpoint';
 
     const modelData = (ch.models && ch.models[this.activeModel]) || (ch.models && ch.models['Causal AIPW']) || {};
     const share = ((modelData.credit_share || 0) * 100).toFixed(1);
     if (shareEl) shareEl.textContent = `${share}%`;
 
     if (ciEl) {
-      if (ch.ci) ciEl.textContent = `[${(ch.ci[0]*100).toFixed(1)}% to ${(ch.ci[1]*100).toFixed(1)}%]`;
+      if (ch.ci && ch.ci.length === 2) ciEl.textContent = `[${(ch.ci[0]*100).toFixed(1)}% to ${(ch.ci[1]*100).toFixed(1)}%]`;
       else ciEl.textContent = '±1.4%';
     }
 
     if (assistEl) {
-      assistEl.textContent = ch.causal_ate ? `${(ch.causal_ate * 100).toFixed(2)}% ATE` : 'N/A';
+      assistEl.textContent = ch.causal_ate !== undefined ? `${(ch.causal_ate * 100).toFixed(2)}% ATE` : (ch.assist_ratio ? `${ch.assist_ratio}x` : 'N/A');
     }
 
     if (spreadEl) {
-      spreadEl.textContent = `Γ* = ${ch.breakdown_gamma} (${(ch.phenomenon_type || ch.stability_label).toUpperCase()})`;
+      const pType = (ch.phenomenon_type || ch.stability_label || 'stable').toUpperCase();
+      const gammaText = ch.breakdown_gamma !== undefined ? `Γ* = ${ch.breakdown_gamma}` : 'Γ* > 2.0';
+      spreadEl.textContent = `${gammaText} (${pType})`;
     }
+
 
     const emptyHint = document.getElementById('detail-empty-state');
     const singleView = document.getElementById('single-channel-view');

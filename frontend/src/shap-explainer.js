@@ -24,15 +24,30 @@ export class ShapExplainer {
   render() {
     if (!this.data || !this.globalContainer || !this.impactContainer) return;
 
-    const channels = this.data.nodes.filter(n => !n.is_endpoint);
+    const channels = (this.data.nodes || []).filter(n => !n.is_endpoint);
+    const channelsWithShap = channels.filter(n => n.shap && typeof n.shap.global_importance === 'number');
+
+    if (channelsWithShap.length === 0) {
+      this.globalContainer.innerHTML = `
+        <div style="padding: 1.5rem 0.5rem; color: #64748b; font-size: 0.75rem; text-align: center;">
+          SHAP feature attributions not calculated for this universe cohort.
+        </div>
+      `;
+      this.impactContainer.innerHTML = `
+        <div style="padding: 1.5rem 0.5rem; color: #64748b; font-size: 0.75rem; text-align: center;">
+          Observational / RCT causal estimation active.
+        </div>
+      `;
+      return;
+    }
 
     // Sort channels by global SHAP importance descending
-    const sortedGlobal = [...channels].sort((a, b) => b.shap.global_importance - a.shap.global_importance);
+    const sortedGlobal = [...channelsWithShap].sort((a, b) => (b.shap.global_importance || 0) - (a.shap.global_importance || 0));
     const maxImportance = sortedGlobal[0].shap.global_importance || 1.0;
 
     // Render Global Importance Bars
     this.globalContainer.innerHTML = sortedGlobal.map(ch => {
-      const imp = ch.shap.global_importance;
+      const imp = ch.shap.global_importance || 0;
       const widthPct = ((imp / maxImportance) * 100).toFixed(1);
       const isSelected = ch.id === this.selectedChannelId;
 
@@ -50,11 +65,11 @@ export class ShapExplainer {
     // Render Assist Impact vs Closing Impact Breakdown
     // Positive assist impact = boosts conversions when appearing early
     // Positive closing impact = boosts conversions when appearing as final step
-    const sortedImpact = [...channels].sort((a, b) => b.shap.closing_impact - a.shap.closing_impact);
+    const sortedImpact = [...channelsWithShap].sort((a, b) => (b.shap.closing_impact || 0) - (a.shap.closing_impact || 0));
 
     this.impactContainer.innerHTML = sortedImpact.map(ch => {
-      const assist = ch.shap.assist_impact;
-      const closing = ch.shap.closing_impact;
+      const assist = ch.shap.assist_impact || 0;
+      const closing = ch.shap.closing_impact || 0;
       const isSelected = ch.id === this.selectedChannelId;
 
       return `

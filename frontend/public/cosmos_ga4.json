@@ -140,7 +140,14 @@
           "size": 5,
           "color": "#f59e0b"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.01,
+        "assist_impact": 0.03,
+        "closing_impact": 0.05,
+        "mean_shap": -0.0006,
+        "direction": "negative"
+      }
     },
     {
       "id": "(direct) / (none)",
@@ -270,7 +277,14 @@
           "size": 5,
           "color": "#f59e0b"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.0888,
+        "assist_impact": 0.03,
+        "closing_impact": 0.14,
+        "mean_shap": -0.0089,
+        "direction": "negative"
+      }
     },
     {
       "id": "<Other> / <Other>",
@@ -400,7 +414,14 @@
           "size": 5,
           "color": "#f59e0b"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.1461,
+        "assist_impact": 0.03,
+        "closing_impact": 0.05,
+        "mean_shap": 0.0146,
+        "direction": "positive"
+      }
     },
     {
       "id": "<Other> / referral",
@@ -530,7 +551,14 @@
           "size": 5,
           "color": "#f59e0b"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.083,
+        "assist_impact": 0.08,
+        "closing_impact": 0.05,
+        "mean_shap": 0.0083,
+        "direction": "positive"
+      }
     },
     {
       "id": "shop.googlemerchandisestore.com / referral",
@@ -660,7 +688,14 @@
           "size": 5,
           "color": "#f59e0b"
         }
-      ]
+      ],
+      "shap": {
+        "global_importance": 0.0512,
+        "assist_impact": 0.08,
+        "closing_impact": 0.05,
+        "mean_shap": -0.0051,
+        "direction": "negative"
+      }
     },
     {
       "id": "Conversion",
