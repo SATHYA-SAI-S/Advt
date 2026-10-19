@@ -26,6 +26,14 @@ data/processed/*
 results/*
 !results/.gitkeep
 
+# Node.js and Frontend
+node_modules/
+*/node_modules/
+frontend/dist/
+
+# Archives
+*.zip
+
 # Editor and operating-system files
 .vscode/
 .idea/

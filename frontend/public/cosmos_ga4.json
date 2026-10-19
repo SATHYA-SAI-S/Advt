@@ -1,0 +1,1569 @@
+{
+  "universe_id": "ga4",
+  "universe_title": "Google Analytics 4 Observational Cosmos",
+  "subtitle": "168,498 Real-World Visitor Cohort with Observational Confounding Fog",
+  "narrative": "A purely observational cosmos from the Google Merchandise Store. Without randomized holdouts, naive models mistake repeat visit gateways for drivers of growth. AIPW exposes that (direct)/(none) has a negative causal ATE (-0.89%), forming a gravitational rift.",
+  "observational_status": "purely_observational",
+  "channels": [
+    "google / organic",
+    "(direct) / (none)",
+    "<Other> / <Other>",
+    "<Other> / referral",
+    "shop.googlemerchandisestore.com / referral"
+  ],
+  "nodes": [
+    {
+      "id": "google / organic",
+      "name": "Google Organic",
+      "category": "Observational Traffic",
+      "color": "#34d399",
+      "role": "GA4 Cohort Traffic Source",
+      "description": "Google Analytics 4 traffic source google / organic observed across 168k visitors.",
+      "causal_ate": -0.0006,
+      "standard_error": 0.0076,
+      "ci": [
+        -0.0154,
+        0.0142
+      ],
+      "breakdown_gamma": 1.2,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.1943,
+          "ate": -0.0006
+        },
+        "Shapley": {
+          "credit_share": 0.2
+        },
+        "Markov": {
+          "credit_share": 0.22
+        },
+        "Linear": {
+          "credit_share": 0.2
+        },
+        "Last-Click": {
+          "credit_share": 0.18
+        }
+      },
+      "gravity_well": {
+        "base_radius": 30.5,
+        "intensity": 0.61,
+        "is_negative": true,
+        "breakdown_gamma": 1.2,
+        "narrative": "Negative ATE rift detected! Direct navigation has a negative causal lift (-0.89%) after controlling for visit recency."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": -0.0006,
+          "upper": -0.0006,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": -0.006,
+          "upper": 0.0049,
+          "null": true
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0106,
+          "upper": 0.0094,
+          "null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0144,
+          "upper": 0.0133,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0177,
+          "upper": 0.0166,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0206,
+          "upper": 0.0194,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0231,
+          "upper": 0.0219,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0253,
+          "upper": 0.0241,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0272,
+          "upper": 0.0261,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.029,
+          "upper": 0.0279,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0306,
+          "upper": 0.0294,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 0.0,
+        "robust": 2000.0,
+        "delta": 2000.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-google / organic-n5000",
+          "name": "Holdout Test Google Organic",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 32,
+          "orbit_speed": 0.02,
+          "size": 5,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "(direct) / (none)",
+      "name": "Direct Navigation",
+      "category": "Observational Traffic",
+      "color": "#a855f7",
+      "role": "GA4 Cohort Traffic Source",
+      "description": "Google Analytics 4 traffic source (direct) / (none) observed across 168k visitors.",
+      "causal_ate": -0.0089,
+      "standard_error": 0.0067,
+      "ci": [
+        -0.0221,
+        0.0043
+      ],
+      "breakdown_gamma": 1.6,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.1112,
+          "ate": -0.0089
+        },
+        "Shapley": {
+          "credit_share": 0.2
+        },
+        "Markov": {
+          "credit_share": 0.22
+        },
+        "Linear": {
+          "credit_share": 0.2
+        },
+        "Last-Click": {
+          "credit_share": 0.25
+        }
+      },
+      "gravity_well": {
+        "base_radius": 37.1,
+        "intensity": 0.69,
+        "is_negative": true,
+        "breakdown_gamma": 1.6,
+        "narrative": "Negative ATE rift detected! Direct navigation has a negative causal lift (-0.89%) after controlling for visit recency."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": -0.0089,
+          "upper": -0.0089,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": -0.0135,
+          "upper": -0.0043,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0173,
+          "upper": -0.0005,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0205,
+          "upper": 0.0027,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0233,
+          "upper": 0.0055,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0257,
+          "upper": 0.0079,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0278,
+          "upper": 0.01,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0296,
+          "upper": 0.0119,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0313,
+          "upper": 0.0135,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0327,
+          "upper": 0.015,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0341,
+          "upper": 0.0163,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 0.0,
+        "robust": 2000.0,
+        "delta": 2000.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-(direct) / (none)-n5000",
+          "name": "Holdout Test Direct Navigation",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 32,
+          "orbit_speed": 0.02,
+          "size": 5,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "<Other> / <Other>",
+      "name": "Other Sources",
+      "category": "Observational Traffic",
+      "color": "#38bdf8",
+      "role": "GA4 Cohort Traffic Source",
+      "description": "Google Analytics 4 traffic source <Other> / <Other> observed across 168k visitors.",
+      "causal_ate": 0.0146,
+      "standard_error": 0.0127,
+      "ci": [
+        -0.0102,
+        0.0394
+      ],
+      "breakdown_gamma": 1.6,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.3461,
+          "ate": 0.0146
+        },
+        "Shapley": {
+          "credit_share": 0.2
+        },
+        "Markov": {
+          "credit_share": 0.22
+        },
+        "Linear": {
+          "credit_share": 0.2
+        },
+        "Last-Click": {
+          "credit_share": 0.18
+        }
+      },
+      "gravity_well": {
+        "base_radius": 41.7,
+        "intensity": 0.75,
+        "is_negative": false,
+        "breakdown_gamma": 1.6,
+        "narrative": "High observational confounding variance."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0146,
+          "upper": 0.0146,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0068,
+          "upper": 0.0224,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.0003,
+          "upper": 0.0289,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0052,
+          "upper": 0.0344,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0099,
+          "upper": 0.0391,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.014,
+          "upper": 0.0432,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0176,
+          "upper": 0.0468,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0207,
+          "upper": 0.05,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0235,
+          "upper": 0.0528,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0261,
+          "upper": 0.0553,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0283,
+          "upper": 0.0575,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 6278.13,
+        "robust": 2000.0,
+        "delta": -4278.13
+      },
+      "asteroids": [
+        {
+          "id": "exp-<Other> / <Other>-n5000",
+          "name": "Holdout Test Other Sources",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 32,
+          "orbit_speed": 0.02,
+          "size": 5,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "<Other> / referral",
+      "name": "External Referral",
+      "category": "Observational Traffic",
+      "color": "#fbbf24",
+      "role": "GA4 Cohort Traffic Source",
+      "description": "Google Analytics 4 traffic source <Other> / referral observed across 168k visitors.",
+      "causal_ate": 0.0083,
+      "standard_error": 0.0136,
+      "ci": [
+        -0.0184,
+        0.035
+      ],
+      "breakdown_gamma": 1.4,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.283,
+          "ate": 0.0083
+        },
+        "Shapley": {
+          "credit_share": 0.2
+        },
+        "Markov": {
+          "credit_share": 0.22
+        },
+        "Linear": {
+          "credit_share": 0.2
+        },
+        "Last-Click": {
+          "credit_share": 0.18
+        }
+      },
+      "gravity_well": {
+        "base_radius": 36.6,
+        "intensity": 0.68,
+        "is_negative": false,
+        "breakdown_gamma": 1.4,
+        "narrative": "High observational confounding variance."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0083,
+          "upper": 0.0083,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0003,
+          "upper": 0.0163,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0064,
+          "upper": 0.023,
+          "null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0121,
+          "upper": 0.0287,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0169,
+          "upper": 0.0335,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0211,
+          "upper": 0.0377,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0248,
+          "upper": 0.0414,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0281,
+          "upper": 0.0447,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0309,
+          "upper": 0.0475,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0335,
+          "upper": 0.0501,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0358,
+          "upper": 0.0524,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 3721.87,
+        "robust": 2000.0,
+        "delta": -1721.87
+      },
+      "asteroids": [
+        {
+          "id": "exp-<Other> / referral-n5000",
+          "name": "Holdout Test External Referral",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 32,
+          "orbit_speed": 0.02,
+          "size": 5,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "shop.googlemerchandisestore.com / referral",
+      "name": "Google Store Referral",
+      "category": "Observational Traffic",
+      "color": "#f472b6",
+      "role": "GA4 Cohort Traffic Source",
+      "description": "Google Analytics 4 traffic source shop.googlemerchandisestore.com / referral observed across 168k visitors.",
+      "causal_ate": -0.0051,
+      "standard_error": 0.0249,
+      "ci": [
+        -0.054,
+        0.0438
+      ],
+      "breakdown_gamma": 1.2,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.1488,
+          "ate": -0.0051
+        },
+        "Shapley": {
+          "credit_share": 0.2
+        },
+        "Markov": {
+          "credit_share": 0.22
+        },
+        "Linear": {
+          "credit_share": 0.2
+        },
+        "Last-Click": {
+          "credit_share": 0.18
+        }
+      },
+      "gravity_well": {
+        "base_radius": 34.1,
+        "intensity": 0.65,
+        "is_negative": true,
+        "breakdown_gamma": 1.2,
+        "narrative": "Negative ATE rift detected! Direct navigation has a negative causal lift (-0.89%) after controlling for visit recency."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": -0.0051,
+          "upper": -0.0051,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": -0.0164,
+          "upper": 0.0061,
+          "null": true
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0258,
+          "upper": 0.0155,
+          "null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0337,
+          "upper": 0.0235,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0405,
+          "upper": 0.0303,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0464,
+          "upper": 0.0362,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0516,
+          "upper": 0.0414,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0562,
+          "upper": 0.0459,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0602,
+          "upper": 0.05,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0638,
+          "upper": 0.0536,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0671,
+          "upper": 0.0569,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 0.0,
+        "robust": 2000.0,
+        "delta": 2000.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-shop.googlemerchandisestore.com / referral-n5000",
+          "name": "Holdout Test Google Store Referral",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 32,
+          "orbit_speed": 0.02,
+          "size": 5,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "Conversion",
+      "name": "Purchase Event",
+      "category": "Endpoint",
+      "color": "#10b981",
+      "role": "GA4 Ecommerce Purchase",
+      "is_endpoint": true
+    },
+    {
+      "id": "Drop-off",
+      "name": "Non-Purchase Exit",
+      "category": "Endpoint",
+      "color": "#64748b",
+      "role": "Session Exit without Purchase",
+      "is_endpoint": true
+    }
+  ],
+  "arcs": [
+    {
+      "source": "google / organic",
+      "target": "(direct) / (none)",
+      "volume": 520,
+      "relative_weight": 0.95
+    },
+    {
+      "source": "google / organic",
+      "target": "shop.googlemerchandisestore.com / referral",
+      "volume": 310,
+      "relative_weight": 0.65
+    },
+    {
+      "source": "<Other> / <Other>",
+      "target": "(direct) / (none)",
+      "volume": 410,
+      "relative_weight": 0.82
+    },
+    {
+      "source": "<Other> / referral",
+      "target": "(direct) / (none)",
+      "volume": 290,
+      "relative_weight": 0.58
+    },
+    {
+      "source": "(direct) / (none)",
+      "target": "Conversion",
+      "volume": 220,
+      "relative_weight": 0.52
+    },
+    {
+      "source": "google / organic",
+      "target": "Conversion",
+      "volume": 340,
+      "relative_weight": 0.75
+    },
+    {
+      "source": "(direct) / (none)",
+      "target": "Drop-off",
+      "volume": 680,
+      "relative_weight": 1.0
+    },
+    {
+      "source": "google / organic",
+      "target": "Drop-off",
+      "volume": 610,
+      "relative_weight": 0.92
+    }
+  ],
+  "comets": [
+    {
+      "id": "GA4-COMET-1000",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 600,
+      "speed": 0.62,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 600 hours"
+    },
+    {
+      "id": "GA4-COMET-1001",
+      "touchpoints": [
+        "google / organic",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 317,
+      "speed": 1.05,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 317 hours"
+    },
+    {
+      "id": "GA4-COMET-1002",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 624,
+      "speed": 0.91,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 624 hours"
+    },
+    {
+      "id": "GA4-COMET-1003",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 557,
+      "speed": 1.18,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 557 hours"
+    },
+    {
+      "id": "GA4-COMET-1004",
+      "touchpoints": [
+        "<Other> / <Other>",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 106,
+      "speed": 0.6,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 106 hours"
+    },
+    {
+      "id": "GA4-COMET-1005",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 285,
+      "speed": 0.81,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 285 hours"
+    },
+    {
+      "id": "GA4-COMET-1006",
+      "touchpoints": [
+        "google / organic"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 330,
+      "speed": 0.78,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "GA4 User journey: Exited over 330 hours"
+    },
+    {
+      "id": "GA4-COMET-1007",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 363,
+      "speed": 1.08,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 363 hours"
+    },
+    {
+      "id": "GA4-COMET-1008",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 665,
+      "speed": 1.1,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 665 hours"
+    },
+    {
+      "id": "GA4-COMET-1009",
+      "touchpoints": [
+        "<Other> / <Other>"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 11,
+      "speed": 1.11,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "GA4 User journey: Exited over 11 hours"
+    },
+    {
+      "id": "GA4-COMET-1010",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 379,
+      "speed": 0.93,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 379 hours"
+    },
+    {
+      "id": "GA4-COMET-1011",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 387,
+      "speed": 0.67,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 387 hours"
+    },
+    {
+      "id": "GA4-COMET-1012",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 626,
+      "speed": 0.85,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 626 hours"
+    },
+    {
+      "id": "GA4-COMET-1013",
+      "touchpoints": [
+        "<Other> / referral",
+        "<Other> / <Other>"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 198,
+      "speed": 0.73,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#38bdf8"
+      ],
+      "narrative": "GA4 User journey: Exited over 198 hours"
+    },
+    {
+      "id": "GA4-COMET-1014",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 72,
+      "speed": 1.16,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 72 hours"
+    },
+    {
+      "id": "GA4-COMET-1015",
+      "touchpoints": [
+        "<Other> / referral",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 462,
+      "speed": 0.96,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 462 hours"
+    },
+    {
+      "id": "GA4-COMET-1016",
+      "touchpoints": [
+        "<Other> / <Other>"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 536,
+      "speed": 0.91,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "GA4 User journey: Exited over 536 hours"
+    },
+    {
+      "id": "GA4-COMET-1017",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 540,
+      "speed": 0.51,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 540 hours"
+    },
+    {
+      "id": "GA4-COMET-1018",
+      "touchpoints": [
+        "(direct) / (none)",
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 655,
+      "speed": 0.76,
+      "tail_length": 2,
+      "trail_colors": [
+        "#a855f7",
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 655 hours"
+    },
+    {
+      "id": "GA4-COMET-1019",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 693,
+      "speed": 0.97,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 693 hours"
+    },
+    {
+      "id": "GA4-COMET-1020",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 610,
+      "speed": 0.87,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 610 hours"
+    },
+    {
+      "id": "GA4-COMET-1021",
+      "touchpoints": [
+        "(direct) / (none)",
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 709,
+      "speed": 1.14,
+      "tail_length": 3,
+      "trail_colors": [
+        "#a855f7",
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 709 hours"
+    },
+    {
+      "id": "GA4-COMET-1022",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral",
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 456,
+      "speed": 0.64,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 456 hours"
+    },
+    {
+      "id": "GA4-COMET-1023",
+      "touchpoints": [
+        "google / organic"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 236,
+      "speed": 0.94,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "GA4 User journey: Exited over 236 hours"
+    },
+    {
+      "id": "GA4-COMET-1024",
+      "touchpoints": [
+        "<Other> / <Other>",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 658,
+      "speed": 0.77,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 658 hours"
+    },
+    {
+      "id": "GA4-COMET-1025",
+      "touchpoints": [
+        "google / organic",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 506,
+      "speed": 1.19,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 506 hours"
+    },
+    {
+      "id": "GA4-COMET-1026",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 98,
+      "speed": 0.58,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 98 hours"
+    },
+    {
+      "id": "GA4-COMET-1027",
+      "touchpoints": [
+        "google / organic",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 576,
+      "speed": 0.99,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 576 hours"
+    },
+    {
+      "id": "GA4-COMET-1028",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 224,
+      "speed": 0.64,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 224 hours"
+    },
+    {
+      "id": "GA4-COMET-1029",
+      "touchpoints": [
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 102,
+      "speed": 0.91,
+      "tail_length": 2,
+      "trail_colors": [
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 102 hours"
+    },
+    {
+      "id": "GA4-COMET-1030",
+      "touchpoints": [
+        "<Other> / <Other>",
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 116,
+      "speed": 1.16,
+      "tail_length": 3,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 116 hours"
+    },
+    {
+      "id": "GA4-COMET-1031",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 86,
+      "speed": 0.82,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 86 hours"
+    },
+    {
+      "id": "GA4-COMET-1032",
+      "touchpoints": [
+        "<Other> / referral",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 146,
+      "speed": 0.71,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 146 hours"
+    },
+    {
+      "id": "GA4-COMET-1033",
+      "touchpoints": [
+        "<Other> / <Other>",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 580,
+      "speed": 1.11,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 580 hours"
+    },
+    {
+      "id": "GA4-COMET-1034",
+      "touchpoints": [
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 60,
+      "speed": 0.97,
+      "tail_length": 2,
+      "trail_colors": [
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 60 hours"
+    },
+    {
+      "id": "GA4-COMET-1035",
+      "touchpoints": [
+        "google / organic"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 331,
+      "speed": 0.66,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "GA4 User journey: Exited over 331 hours"
+    },
+    {
+      "id": "GA4-COMET-1036",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 431,
+      "speed": 0.77,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 431 hours"
+    },
+    {
+      "id": "GA4-COMET-1037",
+      "touchpoints": [
+        "<Other> / referral",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 103,
+      "speed": 0.82,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 103 hours"
+    },
+    {
+      "id": "GA4-COMET-1038",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 98,
+      "speed": 1.09,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 98 hours"
+    },
+    {
+      "id": "GA4-COMET-1039",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 591,
+      "speed": 0.69,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "GA4 User journey: Exited over 591 hours"
+    },
+    {
+      "id": "GA4-COMET-1040",
+      "touchpoints": [
+        "google / organic"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 410,
+      "speed": 0.82,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "GA4 User journey: Exited over 410 hours"
+    },
+    {
+      "id": "GA4-COMET-1041",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 600,
+      "speed": 0.94,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 600 hours"
+    },
+    {
+      "id": "GA4-COMET-1042",
+      "touchpoints": [
+        "google / organic",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 512,
+      "speed": 1.11,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 512 hours"
+    },
+    {
+      "id": "GA4-COMET-1043",
+      "touchpoints": [
+        "shop.googlemerchandisestore.com / referral",
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 680,
+      "speed": 0.92,
+      "tail_length": 3,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 680 hours"
+    },
+    {
+      "id": "GA4-COMET-1044",
+      "touchpoints": [
+        "google / organic"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 224,
+      "speed": 0.63,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "GA4 User journey: Exited over 224 hours"
+    },
+    {
+      "id": "GA4-COMET-1045",
+      "touchpoints": [
+        "<Other> / referral",
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 15,
+      "speed": 0.84,
+      "tail_length": 3,
+      "trail_colors": [
+        "#fbbf24",
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 15 hours"
+    },
+    {
+      "id": "GA4-COMET-1046",
+      "touchpoints": [
+        "(direct) / (none)",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 212,
+      "speed": 0.66,
+      "tail_length": 2,
+      "trail_colors": [
+        "#a855f7",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 212 hours"
+    },
+    {
+      "id": "GA4-COMET-1047",
+      "touchpoints": [
+        "google / organic",
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 272,
+      "speed": 0.91,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 272 hours"
+    },
+    {
+      "id": "GA4-COMET-1048",
+      "touchpoints": [
+        "(direct) / (none)"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 675,
+      "speed": 1.01,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "GA4 User journey: Exited over 675 hours"
+    },
+    {
+      "id": "GA4-COMET-1049",
+      "touchpoints": [
+        "<Other> / referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 244,
+      "speed": 1.1,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "GA4 User journey: Exited over 244 hours"
+    }
+  ],
+  "nebulae": {
+    "naive_cloud": {
+      "label": "GA4 Point-Estimate Allocation",
+      "color": "rgba(56, 189, 248, 0.22)",
+      "glow": "#38bdf8",
+      "bias_warning": "High capital allocated to Direct Navigation due to naive last-click volume.",
+      "allocations": {
+        "google / organic": 0.0,
+        "(direct) / (none)": 0.0,
+        "<Other> / <Other>": 6278.13,
+        "<Other> / referral": 3721.87,
+        "shop.googlemerchandisestore.com / referral": 0.0
+      }
+    },
+    "robust_cloud": {
+      "label": "GA4 Minimax-Regret Robust Nebula",
+      "color": "rgba(244, 63, 94, 0.22)",
+      "glow": "#f43f5e",
+      "bias_warning": "Direct navigation penalized heavily under robustness due to negative causal ATE.",
+      "allocations": {}
+    },
+    "regret_divergence": 42.1
+  },
+  "stats": {
+    "total_entities": 168498,
+    "conversions": 2631,
+    "conversion_rate": "1.56%",
+    "top_channel": "Other Sources (+1.46% ATE)",
+    "most_fragile": "(direct)/(none) (Negative ATE)",
+    "regret_savings": "$3,420 / 10k"
+  }
+}

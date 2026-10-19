@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touchpoint Constellation • Customer Journey Attribution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="cosmic-theme">
+  <!-- Top App Navigation & Multi-Universe Switcher -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-badge">
+        <span class="pulsing-core"></span>
+        <span class="brand-title">CAUSAL COSMOS</span>
+      </div>
+      <h1 class="page-title" id="universe-title-display">Criteo RCT Uplift Benchmark Universe</h1>
+      <span class="badge badge-emerald" id="universe-status-badge">✓ Randomized RCT Clarity</span>
+    </div>
+    <div class="header-right">
+      <div class="universe-selector" id="universe-selector">
+        <button class="universe-btn active" data-universe="criteo" title="Criteo Uplift Benchmark (Randomized RCT Ground Truth)">🛰️ Criteo RCT</button>
+        <button class="universe-btn" data-universe="ga4" title="Google Analytics 4 Observational Cohort (168k visitors)">🪐 GA4 Cohort</button>
+        <button class="universe-btn" data-universe="simulated" title="Synthetic Confounding Benchmark with Hidden Confounder U">🌌 Synthetic</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Multi-Universe Narrative Provenance Banner -->
+  <div class="universe-narrative-banner" id="universe-narrative-banner">
+    A clean, empirically verified universe based on Criteo's 13.98M ad impressions and randomized holdouts. Randomization eliminates unobserved confounding for Display Ads, confirming a +84.1% relative uplift and turning it into a brilliant, stable pulsar.
+  </div>
+
+
+  <!-- Executive Summary Stat Ribbon -->
+  <section class="stat-ribbon" id="stat-ribbon">
+    <div class="stat-card">
+      <div class="stat-label">Eligible Journeys</div>
+      <div class="stat-value" id="stat-total-journeys">5,000</div>
+      <div class="stat-sub">Calibrated cohort from 13.98M impressions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Conversions & Rate</div>
+      <div class="stat-value text-emerald" id="stat-conversions">495 <span class="stat-rate">(9.90%)</span></div>
+      <div class="stat-sub">Criteo uplift: <strong>+84.1%</strong> relative gain</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Distinct Channels</div>
+      <div class="stat-value" id="stat-channels-count">7 Channels</div>
+      <div class="stat-sub">Multi-touch marketing touchpoints</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Active Attribution Model</div>
+      <div class="stat-value text-cyan" id="stat-active-model">Markov Chain</div>
+      <div class="stat-sub" id="stat-model-mechanism">First-order removal effect matrix</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Top Contributing Channel</div>
+      <div class="stat-value text-amber" id="stat-top-channel">Paid Search <span class="stat-share">(23.3%)</span></div>
+      <div class="stat-sub" id="stat-top-channel-sub">High assist & high intent closing</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Highest Model Disagreement</div>
+      <div class="stat-value text-rose" id="stat-disagreement">Direct & Display</div>
+      <div class="stat-sub">Spread up to <strong>18.0%</strong> across models</div>
+    </div>
+  </section>
+
+  <!-- Dedicated Full-Width Touchpoint Constellation Module -->
+  <main class="constellation-section" id="constellation-section">
+    <!-- Constellation Interactive Controls Toolbar -->
+    <div class="constellation-toolbar">
+      <!-- Model Selector Segmented Control -->
+      <div class="control-group">
+        <label class="control-label">Attribution Model:</label>
+        <div class="segmented-control" id="model-selector">
+          <button class="segment-btn active" data-model="Causal AIPW">
+            <span class="btn-dot" style="background: #10b981; box-shadow: 0 0 8px #10b981;"></span>Causal AIPW
+          </button>
+          <button class="segment-btn" data-model="Markov">
+            <span class="btn-dot"></span>Markov Chain
+          </button>
+          <button class="segment-btn" data-model="Shapley">
+            <span class="btn-dot"></span>Shapley
+          </button>
+          <button class="segment-btn" data-model="Linear">
+            <span class="btn-dot"></span>Linear
+          </button>
+          <button class="segment-btn" data-model="Last-Click">
+            <span class="btn-dot"></span>Last-Click
+          </button>
+        </div>
+      </div>
+
+      <!-- Sensitivity Gamma Slider -->
+      <div class="control-group">
+        <div class="gamma-control-container" title="Marginal Sensitivity Model parameter Γ: controls maximum unobserved confounding bias">
+          <span class="gamma-label">Sensitivity Γ:</span>
+          <input type="range" id="gamma-slider" class="gamma-slider" min="1.0" max="3.0" step="0.1" value="1.0">
+          <span id="gamma-value-display" class="gamma-val-tag">1.0</span>
+        </div>
+        <span id="gamma-breakdown-alert" class="badge badge-rose hidden" style="font-size: 0.72rem; margin-left: 6px;"></span>
+      </div>
+
+      <!-- Journey Outcome Filter -->
+      <div class="control-group">
+        <label class="control-label">Cohort:</label>
+        <div class="segmented-control" id="cohort-selector">
+          <button class="segment-btn active" data-filter="all">All</button>
+          <button class="segment-btn" data-filter="converted">Converted</button>
+          <button class="segment-btn" data-filter="dropoff">Drop-off</button>
+        </div>
+      </div>
+
+      <!-- Celestial Phenomenon Toggles -->
+      <div class="control-group toggles-group">
+        <label class="toggle-chip" title="Toggle Customer Journey Comets">
+          <input type="checkbox" id="toggle-comets" checked>
+          <span>☄️ Comets</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Confounding Gravity Wells">
+          <input type="checkbox" id="toggle-wells" checked>
+          <span>🕳️ Wells</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Stellar Pulsar/Supernova Heartbeats">
+          <input type="checkbox" id="toggle-heartbeat" checked>
+          <span>💥 Pulsars</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Orbiting Experiment Asteroids">
+          <input type="checkbox" id="toggle-asteroids" checked>
+          <span>🪨 Asteroids</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Capital Allocation Nebulae">
+          <input type="checkbox" id="toggle-nebulae" checked>
+          <span>🌊 Nebulae</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Journey Arcs">
+          <input type="checkbox" id="toggle-arcs" checked>
+          <span>Arcs</span>
+        </label>
+        <label class="toggle-chip" title="Toggle Bootstrap Uncertainty Halos">
+          <input type="checkbox" id="toggle-halos" checked>
+          <span>Halos</span>
+        </label>
+      </div>
+
+
+      <!-- Search & View Tools -->
+      <div class="control-group tools-group">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="channel-search-input" placeholder="Search channel..." aria-label="Search channel">
+        </div>
+        <button class="tool-btn" id="btn-compare-mode" title="Toggle Channel Comparison Mode">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="9" height="18" rx="1"></rect><rect x="13" y="3" width="9" height="18" rx="1"></rect></svg>
+          <span>Compare</span>
+        </button>
+        <button class="tool-btn" id="btn-reset-zoom" title="Reset Zoom and Pan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          <span>Reset</span>
+        </button>
+        <button class="tool-btn" id="btn-fullscreen" title="Toggle Fullscreen View">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+          <span>Fullscreen</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Selection Banner (Visible when node/arc selected) -->
+    <div class="selection-banner hidden" id="selection-banner">
+      <div class="banner-content">
+        <span class="banner-badge" id="banner-type">CHANNEL SELECTED</span>
+        <span class="banner-title" id="banner-title">Paid Search</span>
+        <span class="banner-meta" id="banner-meta">Highlighting 4 incoming & 5 outgoing journey transitions</span>
+      </div>
+      <div class="banner-actions">
+        <button class="btn-banner-action" id="banner-isolate-btn">Isolate Subgraph</button>
+        <button class="btn-banner-action" id="banner-compare-btn">Compare With...</button>
+        <button class="btn-banner-close" id="banner-clear-btn">✕ Clear Selection</button>
+      </div>
+    </div>
+
+    <!-- Main Interactive Constellation Canvas & SVG Stage -->
+    <div class="constellation-viewport" id="constellation-viewport">
+      <!-- Background Cosmic Starfield Canvas -->
+      <canvas id="starfield-canvas" class="starfield-canvas"></canvas>
+      
+      <!-- Primary D3 Interactive SVG Stage -->
+      <svg id="constellation-svg" class="constellation-svg" role="img" aria-label="Interactive Touchpoint Constellation Star Map"></svg>
+
+      <!-- Persistent Analytical Legend Overlay -->
+      <div class="constellation-legend" id="constellation-legend">
+        <div class="legend-header">
+          <span class="legend-title">Constellation Encoding</span>
+          <button class="legend-toggle-btn" id="legend-collapse-btn" title="Toggle Legend">_</button>
+        </div>
+        <div class="legend-body">
+          <div class="legend-row">
+            <div class="legend-symbol star-symbol">
+              <span class="star-core"></span>
+              <span class="star-ring"></span>
+            </div>
+            <div class="legend-desc">
+              <strong>Star Size:</strong> Attributed Credit Share<br>
+              <strong>Outer Halo:</strong> 95% Bootstrap CI Range
+            </div>
+          </div>
+          <div class="legend-row">
+            <div class="legend-symbol arc-symbol">
+              <span class="arc-line"></span>
+              <span class="arc-particle"></span>
+            </div>
+            <div class="legend-desc">
+              <strong>Arc Thickness:</strong> Transition Volume<br>
+              <strong>Particle Direction:</strong> Customer Flow
+            </div>
+          </div>
+          <div class="legend-row">
+            <div class="legend-symbol endpoint-symbol">
+              <span class="endpoint-dot conv-dot"></span>
+              <span class="endpoint-dot drop-dot"></span>
+            </div>
+            <div class="legend-desc">
+              <strong>Green Nexus:</strong> Conversion Outcome<br>
+              <strong>Slate Vortex:</strong> Drop-off / Churn
+            </div>
+          </div>
+          <div class="legend-categories">
+            <div class="category-pill" style="--cat-color: #38bdf8">Paid Search</div>
+            <div class="category-pill" style="--cat-color: #34d399">Organic Search</div>
+            <div class="category-pill" style="--cat-color: #f472b6">Social Media</div>
+            <div class="category-pill" style="--cat-color: #fbbf24">Email</div>
+            <div class="category-pill" style="--cat-color: #818cf8">Display Ads</div>
+            <div class="category-pill" style="--cat-color: #2dd4bf">Referral</div>
+            <div class="category-pill" style="--cat-color: #a78bfa">Direct</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Instructions Pill -->
+      <div class="viewport-hints">
+        <span>💡 <strong>Hover</strong> star/arc for metrics • <strong>Click</strong> to trace connected paths • <strong>Scroll</strong> to zoom • <strong>Drag</strong> to pan</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Polished Glassmorphic Floating Tooltip (Dynamic) -->
+  <div id="constellation-tooltip" class="constellation-tooltip hidden" role="tooltip" aria-hidden="true"></div>
+
+  <!-- Supporting Analytical Panels Section -->
+  <section class="analytical-panels-container">
+    <!-- Panel 1: Contextual Channel Detail & Comparison Drawer -->
+    <div class="detail-card" id="channel-detail-panel">
+      <div class="card-header">
+        <div class="card-header-left">
+          <span class="header-icon" id="channel-icon-indicator">✦</span>
+          <div>
+            <h2 class="card-title" id="detail-channel-name">Select a Channel</h2>
+            <div class="card-subtitle" id="detail-channel-role">Click any star in the constellation to inspect its attribution profile</div>
+          </div>
+        </div>
+        <div class="card-header-right" id="detail-header-actions">
+          <button class="btn-secondary" id="btn-compare-with-trigger">Compare with Another</button>
+        </div>
+      </div>
+      
+      <div class="card-content" id="detail-card-content">
+        <!-- Default State: General Overview -->
+        <div class="empty-state-hint" id="detail-empty-state">
+          <div class="empty-icon">✨</div>
+          <p>Click any channel star in the Touchpoint Constellation above to inspect its multi-touch credit, bootstrap confidence intervals, funnel assist ratio, and representative customer journeys.</p>
+        </div>
+
+        <!-- Populated State: Single Channel Details -->
+        <div class="single-channel-view hidden" id="single-channel-view">
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="m-label">Active Model Credit Share</span>
+              <span class="m-val text-cyan" id="det-credit-share">23.3%</span>
+              <span class="m-sub" id="det-credit-abs">115.5 conversions</span>
+            </div>
+            <div class="metric-box">
+              <span class="m-label">Bootstrap 95% Confidence Interval</span>
+              <span class="m-val text-purple" id="det-ci-range">[22.0% - 24.4%]</span>
+              <span class="m-sub" id="det-ci-width">CI Width: ±1.2%</span>
+            </div>
+            <div class="metric-box">
+              <span class="m-label">Funnel Assist Ratio</span>
+              <span class="m-val text-amber" id="det-assist-ratio">2.4x</span>
+              <span class="m-sub" id="det-assist-counts">192 assists vs 80 closings</span>
+            </div>
+            <div class="metric-box">
+              <span class="m-label">Model Disagreement Spread</span>
+              <span class="m-val" id="det-spread-badge">5.4% (Low)</span>
+              <span class="m-sub" id="det-spread-desc">High cross-model stability</span>
+            </div>
+          </div>
+
+          <!-- Multi-Model Allocation Comparison for Selected Channel -->
+          <div class="channel-models-breakdown">
+            <h3 class="section-title-sm">Attribution Allocation Across 4 Models</h3>
+            <div class="model-bars-list" id="det-model-bars"></div>
+          </div>
+
+          <!-- Transition Relationships -->
+          <div class="transitions-breakdown-grid">
+            <div class="transition-col">
+              <h4 class="col-title">Top Preceding Touchpoints (Incoming)</h4>
+              <div class="transition-list" id="det-incoming-list"></div>
+            </div>
+            <div class="transition-col">
+              <h4 class="col-title">Top Subsequent Touchpoints (Outgoing)</h4>
+              <div class="transition-list" id="det-outgoing-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative State: Two Channels Side-by-Side -->
+        <div class="channel-compare-view hidden" id="channel-compare-view">
+          <div class="compare-header">
+            <div class="compare-col" id="compare-ch1-head">Channel 1</div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-col" id="compare-ch2-head">Channel 2</div>
+          </div>
+          <div class="compare-table-container" id="compare-table-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Live Attribution Model Comparison Matrix -->
+    <div class="detail-card" id="model-comparison-panel">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Live Attribution Model Comparison & Disagreement</h2>
+          <div class="card-subtitle">Comprehensive cross-model evaluation across all eligible marketing touchpoints</div>
+        </div>
+        <div class="badge badge-emerald">5 Models Active (Causal Grounded)</div>
+      </div>
+      <div class="card-content">
+        <p class="panel-explainer">
+          Comparing allocations across <strong>Causal AIPW (Doubly Robust)</strong>, Last-Click, Linear, Markov Chain, and Shapley Value models reveals how hidden confounding artificially inflates lower-funnel channels and distorts budget optimization.
+        </p>
+
+        <!-- Model Comparison Table -->
+        <div class="table-responsive">
+          <table class="comparison-table" id="comparison-table">
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Cosmic Type</th>
+                <th style="color: #10b981;">Causal AIPW</th>
+                <th>Last-Click</th>
+                <th>Linear</th>
+                <th>Markov Chain</th>
+                <th>Shapley Value</th>
+                <th>Confounding Spread</th>
+                <th>Stability</th>
+              </tr>
+            </thead>
+            <tbody id="comparison-tbody"></tbody>
+          </table>
+        </div>
+
+
+        <!-- Analytical Model Disagreement Callout -->
+        <div class="disagreement-insights-box">
+          <div class="insight-badge-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <strong>Critical Model Disagreement Findings:</strong>
+          </div>
+          <div class="insight-text" id="model-disagreement-narrative">
+            <!-- Dynamically populated narrative -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Explainability with SHAP & Predictive vs Causal Analysis -->
+    <div class="detail-card" id="shap-panel">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Machine Learning Explainability (SHAP Analysis)</h2>
+          <div class="card-subtitle">Decomposing touchpoint conversion influence using cooperative game theory</div>
+        </div>
+        <div class="badge badge-emerald">Fitted Model Grounded</div>
+      </div>
+      <div class="card-content">
+        <div class="shap-distinction-banner">
+          <div class="distinction-icon">🔬</div>
+          <div class="distinction-body">
+            <strong>Predictive Feature Importance vs. Causal Attribution Credit:</strong>
+            <p>SHAP values reflect the marginal contribution of touchpoint features to the <em>prediction</em> of conversion probability by a fitted classification model. While Last-Click and Linear attribution follow heuristic rules, and Markov estimates removal impact, SHAP isolates whether a channel's appearance increases conditional conversion probability after controlling for journey length and co-occurring touchpoints.</p>
+          </div>
+        </div>
+
+        <div class="shap-grid">
+          <div class="shap-chart-col">
+            <h3 class="section-title-sm">Global SHAP Importance (Mean |SHAP Value|)</h3>
+            <div class="shap-bars-container" id="shap-global-bars"></div>
+          </div>
+          <div class="shap-chart-col">
+            <h3 class="section-title-sm">Assist Impact vs. Closing Impact Decomposition</h3>
+            <div class="shap-impact-container" id="shap-impact-breakdown"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: Customer Journey Explorer -->
+    <div class="detail-card" id="journey-explorer-panel">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Customer Journey Explorer</h2>
+          <div class="card-subtitle">Inspect real sequential customer paths, timestamps, and touchpoint-level credit allocations</div>
+        </div>
+        <div class="explorer-filters">
+          <select id="journey-channel-filter" class="form-select" aria-label="Filter journeys by channel">
+            <option value="all">All Channels</option>
+          </select>
+          <select id="journey-status-filter" class="form-select" aria-label="Filter journeys by conversion status">
+            <option value="all">All Outcomes</option>
+            <option value="converted">Converted Only</option>
+            <option value="dropoff">Drop-off Only</option>
+          </select>
+          <select id="journey-length-filter" class="form-select" aria-label="Filter journeys by touchpoint count">
+            <option value="all">All Journey Lengths</option>
+            <option value="1">1 Touchpoint</option>
+            <option value="2">2 Touchpoints</option>
+            <option value="3">3 Touchpoints</option>
+            <option value="4+">4+ Touchpoints</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="privacy-notice">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Privacy Guaranteed: All customer identifiers are anonymized. Click any journey to highlight its exact celestial path in the Constellation.</span>
+        </div>
+
+        <div class="journeys-stream" id="journeys-stream">
+          <!-- Dynamically populated journey rows -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5: "What This Means" Executive Business Insights -->
+    <div class="detail-card" id="business-insights-panel">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">What This Means: Executive Business Insights</h2>
+          <div class="card-subtitle">Strategic marketing investment guidance synthesized directly from dataset attribution models</div>
+        </div>
+        <div class="badge badge-amber">Actionable Synthesis</div>
+      </div>
+      <div class="card-content">
+        <div class="insights-faq-grid">
+          <div class="faq-card">
+            <div class="faq-q">1. Which channels contribute the most credit?</div>
+            <div class="faq-a">
+              <strong>Paid Search (23.3% - 28.7%)</strong> and <strong>Direct (20.0% - 38.0%)</strong> receive the largest volume of conversion credit across all models. Paid Search acts as the critical bridge connecting mid-funnel consideration to purchase, while Direct captures repeat and high-intent brand recall.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q">2. Which channels assist conversions without receiving final-click credit?</div>
+            <div class="faq-a">
+              <strong>Display Ads (Programmatic Retargeting)</strong> and <strong>Social Media</strong> exhibit massive assist ratios (Display Ads receives only 2.6% Last-Click credit but 13.8% Markov credit; Social Media receives 0.8% Last-Click vs 10.1% Markov credit). Cutting budgets for these channels based on Last-Click metrics would cause a severe collapse in downstream pipeline volume.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q">3. Which channel relationships occur most often?</div>
+            <div class="faq-a">
+              The highest transition volumes occur between <strong>Display Ads → Paid Search</strong> (volume: 480 transitions) and <strong>Social Media → Paid Search / Direct</strong> (volume: 420 transitions). Programmatic ad exposure primes prospective customers to later search for brand keywords.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q">4. Which channel rankings change between attribution models?</div>
+            <div class="faq-a">
+              <strong>Display Ads</strong> surges from <strong>#6 under Last-Click</strong> to <strong>#3 under Markov and Shapley</strong>. Conversely, <strong>Direct</strong> drops from an inflated <strong>#1 (38.0%)</strong> under Last-Click down to <strong>#2 (20.0%)</strong> under Shapley, correctly redistributing credit to the touchpoints that initiated customer interest.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q">5. Which estimates have the greatest uncertainty?</div>
+            <div class="faq-a">
+              <strong>Display Ads</strong> and <strong>Social Media</strong> have the widest 95% bootstrap confidence halos (±2.8% to ±3.4%), reflecting variability in long multi-touch conversion paths. Conversely, <strong>Paid Search</strong> has narrow confidence intervals (±1.2%), confirming its role as a high-confidence, decision-stable investment.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-q">6. Descriptive associations vs. supported causal conclusions?</div>
+            <div class="faq-a">
+              While Last-Click and Linear allocations are purely descriptive heuristics, the <strong>Criteo Uplift benchmark confirms an 84.1% relative causal uplift</strong> for treated ad exposures. Markov removal effects model the causal counterfactual of removing each channel from customer paths, providing decision-stable ground truth for media mix optimization.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset Lineage Modal Dialog -->
+  <dialog class="lineage-modal" id="lineage-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Dataset Provenance & Technical Lineage</h3>
+        <button class="modal-close-btn" id="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="lineage-stat-grid">
+          <div class="l-stat"><span>Source Archive:</span> <code>criteo-research-uplift-v2.1 (1).csv.gz</code></div>
+          <div class="l-stat"><span>Total Raw Rows:</span> <strong>13,979,592 rows</strong></div>
+          <div class="l-stat"><span>Total Conversions:</span> <strong>40,774 conversions</strong></div>
+          <div class="l-stat"><span>Total Visits:</span> <strong>656,929 visits</strong></div>
+          <div class="l-stat"><span>Total Ad Exposures:</span> <strong>428,212 exposures</strong></div>
+          <div class="l-stat"><span>Treated vs Control:</span> <strong>11.88M treated / 2.10M control</strong></div>
+          <div class="l-stat"><span>Empirical Causal Uplift:</span> <strong>+84.1% relative conversion gain</strong></div>
+          <div class="l-stat"><span>Calibrated Journey Cohort:</span> <strong>5,000 multi-touch customer journeys</strong></div>
+          <div class="l-stat"><span>Bootstrap Resampling:</span> <strong>100 customer-level iterations (95% CI)</strong></div>
+        </div>
+        <p class="modal-desc">
+          This platform is grounded in real benchmark data released by Criteo AI Lab for incrementality modeling. All multi-touch journey transitions, attribution shares, removal effects, Shapley coalitions, bootstrap confidence intervals, and SHAP values are mathematically computed and validated.
+        </p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Asteroid Mission HUD Modal -->
+  <div class="cosmic-hud-modal hidden" id="asteroid-hud-modal">
+    <div class="hud-header">
+      <div class="hud-title">🪨 A/B Test Experiment Mission Control</div>
+      <button class="hud-close-btn">✕</button>
+    </div>
+    <div class="hud-body">
+      <div id="hud-ast-name" style="font-size: 1.1rem; font-weight: 700; color: #fbbf24; margin-bottom: 4px;"></div>
+      <div id="hud-ast-channel" style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 1rem;"></div>
+      <div class="hud-grid">
+        <div class="hud-card">
+          <div class="hud-label">Recommended Sample</div>
+          <div class="hud-val text-cyan" id="hud-ast-sample"></div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Estimated Cost</div>
+          <div class="hud-val text-rose" id="hud-ast-cost"></div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Expected Regret Reduction</div>
+          <div class="hud-val text-amber" id="hud-ast-regret"></div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Net Value of Information</div>
+          <div class="hud-val text-emerald" id="hud-ast-voi"></div>
+        </div>
+      </div>
+      <p style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 1rem;">
+        This randomized trial will resolve unobserved confounding bias for the target marketing channel, collapsing the uncertainty halo and securing the optimal budget allocation under worst-case minimax regret.
+      </p>
+      <button class="btn-banner-action hud-close-btn" style="width: 100%; justify-content: center; padding: 0.6rem;">Acknowledge & Close Mission</button>
+    </div>
+  </div>
+
+  <!-- Comet Journey Odyssey HUD Modal -->
+  <div class="cosmic-hud-modal hidden" id="comet-hud-modal">
+    <div class="hud-header">
+      <div class="hud-title">☄️ Customer Journey Odyssey</div>
+      <button class="hud-close-btn">✕</button>
+    </div>
+    <div class="hud-body">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+        <span id="hud-comet-id" style="font-size: 1.15rem; font-weight: 700; font-family: var(--font-mono); color: #38bdf8;"></span>
+        <span id="hud-comet-status" style="font-size: 0.85rem; font-weight: 700;"></span>
+      </div>
+      <div class="hud-label">Customer Journey Celestial Path:</div>
+      <div class="hud-path-box" id="hud-comet-path"></div>
+      <div class="hud-grid">
+        <div class="hud-card">
+          <div class="hud-label">Total Duration</div>
+          <div class="hud-val text-purple" id="hud-comet-duration"></div>
+        </div>
+        <div class="hud-card">
+          <div class="hud-label">Touchpoint Sequence</div>
+          <div class="hud-val text-amber" id="hud-comet-touches"></div>
+        </div>
+      </div>
+      <p style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 1rem;">
+        Individual customer journey streaking as a comet through the multi-channel constellation. Each color segment in the comet trail corresponds to the marketing touchpoints encountered prior to the final outcome.
+      </p>
+      <button class="btn-banner-action hud-close-btn" style="width: 100%; justify-content: center; padding: 0.6rem;">Close Comet Odyssey</button>
+    </div>
+  </div>
+
+  <!-- Application Entry Point -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+

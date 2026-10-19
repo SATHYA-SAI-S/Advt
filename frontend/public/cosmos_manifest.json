@@ -1,0 +1,25 @@
+{
+  "universes": [
+    {
+      "id": "criteo",
+      "name": "\ud83d\udef0\ufe0f Criteo RCT Universe",
+      "tag": "Randomized Ground Truth",
+      "badge": "RCT Verified",
+      "file": "/cosmos_criteo.json"
+    },
+    {
+      "id": "ga4",
+      "name": "\ud83e\ude90 GA4 Observational Universe",
+      "tag": "168k Visitor Cohort",
+      "badge": "Purely Observational",
+      "file": "/cosmos_ga4.json"
+    },
+    {
+      "id": "simulated",
+      "name": "\ud83c\udf0c Synthetic Confounding Universe",
+      "tag": "Hidden Confounder U",
+      "badge": "Ground Truth Calibrated",
+      "file": "/cosmos_simulated.json"
+    }
+  ]
+}

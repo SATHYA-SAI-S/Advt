@@ -1,0 +1,3100 @@
+{
+  "dataset_metadata": {
+    "source_file": "criteo-research-uplift-v2.1 (1).csv.gz",
+    "criteo_total_rows": 13979592,
+    "criteo_conversions": 40774,
+    "criteo_visits": 656929,
+    "criteo_exposures": 428212,
+    "criteo_treated_conversion_rate": 0.292,
+    "criteo_relative_uplift_pct": 84.1,
+    "cohort_journeys_count": 5000,
+    "cohort_conversions_count": 495,
+    "cohort_conversion_rate": 9.9,
+    "distinct_channels_count": 7,
+    "bootstrap_iterations": 100,
+    "confidence_level": 95
+  },
+  "channels": [
+    "Paid Search",
+    "Organic Search",
+    "Social Media",
+    "Email",
+    "Display Ads",
+    "Referral",
+    "Direct"
+  ],
+  "nodes": [
+    {
+      "id": "Paid Search",
+      "name": "Paid Search",
+      "category": "Performance Intent",
+      "color": "#38bdf8",
+      "role": "High-intent consideration and conversion closer",
+      "description": "Paid search ads targeting commercial queries with high conversion intent.",
+      "avg_cpc": 1.85,
+      "criteo_feature_anchor": "f9 & f4 (high query intent & recency)",
+      "total_touchpoints": 2363,
+      "involved_journeys": 2090,
+      "conversion_involvement_rate": 0.5717,
+      "assist_count": 141,
+      "closing_count": 142,
+      "assist_ratio": 0.99,
+      "models": {
+        "Last-Click": {
+          "credit": 142.0,
+          "credit_share": 0.2869,
+          "ci": {
+            "mean": 0.2884,
+            "std_error": 0.0184,
+            "ci_lower": 0.2518,
+            "ci_upper": 0.3193,
+            "ci_width": 0.0674
+          }
+        },
+        "Linear": {
+          "credit": 124.7,
+          "credit_share": 0.2519,
+          "ci": {
+            "mean": 0.2516,
+            "std_error": 0.0123,
+            "ci_lower": 0.2241,
+            "ci_upper": 0.2739,
+            "ci_width": 0.0498
+          }
+        },
+        "Markov": {
+          "credit": 115.49,
+          "credit_share": 0.2333,
+          "removal_effect": 0.5366,
+          "ci": {
+            "mean": 0.2337,
+            "std_error": 0.0063,
+            "ci_lower": 0.2202,
+            "ci_upper": 0.2444,
+            "ci_width": 0.0242
+          }
+        },
+        "Shapley": {
+          "credit": 124.35,
+          "credit_share": 0.2512,
+          "marginal_value": 124.35,
+          "ci": {
+            "mean": 0.2474,
+            "std_error": 0.0223,
+            "ci_lower": 0.2028,
+            "ci_upper": 0.2908,
+            "ci_width": 0.088
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.3883,
+        "assist_impact": 0.0872,
+        "closing_impact": 0.8648,
+        "mean_shap": 0.0222,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0536,
+        "std_dev": 0.0194,
+        "level": "Low",
+        "max_model": "Last-Click",
+        "min_model": "Markov",
+        "allocations": {
+          "Last-Click": 0.2869,
+          "Linear": 0.2519,
+          "Markov": 0.2333,
+          "Shapley": 0.2512
+        }
+      }
+    },
+    {
+      "id": "Organic Search",
+      "name": "Organic Search",
+      "category": "Organic Discovery",
+      "color": "#34d399",
+      "role": "Information gathering & high-volume consideration",
+      "description": "Non-paid search visits driven by SEO and content relevance.",
+      "avg_cpc": 0.0,
+      "criteo_feature_anchor": "f0 & f2 (baseline organic search propensity)",
+      "total_touchpoints": 1595,
+      "involved_journeys": 1445,
+      "conversion_involvement_rate": 0.2869,
+      "assist_count": 91,
+      "closing_count": 51,
+      "assist_ratio": 1.78,
+      "models": {
+        "Last-Click": {
+          "credit": 51.0,
+          "credit_share": 0.103,
+          "ci": {
+            "mean": 0.1032,
+            "std_error": 0.0118,
+            "ci_lower": 0.081,
+            "ci_upper": 0.125,
+            "ci_width": 0.044
+          }
+        },
+        "Linear": {
+          "credit": 60.63,
+          "credit_share": 0.1225,
+          "ci": {
+            "mean": 0.1236,
+            "std_error": 0.008,
+            "ci_lower": 0.106,
+            "ci_upper": 0.136,
+            "ci_width": 0.03
+          }
+        },
+        "Markov": {
+          "credit": 66.65,
+          "credit_share": 0.1346,
+          "removal_effect": 0.3097,
+          "ci": {
+            "mean": 0.1347,
+            "std_error": 0.0047,
+            "ci_lower": 0.1257,
+            "ci_upper": 0.1427,
+            "ci_width": 0.017
+          }
+        },
+        "Shapley": {
+          "credit": 60.27,
+          "credit_share": 0.1218,
+          "marginal_value": 60.27,
+          "ci": {
+            "mean": 0.1207,
+            "std_error": 0.0173,
+            "ci_lower": 0.0882,
+            "ci_upper": 0.1544,
+            "ci_width": 0.0662
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.8774,
+        "assist_impact": -0.7099,
+        "closing_impact": 0.4587,
+        "mean_shap": -0.0218,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.0316,
+        "std_dev": 0.0113,
+        "level": "Low",
+        "max_model": "Markov",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.103,
+          "Linear": 0.1225,
+          "Markov": 0.1346,
+          "Shapley": 0.1218
+        }
+      }
+    },
+    {
+      "id": "Social Media",
+      "name": "Social Media",
+      "category": "Awareness & Engagement",
+      "color": "#f472b6",
+      "role": "Upper-funnel discovery & engagement generator",
+      "description": "Paid and sponsored social impressions generating first brand awareness.",
+      "avg_cpc": 0.95,
+      "criteo_feature_anchor": "f1 & f5 (social audience engagement)",
+      "total_touchpoints": 1568,
+      "involved_journeys": 1480,
+      "conversion_involvement_rate": 0.2525,
+      "assist_count": 121,
+      "closing_count": 4,
+      "assist_ratio": 30.25,
+      "models": {
+        "Last-Click": {
+          "credit": 4.0,
+          "credit_share": 0.0081,
+          "ci": {
+            "mean": 0.0079,
+            "std_error": 0.004,
+            "ci_lower": 0.0019,
+            "ci_upper": 0.0151,
+            "ci_width": 0.0132
+          }
+        },
+        "Linear": {
+          "credit": 45.72,
+          "credit_share": 0.0924,
+          "ci": {
+            "mean": 0.0897,
+            "std_error": 0.0085,
+            "ci_lower": 0.0756,
+            "ci_upper": 0.1082,
+            "ci_width": 0.0326
+          }
+        },
+        "Markov": {
+          "credit": 49.82,
+          "credit_share": 0.1007,
+          "removal_effect": 0.2315,
+          "ci": {
+            "mean": 0.1006,
+            "std_error": 0.0031,
+            "ci_lower": 0.0946,
+            "ci_upper": 0.1054,
+            "ci_width": 0.0109
+          }
+        },
+        "Shapley": {
+          "credit": 48.23,
+          "credit_share": 0.0974,
+          "marginal_value": 48.23,
+          "ci": {
+            "mean": 0.0929,
+            "std_error": 0.0183,
+            "ci_lower": 0.0568,
+            "ci_upper": 0.1253,
+            "ci_width": 0.0685
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 1.0443,
+        "assist_impact": 0.5309,
+        "closing_impact": -1.796,
+        "mean_shap": 0.0175,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.0926,
+        "std_dev": 0.0385,
+        "level": "Medium",
+        "max_model": "Markov",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0081,
+          "Linear": 0.0924,
+          "Markov": 0.1007,
+          "Shapley": 0.0974
+        }
+      }
+    },
+    {
+      "id": "Email",
+      "name": "Email",
+      "category": "Retention & Lifecycle",
+      "color": "#fbbf24",
+      "role": "Mid-funnel re-engagement & cart abandonment recovery",
+      "description": "Targeted lifecycle marketing, abandoned-cart prompts, and newsletters.",
+      "avg_cpc": 0.15,
+      "criteo_feature_anchor": "f3 & f8 (loyalty and re-engagement index)",
+      "total_touchpoints": 1173,
+      "involved_journeys": 1075,
+      "conversion_involvement_rate": 0.3172,
+      "assist_count": 74,
+      "closing_count": 83,
+      "assist_ratio": 0.89,
+      "models": {
+        "Last-Click": {
+          "credit": 83.0,
+          "credit_share": 0.1677,
+          "ci": {
+            "mean": 0.1717,
+            "std_error": 0.0145,
+            "ci_lower": 0.1431,
+            "ci_upper": 0.1979,
+            "ci_width": 0.0548
+          }
+        },
+        "Linear": {
+          "credit": 58.3,
+          "credit_share": 0.1178,
+          "ci": {
+            "mean": 0.1201,
+            "std_error": 0.0086,
+            "ci_lower": 0.1061,
+            "ci_upper": 0.1384,
+            "ci_width": 0.0324
+          }
+        },
+        "Markov": {
+          "credit": 62.97,
+          "credit_share": 0.1272,
+          "removal_effect": 0.2926,
+          "ci": {
+            "mean": 0.1285,
+            "std_error": 0.0056,
+            "ci_lower": 0.1184,
+            "ci_upper": 0.1406,
+            "ci_width": 0.0222
+          }
+        },
+        "Shapley": {
+          "credit": 60.3,
+          "credit_share": 0.1218,
+          "marginal_value": 60.3,
+          "ci": {
+            "mean": 0.1266,
+            "std_error": 0.0196,
+            "ci_lower": 0.091,
+            "ci_upper": 0.1694,
+            "ci_width": 0.0785
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.2257,
+        "assist_impact": -0.0518,
+        "closing_impact": 0.8378,
+        "mean_shap": 0.0493,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0499,
+        "std_dev": 0.0199,
+        "level": "Low",
+        "max_model": "Last-Click",
+        "min_model": "Linear",
+        "allocations": {
+          "Last-Click": 0.1677,
+          "Linear": 0.1178,
+          "Markov": 0.1272,
+          "Shapley": 0.1218
+        }
+      }
+    },
+    {
+      "id": "Display Ads",
+      "name": "Display Ads",
+      "category": "Programmatic Retargeting",
+      "color": "#818cf8",
+      "role": "Early-funnel prospecting & programmatic retargeting",
+      "description": "Criteo algorithmic dynamic display banners and retargeting placements.",
+      "avg_cpc": 0.65,
+      "criteo_feature_anchor": "exposure==1 & treatment==1 (programmatic ad exposure)",
+      "total_touchpoints": 2430,
+      "involved_journeys": 2090,
+      "conversion_involvement_rate": 0.3798,
+      "assist_count": 175,
+      "closing_count": 13,
+      "assist_ratio": 13.46,
+      "models": {
+        "Last-Click": {
+          "credit": 13.0,
+          "credit_share": 0.0263,
+          "ci": {
+            "mean": 0.0256,
+            "std_error": 0.0081,
+            "ci_lower": 0.0125,
+            "ci_upper": 0.0401,
+            "ci_width": 0.0276
+          }
+        },
+        "Linear": {
+          "credit": 70.93,
+          "credit_share": 0.1433,
+          "ci": {
+            "mean": 0.1446,
+            "std_error": 0.0081,
+            "ci_lower": 0.1281,
+            "ci_upper": 0.1605,
+            "ci_width": 0.0324
+          }
+        },
+        "Markov": {
+          "credit": 68.36,
+          "credit_share": 0.1381,
+          "removal_effect": 0.3176,
+          "ci": {
+            "mean": 0.1379,
+            "std_error": 0.0036,
+            "ci_lower": 0.1306,
+            "ci_upper": 0.1454,
+            "ci_width": 0.0148
+          }
+        },
+        "Shapley": {
+          "credit": 71.85,
+          "credit_share": 0.1452,
+          "marginal_value": 71.85,
+          "ci": {
+            "mean": 0.1501,
+            "std_error": 0.0178,
+            "ci_lower": 0.1198,
+            "ci_upper": 0.1863,
+            "ci_width": 0.0665
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.8508,
+        "assist_impact": 0.1585,
+        "closing_impact": -1.6032,
+        "mean_shap": -0.0285,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.1189,
+        "std_dev": 0.0503,
+        "level": "Medium",
+        "max_model": "Shapley",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0263,
+          "Linear": 0.1433,
+          "Markov": 0.1381,
+          "Shapley": 0.1452
+        }
+      }
+    },
+    {
+      "id": "Referral",
+      "name": "Referral",
+      "category": "Partnership & Affiliates",
+      "color": "#2dd4bf",
+      "role": "Third-party validation & affiliate discovery",
+      "description": "Affiliate networks, review aggregators, and partner links.",
+      "avg_cpc": 0.5,
+      "criteo_feature_anchor": "f6, f7 & f11 (third-party domain referrals)",
+      "total_touchpoints": 774,
+      "involved_journeys": 746,
+      "conversion_involvement_rate": 0.1475,
+      "assist_count": 59,
+      "closing_count": 14,
+      "assist_ratio": 4.21,
+      "models": {
+        "Last-Click": {
+          "credit": 14.0,
+          "credit_share": 0.0283,
+          "ci": {
+            "mean": 0.0283,
+            "std_error": 0.0083,
+            "ci_lower": 0.0131,
+            "ci_upper": 0.0465,
+            "ci_width": 0.0334
+          }
+        },
+        "Linear": {
+          "credit": 29.55,
+          "credit_share": 0.0597,
+          "ci": {
+            "mean": 0.0601,
+            "std_error": 0.006,
+            "ci_lower": 0.0495,
+            "ci_upper": 0.0724,
+            "ci_width": 0.0229
+          }
+        },
+        "Markov": {
+          "credit": 31.06,
+          "credit_share": 0.0627,
+          "removal_effect": 0.1443,
+          "ci": {
+            "mean": 0.0628,
+            "std_error": 0.004,
+            "ci_lower": 0.055,
+            "ci_upper": 0.0709,
+            "ci_width": 0.0159
+          }
+        },
+        "Shapley": {
+          "credit": 31.2,
+          "credit_share": 0.063,
+          "marginal_value": 31.2,
+          "ci": {
+            "mean": 0.0619,
+            "std_error": 0.0149,
+            "ci_lower": 0.0281,
+            "ci_upper": 0.0841,
+            "ci_width": 0.056
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.2739,
+        "assist_impact": 0.5483,
+        "closing_impact": -0.1076,
+        "mean_shap": 0.0067,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0347,
+        "std_dev": 0.0146,
+        "level": "Low",
+        "max_model": "Shapley",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0283,
+          "Linear": 0.0597,
+          "Markov": 0.0627,
+          "Shapley": 0.063
+        }
+      }
+    },
+    {
+      "id": "Direct",
+      "name": "Direct",
+      "category": "Direct Navigation",
+      "color": "#a78bfa",
+      "role": "Bottom-funnel brand recall & direct navigation",
+      "description": "Direct URL entry, bookmarks, and brand return visits to checkout.",
+      "avg_cpc": 0.0,
+      "criteo_feature_anchor": "visit==1 & exposure==0 (direct navigation visit)",
+      "total_touchpoints": 2094,
+      "involved_journeys": 1656,
+      "conversion_involvement_rate": 0.4949,
+      "assist_count": 57,
+      "closing_count": 188,
+      "assist_ratio": 0.3,
+      "models": {
+        "Last-Click": {
+          "credit": 188.0,
+          "credit_share": 0.3798,
+          "ci": {
+            "mean": 0.3749,
+            "std_error": 0.0232,
+            "ci_lower": 0.3262,
+            "ci_upper": 0.4176,
+            "ci_width": 0.0914
+          }
+        },
+        "Linear": {
+          "credit": 105.17,
+          "credit_share": 0.2125,
+          "ci": {
+            "mean": 0.2104,
+            "std_error": 0.0114,
+            "ci_lower": 0.1866,
+            "ci_upper": 0.227,
+            "ci_width": 0.0405
+          }
+        },
+        "Markov": {
+          "credit": 100.65,
+          "credit_share": 0.2033,
+          "removal_effect": 0.4676,
+          "ci": {
+            "mean": 0.2018,
+            "std_error": 0.0076,
+            "ci_lower": 0.1856,
+            "ci_upper": 0.2146,
+            "ci_width": 0.029
+          }
+        },
+        "Shapley": {
+          "credit": 98.8,
+          "credit_share": 0.1996,
+          "marginal_value": 98.8,
+          "ci": {
+            "mean": 0.2006,
+            "std_error": 0.0222,
+            "ci_lower": 0.1648,
+            "ci_upper": 0.2394,
+            "ci_width": 0.0746
+          }
+        }
+      },
+      "shap": {
+        "global_importance": 0.4531,
+        "assist_impact": 0.3481,
+        "closing_impact": 1.1099,
+        "mean_shap": 0.0089,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.1802,
+        "std_dev": 0.0758,
+        "level": "High",
+        "max_model": "Last-Click",
+        "min_model": "Shapley",
+        "allocations": {
+          "Last-Click": 0.3798,
+          "Linear": 0.2125,
+          "Markov": 0.2033,
+          "Shapley": 0.1996
+        }
+      }
+    },
+    {
+      "id": "Conversion",
+      "name": "Conversion Endpoint",
+      "category": "Endpoint",
+      "color": "#10b981",
+      "role": "Successful customer journey conversion",
+      "is_endpoint": true,
+      "total_conversions": 495,
+      "conversion_rate": 0.099
+    },
+    {
+      "id": "Drop-off",
+      "name": "Drop-off / Exit",
+      "category": "Endpoint",
+      "color": "#64748b",
+      "role": "Customer churned or abandoned before purchase",
+      "is_endpoint": true,
+      "total_dropoffs": 4505,
+      "dropoff_rate": 0.901
+    }
+  ],
+  "arcs": [
+    {
+      "source": "Email",
+      "target": "Direct",
+      "volume": 276,
+      "relative_weight": 0.289,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Drop-off",
+      "volume": 955,
+      "relative_weight": 1.0,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Drop-off",
+      "volume": 519,
+      "relative_weight": 0.5435,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Direct",
+      "volume": 188,
+      "relative_weight": 0.1969,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Direct",
+      "volume": 344,
+      "relative_weight": 0.3602,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Referral",
+      "volume": 73,
+      "relative_weight": 0.0764,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Drop-off",
+      "volume": 271,
+      "relative_weight": 0.2838,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Paid Search",
+      "volume": 499,
+      "relative_weight": 0.5225,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Email",
+      "volume": 273,
+      "relative_weight": 0.2859,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Conversion",
+      "volume": 83,
+      "relative_weight": 0.0869,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Drop-off",
+      "volume": 585,
+      "relative_weight": 0.6126,
+      "is_endpoint": true
+    },
+    {
+      "source": "Referral",
+      "target": "Paid Search",
+      "volume": 119,
+      "relative_weight": 0.1246,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Conversion",
+      "volume": 142,
+      "relative_weight": 0.1487,
+      "is_endpoint": true
+    },
+    {
+      "source": "Direct",
+      "target": "Email",
+      "volume": 162,
+      "relative_weight": 0.1696,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Drop-off",
+      "volume": 457,
+      "relative_weight": 0.4785,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Organic Search",
+      "volume": 200,
+      "relative_weight": 0.2094,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Social Media",
+      "volume": 273,
+      "relative_weight": 0.2859,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Drop-off",
+      "volume": 825,
+      "relative_weight": 0.8639,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Paid Search",
+      "volume": 228,
+      "relative_weight": 0.2387,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Paid Search",
+      "volume": 100,
+      "relative_weight": 0.1047,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Display Ads",
+      "volume": 231,
+      "relative_weight": 0.2419,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Drop-off",
+      "volume": 893,
+      "relative_weight": 0.9351,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Paid Search",
+      "volume": 248,
+      "relative_weight": 0.2597,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Direct",
+      "volume": 530,
+      "relative_weight": 0.555,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Organic Search",
+      "volume": 152,
+      "relative_weight": 0.1592,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Display Ads",
+      "volume": 116,
+      "relative_weight": 0.1215,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Email",
+      "volume": 97,
+      "relative_weight": 0.1016,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Direct",
+      "volume": 298,
+      "relative_weight": 0.312,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Direct",
+      "volume": 163,
+      "relative_weight": 0.1707,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Display Ads",
+      "volume": 92,
+      "relative_weight": 0.0963,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Direct",
+      "volume": 148,
+      "relative_weight": 0.155,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Paid Search",
+      "volume": 191,
+      "relative_weight": 0.2,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Display Ads",
+      "volume": 74,
+      "relative_weight": 0.0775,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Social Media",
+      "volume": 39,
+      "relative_weight": 0.0408,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Email",
+      "volume": 180,
+      "relative_weight": 0.1885,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Display Ads",
+      "volume": 248,
+      "relative_weight": 0.2597,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Referral",
+      "volume": 28,
+      "relative_weight": 0.0293,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Organic Search",
+      "volume": 108,
+      "relative_weight": 0.1131,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Social Media",
+      "volume": 37,
+      "relative_weight": 0.0387,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Organic Search",
+      "volume": 189,
+      "relative_weight": 0.1979,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Conversion",
+      "volume": 51,
+      "relative_weight": 0.0534,
+      "is_endpoint": true
+    },
+    {
+      "source": "Direct",
+      "target": "Conversion",
+      "volume": 188,
+      "relative_weight": 0.1969,
+      "is_endpoint": true
+    },
+    {
+      "source": "Email",
+      "target": "Organic Search",
+      "volume": 70,
+      "relative_weight": 0.0733,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Organic Search",
+      "volume": 68,
+      "relative_weight": 0.0712,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Email",
+      "volume": 44,
+      "relative_weight": 0.0461,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Display Ads",
+      "volume": 162,
+      "relative_weight": 0.1696,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Conversion",
+      "volume": 4,
+      "relative_weight": 0.0042,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Referral",
+      "volume": 116,
+      "relative_weight": 0.1215,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Paid Search",
+      "volume": 122,
+      "relative_weight": 0.1277,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Referral",
+      "volume": 58,
+      "relative_weight": 0.0607,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Display Ads",
+      "volume": 104,
+      "relative_weight": 0.1089,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Social Media",
+      "volume": 47,
+      "relative_weight": 0.0492,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Email",
+      "volume": 104,
+      "relative_weight": 0.1089,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Referral",
+      "volume": 15,
+      "relative_weight": 0.0157,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Conversion",
+      "volume": 13,
+      "relative_weight": 0.0136,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Organic Search",
+      "volume": 71,
+      "relative_weight": 0.0743,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Conversion",
+      "volume": 14,
+      "relative_weight": 0.0147,
+      "is_endpoint": true
+    },
+    {
+      "source": "Referral",
+      "target": "Email",
+      "volume": 44,
+      "relative_weight": 0.0461,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Referral",
+      "volume": 17,
+      "relative_weight": 0.0178,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Referral",
+      "volume": 19,
+      "relative_weight": 0.0199,
+      "is_endpoint": false
+    }
+  ],
+  "journeys": [
+    {
+      "id": "CJ-1000",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 20,
+      "timestamps": [
+        "+0h",
+        "+20h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1001",
+      "touchpoints": [
+        "Social Media"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1002",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Direct"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 56,
+      "timestamps": [
+        "+0h",
+        "+22h",
+        "+34h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1003",
+      "touchpoints": [
+        "Paid Search",
+        "Referral"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 43,
+      "timestamps": [
+        "+0h",
+        "+43h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1004",
+      "touchpoints": [
+        "Direct"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1005",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Email"
+      ],
+      "length": 3,
+      "converted": 1,
+      "duration_hours": 30,
+      "timestamps": [
+        "+0h",
+        "+8h",
+        "+22h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "Linear": [
+          0.333,
+          0.333,
+          0.333
+        ],
+        "Markov": [
+          0.138,
+          0.233,
+          0.127
+        ],
+        "Shapley": [
+          0.145,
+          0.251,
+          0.122
+        ]
+      }
+    },
+    {
+      "id": "CJ-1006",
+      "touchpoints": [
+        "Display Ads",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 27,
+      "timestamps": [
+        "+0h",
+        "+27h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1007",
+      "touchpoints": [
+        "Organic Search"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1008",
+      "touchpoints": [
+        "Referral",
+        "Paid Search",
+        "Referral"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 10,
+      "timestamps": [
+        "+0h",
+        "+3h",
+        "+7h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1009",
+      "touchpoints": [
+        "Paid Search"
+      ],
+      "length": 1,
+      "converted": 1,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          1.0
+        ],
+        "Linear": [
+          1.0
+        ],
+        "Markov": [
+          0.233
+        ],
+        "Shapley": [
+          0.251
+        ]
+      }
+    },
+    {
+      "id": "CJ-1010",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Email"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 39,
+      "timestamps": [
+        "+0h",
+        "+15h",
+        "+24h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1011",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 25,
+      "timestamps": [
+        "+0h",
+        "+25h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1012",
+      "touchpoints": [
+        "Social Media",
+        "Organic Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 46,
+      "timestamps": [
+        "+0h",
+        "+46h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1013",
+      "touchpoints": [
+        "Direct"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1014",
+      "touchpoints": [
+        "Display Ads",
+        "Social Media"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 34,
+      "timestamps": [
+        "+0h",
+        "+34h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1015",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Direct"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 69,
+      "timestamps": [
+        "+0h",
+        "+35h",
+        "+34h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1016",
+      "touchpoints": [
+        "Social Media"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1017",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 15,
+      "timestamps": [
+        "+0h",
+        "+15h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1018",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search",
+        "Paid Search",
+        "Display Ads"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 90,
+      "timestamps": [
+        "+0h",
+        "+43h",
+        "+14h",
+        "+33h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1019",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search",
+        "Direct"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 60,
+      "timestamps": [
+        "+0h",
+        "+16h",
+        "+44h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1020",
+      "touchpoints": [
+        "Email"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1021",
+      "touchpoints": [
+        "Paid Search",
+        "Organic Search",
+        "Display Ads",
+        "Paid Search"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 72,
+      "timestamps": [
+        "+0h",
+        "+31h",
+        "+12h",
+        "+29h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1022",
+      "touchpoints": [
+        "Referral",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 14,
+      "timestamps": [
+        "+0h",
+        "+14h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1023",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Referral",
+        "Paid Search"
+      ],
+      "length": 4,
+      "converted": 1,
+      "duration_hours": 74,
+      "timestamps": [
+        "+0h",
+        "+25h",
+        "+16h",
+        "+33h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "Linear": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "Markov": [
+          0.138,
+          0.233,
+          0.063,
+          0.233
+        ],
+        "Shapley": [
+          0.145,
+          0.251,
+          0.063,
+          0.251
+        ]
+      }
+    },
+    {
+      "id": "CJ-1024",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 13,
+      "timestamps": [
+        "+0h",
+        "+13h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1025",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 3,
+      "timestamps": [
+        "+0h",
+        "+3h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1026",
+      "touchpoints": [
+        "Display Ads",
+        "Social Media"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 3,
+      "timestamps": [
+        "+0h",
+        "+3h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1027",
+      "touchpoints": [
+        "Social Media",
+        "Organic Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 12,
+      "timestamps": [
+        "+0h",
+        "+12h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1028",
+      "touchpoints": [
+        "Display Ads",
+        "Email"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 7,
+      "timestamps": [
+        "+0h",
+        "+7h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1029",
+      "touchpoints": [
+        "Organic Search",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 7,
+      "timestamps": [
+        "+0h",
+        "+7h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1030",
+      "touchpoints": [
+        "Referral",
+        "Paid Search",
+        "Paid Search"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 54,
+      "timestamps": [
+        "+0h",
+        "+21h",
+        "+33h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1031",
+      "touchpoints": [
+        "Email"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1032",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Display Ads",
+        "Direct"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 52,
+      "timestamps": [
+        "+0h",
+        "+8h",
+        "+17h",
+        "+27h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1033",
+      "touchpoints": [
+        "Paid Search",
+        "Paid Search",
+        "Direct",
+        "Direct",
+        "Email"
+      ],
+      "length": 5,
+      "converted": 0,
+      "duration_hours": 115,
+      "timestamps": [
+        "+0h",
+        "+42h",
+        "+36h",
+        "+20h",
+        "+17h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1034",
+      "touchpoints": [
+        "Referral",
+        "Direct",
+        "Email",
+        "Display Ads"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 98,
+      "timestamps": [
+        "+0h",
+        "+41h",
+        "+21h",
+        "+36h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1035",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 19,
+      "timestamps": [
+        "+0h",
+        "+19h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1036",
+      "touchpoints": [
+        "Social Media",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 34,
+      "timestamps": [
+        "+0h",
+        "+34h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1037",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 18,
+      "timestamps": [
+        "+0h",
+        "+18h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1038",
+      "touchpoints": [
+        "Paid Search",
+        "Email"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 47,
+      "timestamps": [
+        "+0h",
+        "+47h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1039",
+      "touchpoints": [
+        "Direct",
+        "Email"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 35,
+      "timestamps": [
+        "+0h",
+        "+35h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1040",
+      "touchpoints": [
+        "Paid Search",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 20,
+      "timestamps": [
+        "+0h",
+        "+20h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1041",
+      "touchpoints": [
+        "Organic Search",
+        "Display Ads"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 30,
+      "timestamps": [
+        "+0h",
+        "+30h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1042",
+      "touchpoints": [
+        "Referral",
+        "Direct"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 47,
+      "timestamps": [
+        "+0h",
+        "+47h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1043",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Paid Search",
+        "Organic Search",
+        "Direct"
+      ],
+      "length": 5,
+      "converted": 0,
+      "duration_hours": 120,
+      "timestamps": [
+        "+0h",
+        "+19h",
+        "+26h",
+        "+43h",
+        "+32h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1044",
+      "touchpoints": [
+        "Email",
+        "Display Ads",
+        "Social Media",
+        "Organic Search"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 74,
+      "timestamps": [
+        "+0h",
+        "+28h",
+        "+43h",
+        "+3h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1045",
+      "touchpoints": [
+        "Referral",
+        "Display Ads"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 30,
+      "timestamps": [
+        "+0h",
+        "+30h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1046",
+      "touchpoints": [
+        "Social Media",
+        "Social Media"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 8,
+      "timestamps": [
+        "+0h",
+        "+8h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1047",
+      "touchpoints": [
+        "Organic Search",
+        "Email"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 15,
+      "timestamps": [
+        "+0h",
+        "+15h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1048",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search",
+        "Display Ads",
+        "Paid Search"
+      ],
+      "length": 4,
+      "converted": 1,
+      "duration_hours": 89,
+      "timestamps": [
+        "+0h",
+        "+23h",
+        "+23h",
+        "+43h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "Linear": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "Markov": [
+          0.101,
+          0.233,
+          0.138,
+          0.233
+        ],
+        "Shapley": [
+          0.097,
+          0.251,
+          0.145,
+          0.251
+        ]
+      }
+    },
+    {
+      "id": "CJ-1049",
+      "touchpoints": [
+        "Social Media",
+        "Display Ads",
+        "Paid Search",
+        "Direct"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 52,
+      "timestamps": [
+        "+0h",
+        "+40h",
+        "+5h",
+        "+7h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1050",
+      "touchpoints": [
+        "Paid Search"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1051",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1052",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 27,
+      "timestamps": [
+        "+0h",
+        "+27h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1053",
+      "touchpoints": [
+        "Email"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1054",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Referral"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 67,
+      "timestamps": [
+        "+0h",
+        "+26h",
+        "+41h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1055",
+      "touchpoints": [
+        "Paid Search",
+        "Email",
+        "Direct",
+        "Organic Search"
+      ],
+      "length": 4,
+      "converted": 0,
+      "duration_hours": 57,
+      "timestamps": [
+        "+0h",
+        "+13h",
+        "+27h",
+        "+17h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1056",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1057",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "length": 1,
+      "converted": 0,
+      "duration_hours": 0,
+      "timestamps": [
+        "+0h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0
+        ],
+        "Linear": [
+          0.0
+        ],
+        "Markov": [
+          0.0
+        ],
+        "Shapley": [
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1058",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "length": 2,
+      "converted": 0,
+      "duration_hours": 31,
+      "timestamps": [
+        "+0h",
+        "+31h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "CJ-1059",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Direct"
+      ],
+      "length": 3,
+      "converted": 0,
+      "duration_hours": 53,
+      "timestamps": [
+        "+0h",
+        "+20h",
+        "+33h"
+      ],
+      "models": {
+        "Last-Click": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Markov": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Shapley": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

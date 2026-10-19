@@ -1,0 +1,2757 @@
+{
+  "universe_id": "criteo",
+  "universe_title": "Criteo RCT Uplift Benchmark Universe",
+  "subtitle": "13.98M Impression Randomized Controlled Trial with Empirical Ground Truth",
+  "narrative": "A clean, empirically verified universe based on Criteo's 13.98M ad impressions and randomized holdouts. Randomization eliminates unobserved confounding for Display Ads, confirming a +84.1% relative uplift and turning it into a brilliant, stable pulsar.",
+  "observational_status": "randomized_rct",
+  "channels": [
+    "Paid Search",
+    "Organic Search",
+    "Social Media",
+    "Email",
+    "Display Ads",
+    "Referral",
+    "Direct"
+  ],
+  "nodes": [
+    {
+      "id": "Paid Search",
+      "name": "Paid Search",
+      "category": "Performance Intent",
+      "color": "#38bdf8",
+      "role": "High-intent consideration and conversion closer",
+      "description": "Paid search ads targeting commercial queries with high conversion intent.",
+      "avg_cpc": 1.85,
+      "criteo_feature_anchor": "f9 & f4 (high query intent & recency)",
+      "total_touchpoints": 2363,
+      "involved_journeys": 2090,
+      "conversion_involvement_rate": 0.5717,
+      "assist_count": 141,
+      "closing_count": 142,
+      "assist_ratio": 0.99,
+      "models": {
+        "Last-Click": {
+          "credit": 142.0,
+          "credit_share": 0.2869,
+          "ci": {
+            "mean": 0.2884,
+            "std_error": 0.0184,
+            "ci_lower": 0.2518,
+            "ci_upper": 0.3193,
+            "ci_width": 0.0674
+          }
+        },
+        "Linear": {
+          "credit": 124.7,
+          "credit_share": 0.2519,
+          "ci": {
+            "mean": 0.2516,
+            "std_error": 0.0123,
+            "ci_lower": 0.2241,
+            "ci_upper": 0.2739,
+            "ci_width": 0.0498
+          }
+        },
+        "Markov": {
+          "credit": 115.49,
+          "credit_share": 0.2333,
+          "removal_effect": 0.5366,
+          "ci": {
+            "mean": 0.2337,
+            "std_error": 0.0063,
+            "ci_lower": 0.2202,
+            "ci_upper": 0.2444,
+            "ci_width": 0.0242
+          }
+        },
+        "Shapley": {
+          "credit": 124.35,
+          "credit_share": 0.2512,
+          "marginal_value": 124.35,
+          "ci": {
+            "mean": 0.2474,
+            "std_error": 0.0223,
+            "ci_lower": 0.2028,
+            "ci_upper": 0.2908,
+            "ci_width": 0.088
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.28,
+          "ate": 0.042
+        }
+      },
+      "shap": {
+        "global_importance": 0.3883,
+        "assist_impact": 0.0872,
+        "closing_impact": 0.8648,
+        "mean_shap": 0.0222,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0536,
+        "std_dev": 0.0194,
+        "level": "Low",
+        "max_model": "Last-Click",
+        "min_model": "Markov",
+        "allocations": {
+          "Last-Click": 0.2869,
+          "Linear": 0.2519,
+          "Markov": 0.2333,
+          "Shapley": 0.2512
+        }
+      },
+      "causal_ate": 0.042,
+      "standard_error": 0.008,
+      "ci": [
+        0.027,
+        0.057
+      ],
+      "breakdown_gamma": 2.2,
+      "stability_label": "stable",
+      "phenomenon_type": "pulsar",
+      "gravity_well": {
+        "base_radius": 21.0,
+        "intensity": 0.51,
+        "is_negative": false,
+        "breakdown_gamma": 2.2,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.042,
+          "upper": 0.042,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.039,
+          "upper": 0.046,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.036,
+          "upper": 0.05,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": 0.033,
+          "upper": 0.054,
+          "null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower": 0.03,
+          "upper": 0.058,
+          "null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower": 0.027,
+          "upper": 0.062,
+          "null": false
+        },
+        {
+          "gamma": 2.5,
+          "lower": 0.0195,
+          "upper": 0.072,
+          "null": false
+        },
+        {
+          "gamma": 3.0,
+          "lower": 0.012,
+          "upper": 0.082,
+          "null": false
+        }
+      ],
+      "budget": {
+        "naive": 2869.0,
+        "robust": 2800.0,
+        "delta": -69.0
+      },
+      "asteroids": []
+    },
+    {
+      "id": "Organic Search",
+      "name": "Organic Search",
+      "category": "Organic Discovery",
+      "color": "#34d399",
+      "role": "Information gathering & high-volume consideration",
+      "description": "Non-paid search visits driven by SEO and content relevance.",
+      "avg_cpc": 0.0,
+      "criteo_feature_anchor": "f0 & f2 (baseline organic search propensity)",
+      "total_touchpoints": 1595,
+      "involved_journeys": 1445,
+      "conversion_involvement_rate": 0.2869,
+      "assist_count": 91,
+      "closing_count": 51,
+      "assist_ratio": 1.78,
+      "models": {
+        "Last-Click": {
+          "credit": 51.0,
+          "credit_share": 0.103,
+          "ci": {
+            "mean": 0.1032,
+            "std_error": 0.0118,
+            "ci_lower": 0.081,
+            "ci_upper": 0.125,
+            "ci_width": 0.044
+          }
+        },
+        "Linear": {
+          "credit": 60.63,
+          "credit_share": 0.1225,
+          "ci": {
+            "mean": 0.1236,
+            "std_error": 0.008,
+            "ci_lower": 0.106,
+            "ci_upper": 0.136,
+            "ci_width": 0.03
+          }
+        },
+        "Markov": {
+          "credit": 66.65,
+          "credit_share": 0.1346,
+          "removal_effect": 0.3097,
+          "ci": {
+            "mean": 0.1347,
+            "std_error": 0.0047,
+            "ci_lower": 0.1257,
+            "ci_upper": 0.1427,
+            "ci_width": 0.017
+          }
+        },
+        "Shapley": {
+          "credit": 60.27,
+          "credit_share": 0.1218,
+          "marginal_value": 60.27,
+          "ci": {
+            "mean": 0.1207,
+            "std_error": 0.0173,
+            "ci_lower": 0.0882,
+            "ci_upper": 0.1544,
+            "ci_width": 0.0662
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.12,
+          "ate": 0.018
+        }
+      },
+      "shap": {
+        "global_importance": 0.8774,
+        "assist_impact": -0.7099,
+        "closing_impact": 0.4587,
+        "mean_shap": -0.0218,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.0316,
+        "std_dev": 0.0113,
+        "level": "Low",
+        "max_model": "Markov",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.103,
+          "Linear": 0.1225,
+          "Markov": 0.1346,
+          "Shapley": 0.1218
+        }
+      },
+      "causal_ate": 0.018,
+      "standard_error": 0.008,
+      "ci": [
+        0.003,
+        0.033
+      ],
+      "breakdown_gamma": 2.2,
+      "stability_label": "stable",
+      "phenomenon_type": "pulsar",
+      "gravity_well": {
+        "base_radius": 22.4,
+        "intensity": 0.53,
+        "is_negative": false,
+        "breakdown_gamma": 2.2,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.018,
+          "upper": 0.018,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.015,
+          "upper": 0.022,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.012,
+          "upper": 0.026,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": 0.009,
+          "upper": 0.03,
+          "null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower": 0.006,
+          "upper": 0.034,
+          "null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower": 0.003,
+          "upper": 0.038,
+          "null": false
+        },
+        {
+          "gamma": 2.5,
+          "lower": -0.0045,
+          "upper": 0.048,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.012,
+          "upper": 0.058,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 1030.0,
+        "robust": 1200.0,
+        "delta": 170.0
+      },
+      "asteroids": []
+    },
+    {
+      "id": "Social Media",
+      "name": "Social Media",
+      "category": "Awareness & Engagement",
+      "color": "#f472b6",
+      "role": "Upper-funnel discovery & engagement generator",
+      "description": "Paid and sponsored social impressions generating first brand awareness.",
+      "avg_cpc": 0.95,
+      "criteo_feature_anchor": "f1 & f5 (social audience engagement)",
+      "total_touchpoints": 1568,
+      "involved_journeys": 1480,
+      "conversion_involvement_rate": 0.2525,
+      "assist_count": 121,
+      "closing_count": 4,
+      "assist_ratio": 30.25,
+      "models": {
+        "Last-Click": {
+          "credit": 4.0,
+          "credit_share": 0.0081,
+          "ci": {
+            "mean": 0.0079,
+            "std_error": 0.004,
+            "ci_lower": 0.0019,
+            "ci_upper": 0.0151,
+            "ci_width": 0.0132
+          }
+        },
+        "Linear": {
+          "credit": 45.72,
+          "credit_share": 0.0924,
+          "ci": {
+            "mean": 0.0897,
+            "std_error": 0.0085,
+            "ci_lower": 0.0756,
+            "ci_upper": 0.1082,
+            "ci_width": 0.0326
+          }
+        },
+        "Markov": {
+          "credit": 49.82,
+          "credit_share": 0.1007,
+          "removal_effect": 0.2315,
+          "ci": {
+            "mean": 0.1006,
+            "std_error": 0.0031,
+            "ci_lower": 0.0946,
+            "ci_upper": 0.1054,
+            "ci_width": 0.0109
+          }
+        },
+        "Shapley": {
+          "credit": 48.23,
+          "credit_share": 0.0974,
+          "marginal_value": 48.23,
+          "ci": {
+            "mean": 0.0929,
+            "std_error": 0.0183,
+            "ci_lower": 0.0568,
+            "ci_upper": 0.1253,
+            "ci_width": 0.0685
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.12,
+          "ate": 0.015
+        }
+      },
+      "shap": {
+        "global_importance": 1.0443,
+        "assist_impact": 0.5309,
+        "closing_impact": -1.796,
+        "mean_shap": 0.0175,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.0926,
+        "std_dev": 0.0385,
+        "level": "Medium",
+        "max_model": "Markov",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0081,
+          "Linear": 0.0924,
+          "Markov": 0.1007,
+          "Shapley": 0.0974
+        }
+      },
+      "causal_ate": 0.015,
+      "standard_error": 0.012,
+      "ci": [
+        -0.005,
+        0.035
+      ],
+      "breakdown_gamma": 1.6,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "gravity_well": {
+        "base_radius": 35.7,
+        "intensity": 0.7,
+        "is_negative": false,
+        "breakdown_gamma": 1.6,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.015,
+          "upper": 0.015,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.012,
+          "upper": 0.019,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.009,
+          "upper": 0.023,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": 0.006,
+          "upper": 0.027,
+          "null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower": 0.003,
+          "upper": 0.031,
+          "null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower": 0.0,
+          "upper": 0.035,
+          "null": true
+        },
+        {
+          "gamma": 2.5,
+          "lower": -0.0075,
+          "upper": 0.045,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.015,
+          "upper": 0.055,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 81.0,
+        "robust": 1200.0,
+        "delta": 1119.0
+      },
+      "asteroids": [
+        {
+          "id": "EXP-CRITEO-SOCIAL-MEDIA",
+          "name": "RCT Uplift Test Social Media",
+          "sample_size": 25000,
+          "cost": 1500.0,
+          "regret_reduction": 45.0,
+          "voi": 38.5,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.03,
+          "size": 6,
+          "color": "#f43f5e"
+        }
+      ]
+    },
+    {
+      "id": "Email",
+      "name": "Email",
+      "category": "Retention & Lifecycle",
+      "color": "#fbbf24",
+      "role": "Mid-funnel re-engagement & cart abandonment recovery",
+      "description": "Targeted lifecycle marketing, abandoned-cart prompts, and newsletters.",
+      "avg_cpc": 0.15,
+      "criteo_feature_anchor": "f3 & f8 (loyalty and re-engagement index)",
+      "total_touchpoints": 1173,
+      "involved_journeys": 1075,
+      "conversion_involvement_rate": 0.3172,
+      "assist_count": 74,
+      "closing_count": 83,
+      "assist_ratio": 0.89,
+      "models": {
+        "Last-Click": {
+          "credit": 83.0,
+          "credit_share": 0.1677,
+          "ci": {
+            "mean": 0.1717,
+            "std_error": 0.0145,
+            "ci_lower": 0.1431,
+            "ci_upper": 0.1979,
+            "ci_width": 0.0548
+          }
+        },
+        "Linear": {
+          "credit": 58.3,
+          "credit_share": 0.1178,
+          "ci": {
+            "mean": 0.1201,
+            "std_error": 0.0086,
+            "ci_lower": 0.1061,
+            "ci_upper": 0.1384,
+            "ci_width": 0.0324
+          }
+        },
+        "Markov": {
+          "credit": 62.97,
+          "credit_share": 0.1272,
+          "removal_effect": 0.2926,
+          "ci": {
+            "mean": 0.1285,
+            "std_error": 0.0056,
+            "ci_lower": 0.1184,
+            "ci_upper": 0.1406,
+            "ci_width": 0.0222
+          }
+        },
+        "Shapley": {
+          "credit": 60.3,
+          "credit_share": 0.1218,
+          "marginal_value": 60.3,
+          "ci": {
+            "mean": 0.1266,
+            "std_error": 0.0196,
+            "ci_lower": 0.091,
+            "ci_upper": 0.1694,
+            "ci_width": 0.0785
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.12,
+          "ate": 0.015
+        }
+      },
+      "shap": {
+        "global_importance": 0.2257,
+        "assist_impact": -0.0518,
+        "closing_impact": 0.8378,
+        "mean_shap": 0.0493,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0499,
+        "std_dev": 0.0199,
+        "level": "Low",
+        "max_model": "Last-Click",
+        "min_model": "Linear",
+        "allocations": {
+          "Last-Click": 0.1677,
+          "Linear": 0.1178,
+          "Markov": 0.1272,
+          "Shapley": 0.1218
+        }
+      },
+      "causal_ate": 0.015,
+      "standard_error": 0.012,
+      "ci": [
+        -0.005,
+        0.035
+      ],
+      "breakdown_gamma": 1.6,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "gravity_well": {
+        "base_radius": 26.7,
+        "intensity": 0.59,
+        "is_negative": false,
+        "breakdown_gamma": 1.6,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.015,
+          "upper": 0.015,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.012,
+          "upper": 0.019,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.009,
+          "upper": 0.023,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": 0.006,
+          "upper": 0.027,
+          "null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower": 0.003,
+          "upper": 0.031,
+          "null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower": 0.0,
+          "upper": 0.035,
+          "null": true
+        },
+        {
+          "gamma": 2.5,
+          "lower": -0.0075,
+          "upper": 0.045,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.015,
+          "upper": 0.055,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 1677.0,
+        "robust": 1200.0,
+        "delta": -477.0
+      },
+      "asteroids": [
+        {
+          "id": "EXP-CRITEO-EMAIL",
+          "name": "RCT Uplift Test Email",
+          "sample_size": 25000,
+          "cost": 1500.0,
+          "regret_reduction": 45.0,
+          "voi": 38.5,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.03,
+          "size": 6,
+          "color": "#f43f5e"
+        }
+      ]
+    },
+    {
+      "id": "Display Ads",
+      "name": "Display Ads",
+      "category": "Programmatic Retargeting",
+      "color": "#818cf8",
+      "role": "Early-funnel prospecting & programmatic retargeting",
+      "description": "Criteo algorithmic dynamic display banners and retargeting placements.",
+      "avg_cpc": 0.65,
+      "criteo_feature_anchor": "exposure==1 & treatment==1 (programmatic ad exposure)",
+      "total_touchpoints": 2430,
+      "involved_journeys": 2090,
+      "conversion_involvement_rate": 0.3798,
+      "assist_count": 175,
+      "closing_count": 13,
+      "assist_ratio": 13.46,
+      "models": {
+        "Last-Click": {
+          "credit": 13.0,
+          "credit_share": 0.0263,
+          "ci": {
+            "mean": 0.0256,
+            "std_error": 0.0081,
+            "ci_lower": 0.0125,
+            "ci_upper": 0.0401,
+            "ci_width": 0.0276
+          }
+        },
+        "Linear": {
+          "credit": 70.93,
+          "credit_share": 0.1433,
+          "ci": {
+            "mean": 0.1446,
+            "std_error": 0.0081,
+            "ci_lower": 0.1281,
+            "ci_upper": 0.1605,
+            "ci_width": 0.0324
+          }
+        },
+        "Markov": {
+          "credit": 68.36,
+          "credit_share": 0.1381,
+          "removal_effect": 0.3176,
+          "ci": {
+            "mean": 0.1379,
+            "std_error": 0.0036,
+            "ci_lower": 0.1306,
+            "ci_upper": 0.1454,
+            "ci_width": 0.0148
+          }
+        },
+        "Shapley": {
+          "credit": 71.85,
+          "credit_share": 0.1452,
+          "marginal_value": 71.85,
+          "ci": {
+            "mean": 0.1501,
+            "std_error": 0.0178,
+            "ci_lower": 0.1198,
+            "ci_upper": 0.1863,
+            "ci_width": 0.0665
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.24,
+          "ate": 0.0055
+        }
+      },
+      "shap": {
+        "global_importance": 0.8508,
+        "assist_impact": 0.1585,
+        "closing_impact": -1.6032,
+        "mean_shap": -0.0285,
+        "direction": "negative"
+      },
+      "disagreement": {
+        "spread": 0.1189,
+        "std_dev": 0.0503,
+        "level": "Medium",
+        "max_model": "Shapley",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0263,
+          "Linear": 0.1433,
+          "Markov": 0.1381,
+          "Shapley": 0.1452
+        }
+      },
+      "causal_ate": 0.0055,
+      "standard_error": 0.0017,
+      "ci": [
+        0.0022,
+        0.0088
+      ],
+      "breakdown_gamma": 2.8,
+      "stability_label": "stable",
+      "phenomenon_type": "pulsar",
+      "gravity_well": {
+        "base_radius": 49.9,
+        "intensity": 0.88,
+        "is_negative": false,
+        "breakdown_gamma": 2.8,
+        "narrative": "Minimal confounding for Display Ads due to Criteo randomized control holdout."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0055,
+          "upper": 0.0055,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0045,
+          "upper": 0.0065,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.0037,
+          "upper": 0.0073,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": 0.003,
+          "upper": 0.008,
+          "null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower": 0.0023,
+          "upper": 0.0087,
+          "null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower": 0.0018,
+          "upper": 0.0092,
+          "null": false
+        },
+        {
+          "gamma": 2.2,
+          "lower": 0.0014,
+          "upper": 0.0096,
+          "null": false
+        },
+        {
+          "gamma": 2.4,
+          "lower": 0.001,
+          "upper": 0.01,
+          "null": false
+        },
+        {
+          "gamma": 2.6,
+          "lower": 0.0006,
+          "upper": 0.0104,
+          "null": false
+        },
+        {
+          "gamma": 2.8,
+          "lower": 0.0003,
+          "upper": 0.0107,
+          "null": false
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0,
+          "upper": 0.011,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 263.0,
+        "robust": 2400.0,
+        "delta": 2137.0
+      },
+      "asteroids": []
+    },
+    {
+      "id": "Referral",
+      "name": "Referral",
+      "category": "Partnership & Affiliates",
+      "color": "#2dd4bf",
+      "role": "Third-party validation & affiliate discovery",
+      "description": "Affiliate networks, review aggregators, and partner links.",
+      "avg_cpc": 0.5,
+      "criteo_feature_anchor": "f6, f7 & f11 (third-party domain referrals)",
+      "total_touchpoints": 774,
+      "involved_journeys": 746,
+      "conversion_involvement_rate": 0.1475,
+      "assist_count": 59,
+      "closing_count": 14,
+      "assist_ratio": 4.21,
+      "models": {
+        "Last-Click": {
+          "credit": 14.0,
+          "credit_share": 0.0283,
+          "ci": {
+            "mean": 0.0283,
+            "std_error": 0.0083,
+            "ci_lower": 0.0131,
+            "ci_upper": 0.0465,
+            "ci_width": 0.0334
+          }
+        },
+        "Linear": {
+          "credit": 29.55,
+          "credit_share": 0.0597,
+          "ci": {
+            "mean": 0.0601,
+            "std_error": 0.006,
+            "ci_lower": 0.0495,
+            "ci_upper": 0.0724,
+            "ci_width": 0.0229
+          }
+        },
+        "Markov": {
+          "credit": 31.06,
+          "credit_share": 0.0627,
+          "removal_effect": 0.1443,
+          "ci": {
+            "mean": 0.0628,
+            "std_error": 0.004,
+            "ci_lower": 0.055,
+            "ci_upper": 0.0709,
+            "ci_width": 0.0159
+          }
+        },
+        "Shapley": {
+          "credit": 31.2,
+          "credit_share": 0.063,
+          "marginal_value": 31.2,
+          "ci": {
+            "mean": 0.0619,
+            "std_error": 0.0149,
+            "ci_lower": 0.0281,
+            "ci_upper": 0.0841,
+            "ci_width": 0.056
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.12,
+          "ate": 0.008
+        }
+      },
+      "shap": {
+        "global_importance": 0.2739,
+        "assist_impact": 0.5483,
+        "closing_impact": -0.1076,
+        "mean_shap": 0.0067,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.0347,
+        "std_dev": 0.0146,
+        "level": "Low",
+        "max_model": "Shapley",
+        "min_model": "Last-Click",
+        "allocations": {
+          "Last-Click": 0.0283,
+          "Linear": 0.0597,
+          "Markov": 0.0627,
+          "Shapley": 0.063
+        }
+      },
+      "causal_ate": 0.008,
+      "standard_error": 0.014,
+      "ci": [
+        -0.015,
+        0.031
+      ],
+      "breakdown_gamma": 1.15,
+      "stability_label": "unidentifiable",
+      "phenomenon_type": "dark_matter",
+      "gravity_well": {
+        "base_radius": 32.8,
+        "intensity": 0.67,
+        "is_negative": false,
+        "breakdown_gamma": 1.15,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.008,
+          "upper": 0.008,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.005,
+          "upper": 0.012,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.002,
+          "upper": 0.016,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.001,
+          "upper": 0.02,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.004,
+          "upper": 0.024,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.007,
+          "upper": 0.028,
+          "null": true
+        },
+        {
+          "gamma": 2.5,
+          "lower": -0.0145,
+          "upper": 0.038,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.022,
+          "upper": 0.048,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 283.0,
+        "robust": 1200.0,
+        "delta": 917.0
+      },
+      "asteroids": [
+        {
+          "id": "EXP-CRITEO-REFERRAL",
+          "name": "RCT Uplift Test Referral",
+          "sample_size": 25000,
+          "cost": 1500.0,
+          "regret_reduction": 45.0,
+          "voi": 38.5,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.03,
+          "size": 6,
+          "color": "#f43f5e"
+        }
+      ]
+    },
+    {
+      "id": "Direct",
+      "name": "Direct",
+      "category": "Direct Navigation",
+      "color": "#a78bfa",
+      "role": "Bottom-funnel brand recall & direct navigation",
+      "description": "Direct URL entry, bookmarks, and brand return visits to checkout.",
+      "avg_cpc": 0.0,
+      "criteo_feature_anchor": "visit==1 & exposure==0 (direct navigation visit)",
+      "total_touchpoints": 2094,
+      "involved_journeys": 1656,
+      "conversion_involvement_rate": 0.4949,
+      "assist_count": 57,
+      "closing_count": 188,
+      "assist_ratio": 0.3,
+      "models": {
+        "Last-Click": {
+          "credit": 188.0,
+          "credit_share": 0.3798,
+          "ci": {
+            "mean": 0.3749,
+            "std_error": 0.0232,
+            "ci_lower": 0.3262,
+            "ci_upper": 0.4176,
+            "ci_width": 0.0914
+          }
+        },
+        "Linear": {
+          "credit": 105.17,
+          "credit_share": 0.2125,
+          "ci": {
+            "mean": 0.2104,
+            "std_error": 0.0114,
+            "ci_lower": 0.1866,
+            "ci_upper": 0.227,
+            "ci_width": 0.0405
+          }
+        },
+        "Markov": {
+          "credit": 100.65,
+          "credit_share": 0.2033,
+          "removal_effect": 0.4676,
+          "ci": {
+            "mean": 0.2018,
+            "std_error": 0.0076,
+            "ci_lower": 0.1856,
+            "ci_upper": 0.2146,
+            "ci_width": 0.029
+          }
+        },
+        "Shapley": {
+          "credit": 98.8,
+          "credit_share": 0.1996,
+          "marginal_value": 98.8,
+          "ci": {
+            "mean": 0.2006,
+            "std_error": 0.0222,
+            "ci_lower": 0.1648,
+            "ci_upper": 0.2394,
+            "ci_width": 0.0746
+          }
+        },
+        "Causal AIPW": {
+          "credit_share": 0.12,
+          "ate": 0.008
+        }
+      },
+      "shap": {
+        "global_importance": 0.4531,
+        "assist_impact": 0.3481,
+        "closing_impact": 1.1099,
+        "mean_shap": 0.0089,
+        "direction": "positive"
+      },
+      "disagreement": {
+        "spread": 0.1802,
+        "std_dev": 0.0758,
+        "level": "High",
+        "max_model": "Last-Click",
+        "min_model": "Shapley",
+        "allocations": {
+          "Last-Click": 0.3798,
+          "Linear": 0.2125,
+          "Markov": 0.2033,
+          "Shapley": 0.1996
+        }
+      },
+      "causal_ate": 0.008,
+      "standard_error": 0.014,
+      "ci": [
+        -0.015,
+        0.031
+      ],
+      "breakdown_gamma": 1.15,
+      "stability_label": "unidentifiable",
+      "phenomenon_type": "dark_matter",
+      "gravity_well": {
+        "base_radius": 56.4,
+        "intensity": 0.97,
+        "is_negative": false,
+        "breakdown_gamma": 1.15,
+        "narrative": "Moderate observational assist distortion."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.008,
+          "upper": 0.008,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.005,
+          "upper": 0.012,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.002,
+          "upper": 0.016,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.001,
+          "upper": 0.02,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.004,
+          "upper": 0.024,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.007,
+          "upper": 0.028,
+          "null": true
+        },
+        {
+          "gamma": 2.5,
+          "lower": -0.0145,
+          "upper": 0.038,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.022,
+          "upper": 0.048,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 3798.0,
+        "robust": 1200.0,
+        "delta": -2598.0
+      },
+      "asteroids": [
+        {
+          "id": "EXP-CRITEO-DIRECT",
+          "name": "RCT Uplift Test Direct",
+          "sample_size": 25000,
+          "cost": 1500.0,
+          "regret_reduction": 45.0,
+          "voi": 38.5,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.03,
+          "size": 6,
+          "color": "#f43f5e"
+        }
+      ]
+    },
+    {
+      "id": "Conversion",
+      "name": "Conversion Endpoint",
+      "category": "Endpoint",
+      "color": "#10b981",
+      "role": "Successful customer journey conversion",
+      "is_endpoint": true,
+      "total_conversions": 495,
+      "conversion_rate": 0.099
+    },
+    {
+      "id": "Drop-off",
+      "name": "Drop-off / Exit",
+      "category": "Endpoint",
+      "color": "#64748b",
+      "role": "Customer churned or abandoned before purchase",
+      "is_endpoint": true,
+      "total_dropoffs": 4505,
+      "dropoff_rate": 0.901
+    }
+  ],
+  "arcs": [
+    {
+      "source": "Email",
+      "target": "Direct",
+      "volume": 276,
+      "relative_weight": 0.289,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Drop-off",
+      "volume": 955,
+      "relative_weight": 1.0,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Drop-off",
+      "volume": 519,
+      "relative_weight": 0.5435,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Direct",
+      "volume": 188,
+      "relative_weight": 0.1969,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Direct",
+      "volume": 344,
+      "relative_weight": 0.3602,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Referral",
+      "volume": 73,
+      "relative_weight": 0.0764,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Drop-off",
+      "volume": 271,
+      "relative_weight": 0.2838,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Paid Search",
+      "volume": 499,
+      "relative_weight": 0.5225,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Email",
+      "volume": 273,
+      "relative_weight": 0.2859,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Conversion",
+      "volume": 83,
+      "relative_weight": 0.0869,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Drop-off",
+      "volume": 585,
+      "relative_weight": 0.6126,
+      "is_endpoint": true
+    },
+    {
+      "source": "Referral",
+      "target": "Paid Search",
+      "volume": 119,
+      "relative_weight": 0.1246,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Conversion",
+      "volume": 142,
+      "relative_weight": 0.1487,
+      "is_endpoint": true
+    },
+    {
+      "source": "Direct",
+      "target": "Email",
+      "volume": 162,
+      "relative_weight": 0.1696,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Drop-off",
+      "volume": 457,
+      "relative_weight": 0.4785,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Organic Search",
+      "volume": 200,
+      "relative_weight": 0.2094,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Social Media",
+      "volume": 273,
+      "relative_weight": 0.2859,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Drop-off",
+      "volume": 825,
+      "relative_weight": 0.8639,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Paid Search",
+      "volume": 228,
+      "relative_weight": 0.2387,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Paid Search",
+      "volume": 100,
+      "relative_weight": 0.1047,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Display Ads",
+      "volume": 231,
+      "relative_weight": 0.2419,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Drop-off",
+      "volume": 893,
+      "relative_weight": 0.9351,
+      "is_endpoint": true
+    },
+    {
+      "source": "Social Media",
+      "target": "Paid Search",
+      "volume": 248,
+      "relative_weight": 0.2597,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Direct",
+      "volume": 530,
+      "relative_weight": 0.555,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Organic Search",
+      "volume": 152,
+      "relative_weight": 0.1592,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Display Ads",
+      "volume": 116,
+      "relative_weight": 0.1215,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Email",
+      "volume": 97,
+      "relative_weight": 0.1016,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Direct",
+      "volume": 298,
+      "relative_weight": 0.312,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Direct",
+      "volume": 163,
+      "relative_weight": 0.1707,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Display Ads",
+      "volume": 92,
+      "relative_weight": 0.0963,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Direct",
+      "volume": 148,
+      "relative_weight": 0.155,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Paid Search",
+      "volume": 191,
+      "relative_weight": 0.2,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Display Ads",
+      "volume": 74,
+      "relative_weight": 0.0775,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Social Media",
+      "volume": 39,
+      "relative_weight": 0.0408,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Email",
+      "volume": 180,
+      "relative_weight": 0.1885,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Display Ads",
+      "volume": 248,
+      "relative_weight": 0.2597,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Referral",
+      "volume": 28,
+      "relative_weight": 0.0293,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Organic Search",
+      "volume": 108,
+      "relative_weight": 0.1131,
+      "is_endpoint": false
+    },
+    {
+      "source": "Paid Search",
+      "target": "Social Media",
+      "volume": 37,
+      "relative_weight": 0.0387,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Organic Search",
+      "volume": 189,
+      "relative_weight": 0.1979,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Conversion",
+      "volume": 51,
+      "relative_weight": 0.0534,
+      "is_endpoint": true
+    },
+    {
+      "source": "Direct",
+      "target": "Conversion",
+      "volume": 188,
+      "relative_weight": 0.1969,
+      "is_endpoint": true
+    },
+    {
+      "source": "Email",
+      "target": "Organic Search",
+      "volume": 70,
+      "relative_weight": 0.0733,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Organic Search",
+      "volume": 68,
+      "relative_weight": 0.0712,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Email",
+      "volume": 44,
+      "relative_weight": 0.0461,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Display Ads",
+      "volume": 162,
+      "relative_weight": 0.1696,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Conversion",
+      "volume": 4,
+      "relative_weight": 0.0042,
+      "is_endpoint": true
+    },
+    {
+      "source": "Display Ads",
+      "target": "Referral",
+      "volume": 116,
+      "relative_weight": 0.1215,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Paid Search",
+      "volume": 122,
+      "relative_weight": 0.1277,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Referral",
+      "volume": 58,
+      "relative_weight": 0.0607,
+      "is_endpoint": false
+    },
+    {
+      "source": "Direct",
+      "target": "Display Ads",
+      "volume": 104,
+      "relative_weight": 0.1089,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Social Media",
+      "volume": 47,
+      "relative_weight": 0.0492,
+      "is_endpoint": false
+    },
+    {
+      "source": "Social Media",
+      "target": "Email",
+      "volume": 104,
+      "relative_weight": 0.1089,
+      "is_endpoint": false
+    },
+    {
+      "source": "Email",
+      "target": "Referral",
+      "volume": 15,
+      "relative_weight": 0.0157,
+      "is_endpoint": false
+    },
+    {
+      "source": "Display Ads",
+      "target": "Conversion",
+      "volume": 13,
+      "relative_weight": 0.0136,
+      "is_endpoint": true
+    },
+    {
+      "source": "Organic Search",
+      "target": "Organic Search",
+      "volume": 71,
+      "relative_weight": 0.0743,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Conversion",
+      "volume": 14,
+      "relative_weight": 0.0147,
+      "is_endpoint": true
+    },
+    {
+      "source": "Referral",
+      "target": "Email",
+      "volume": 44,
+      "relative_weight": 0.0461,
+      "is_endpoint": false
+    },
+    {
+      "source": "Referral",
+      "target": "Referral",
+      "volume": 17,
+      "relative_weight": 0.0178,
+      "is_endpoint": false
+    },
+    {
+      "source": "Organic Search",
+      "target": "Referral",
+      "volume": 19,
+      "relative_weight": 0.0199,
+      "is_endpoint": false
+    }
+  ],
+  "comets": [
+    {
+      "id": "COMET-CJ-1000",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 20,
+      "speed": 1.2,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Email -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1001",
+      "touchpoints": [
+        "Social Media"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.16,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "Path of 1 touches: Social Media"
+    },
+    {
+      "id": "COMET-CJ-1002",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 56,
+      "speed": 0.87,
+      "tail_length": 3,
+      "trail_colors": [
+        "#818cf8",
+        "#a78bfa",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 3 touches: Display Ads -> Direct -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1003",
+      "touchpoints": [
+        "Paid Search",
+        "Referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 43,
+      "speed": 0.88,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#2dd4bf"
+      ],
+      "narrative": "Path of 2 touches: Paid Search -> Referral"
+    },
+    {
+      "id": "COMET-CJ-1004",
+      "touchpoints": [
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.2,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a78bfa"
+      ],
+      "narrative": "Path of 1 touches: Direct"
+    },
+    {
+      "id": "COMET-CJ-1005",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Email"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 30,
+      "speed": 1.04,
+      "tail_length": 3,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 3 touches: Display Ads -> Paid Search -> Email"
+    },
+    {
+      "id": "COMET-CJ-1006",
+      "touchpoints": [
+        "Display Ads",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 27,
+      "speed": 0.85,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1007",
+      "touchpoints": [
+        "Organic Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 0.71,
+      "tail_length": 1,
+      "trail_colors": [
+        "#34d399"
+      ],
+      "narrative": "Path of 1 touches: Organic Search"
+    },
+    {
+      "id": "COMET-CJ-1008",
+      "touchpoints": [
+        "Referral",
+        "Paid Search",
+        "Referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 10,
+      "speed": 0.9,
+      "tail_length": 3,
+      "trail_colors": [
+        "#2dd4bf",
+        "#38bdf8",
+        "#2dd4bf"
+      ],
+      "narrative": "Path of 3 touches: Referral -> Paid Search -> Referral"
+    },
+    {
+      "id": "COMET-CJ-1009",
+      "touchpoints": [
+        "Paid Search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 0,
+      "speed": 0.94,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "Path of 1 touches: Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1010",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 39,
+      "speed": 1.18,
+      "tail_length": 3,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 3 touches: Email -> Direct -> Email"
+    },
+    {
+      "id": "COMET-CJ-1011",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 25,
+      "speed": 1.24,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Email -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1012",
+      "touchpoints": [
+        "Social Media",
+        "Organic Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 46,
+      "speed": 1.15,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#34d399"
+      ],
+      "narrative": "Path of 2 touches: Social Media -> Organic Search"
+    },
+    {
+      "id": "COMET-CJ-1013",
+      "touchpoints": [
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.1,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a78bfa"
+      ],
+      "narrative": "Path of 1 touches: Direct"
+    },
+    {
+      "id": "COMET-CJ-1014",
+      "touchpoints": [
+        "Display Ads",
+        "Social Media"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 34,
+      "speed": 1.2,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#f472b6"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Social Media"
+    },
+    {
+      "id": "COMET-CJ-1015",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 69,
+      "speed": 0.74,
+      "tail_length": 3,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 3 touches: Email -> Direct -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1016",
+      "touchpoints": [
+        "Social Media"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.17,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "Path of 1 touches: Social Media"
+    },
+    {
+      "id": "COMET-CJ-1017",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 15,
+      "speed": 0.74,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1018",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search",
+        "Paid Search",
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 90,
+      "speed": 0.78,
+      "tail_length": 4,
+      "trail_colors": [
+        "#34d399",
+        "#38bdf8",
+        "#38bdf8",
+        "#818cf8"
+      ],
+      "narrative": "Path of 4 touches: Organic Search -> Paid Search -> Paid Search -> Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1019",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 60,
+      "speed": 1.14,
+      "tail_length": 3,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 3 touches: Social Media -> Paid Search -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1020",
+      "touchpoints": [
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 0.85,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "Path of 1 touches: Email"
+    },
+    {
+      "id": "COMET-CJ-1021",
+      "touchpoints": [
+        "Paid Search",
+        "Organic Search",
+        "Display Ads",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 72,
+      "speed": 1.03,
+      "tail_length": 4,
+      "trail_colors": [
+        "#38bdf8",
+        "#34d399",
+        "#818cf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 4 touches: Paid Search -> Organic Search -> Display Ads -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1022",
+      "touchpoints": [
+        "Referral",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 14,
+      "speed": 0.71,
+      "tail_length": 2,
+      "trail_colors": [
+        "#2dd4bf",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Referral -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1023",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Referral",
+        "Paid Search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 74,
+      "speed": 0.74,
+      "tail_length": 4,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8",
+        "#2dd4bf",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 4 touches: Display Ads -> Paid Search -> Referral -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1024",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 13,
+      "speed": 0.78,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Organic Search -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1025",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 3,
+      "speed": 0.9,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Social Media -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1026",
+      "touchpoints": [
+        "Display Ads",
+        "Social Media"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 3,
+      "speed": 1.05,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#f472b6"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Social Media"
+    },
+    {
+      "id": "COMET-CJ-1027",
+      "touchpoints": [
+        "Social Media",
+        "Organic Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 12,
+      "speed": 0.82,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#34d399"
+      ],
+      "narrative": "Path of 2 touches: Social Media -> Organic Search"
+    },
+    {
+      "id": "COMET-CJ-1028",
+      "touchpoints": [
+        "Display Ads",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 7,
+      "speed": 1.25,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Email"
+    },
+    {
+      "id": "COMET-CJ-1029",
+      "touchpoints": [
+        "Organic Search",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 7,
+      "speed": 0.85,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Organic Search -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1030",
+      "touchpoints": [
+        "Referral",
+        "Paid Search",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 54,
+      "speed": 1.12,
+      "tail_length": 3,
+      "trail_colors": [
+        "#2dd4bf",
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 3 touches: Referral -> Paid Search -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1031",
+      "touchpoints": [
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.16,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "Path of 1 touches: Email"
+    },
+    {
+      "id": "COMET-CJ-1032",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search",
+        "Display Ads",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 52,
+      "speed": 1.3,
+      "tail_length": 4,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8",
+        "#818cf8",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 4 touches: Display Ads -> Paid Search -> Display Ads -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1033",
+      "touchpoints": [
+        "Paid Search",
+        "Paid Search",
+        "Direct",
+        "Direct",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 115,
+      "speed": 1.17,
+      "tail_length": 5,
+      "trail_colors": [
+        "#38bdf8",
+        "#38bdf8",
+        "#a78bfa",
+        "#a78bfa",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 5 touches: Paid Search -> Paid Search -> Direct -> Direct -> Email"
+    },
+    {
+      "id": "COMET-CJ-1034",
+      "touchpoints": [
+        "Referral",
+        "Direct",
+        "Email",
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 98,
+      "speed": 0.92,
+      "tail_length": 4,
+      "trail_colors": [
+        "#2dd4bf",
+        "#a78bfa",
+        "#fbbf24",
+        "#818cf8"
+      ],
+      "narrative": "Path of 4 touches: Referral -> Direct -> Email -> Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1035",
+      "touchpoints": [
+        "Email",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 19,
+      "speed": 0.9,
+      "tail_length": 2,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Email -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1036",
+      "touchpoints": [
+        "Social Media",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 34,
+      "speed": 1.15,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Social Media -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1037",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 18,
+      "speed": 0.89,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1038",
+      "touchpoints": [
+        "Paid Search",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 47,
+      "speed": 0.93,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 2 touches: Paid Search -> Email"
+    },
+    {
+      "id": "COMET-CJ-1039",
+      "touchpoints": [
+        "Direct",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 35,
+      "speed": 1.12,
+      "tail_length": 2,
+      "trail_colors": [
+        "#a78bfa",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 2 touches: Direct -> Email"
+    },
+    {
+      "id": "COMET-CJ-1040",
+      "touchpoints": [
+        "Paid Search",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 20,
+      "speed": 0.94,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Paid Search -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1041",
+      "touchpoints": [
+        "Organic Search",
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 30,
+      "speed": 0.77,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#818cf8"
+      ],
+      "narrative": "Path of 2 touches: Organic Search -> Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1042",
+      "touchpoints": [
+        "Referral",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 47,
+      "speed": 1.04,
+      "tail_length": 2,
+      "trail_colors": [
+        "#2dd4bf",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 2 touches: Referral -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1043",
+      "touchpoints": [
+        "Email",
+        "Direct",
+        "Paid Search",
+        "Organic Search",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 120,
+      "speed": 0.81,
+      "tail_length": 5,
+      "trail_colors": [
+        "#fbbf24",
+        "#a78bfa",
+        "#38bdf8",
+        "#34d399",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 5 touches: Email -> Direct -> Paid Search -> Organic Search -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1044",
+      "touchpoints": [
+        "Email",
+        "Display Ads",
+        "Social Media",
+        "Organic Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 74,
+      "speed": 0.98,
+      "tail_length": 4,
+      "trail_colors": [
+        "#fbbf24",
+        "#818cf8",
+        "#f472b6",
+        "#34d399"
+      ],
+      "narrative": "Path of 4 touches: Email -> Display Ads -> Social Media -> Organic Search"
+    },
+    {
+      "id": "COMET-CJ-1045",
+      "touchpoints": [
+        "Referral",
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 30,
+      "speed": 1.26,
+      "tail_length": 2,
+      "trail_colors": [
+        "#2dd4bf",
+        "#818cf8"
+      ],
+      "narrative": "Path of 2 touches: Referral -> Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1046",
+      "touchpoints": [
+        "Social Media",
+        "Social Media"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 8,
+      "speed": 0.97,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#f472b6"
+      ],
+      "narrative": "Path of 2 touches: Social Media -> Social Media"
+    },
+    {
+      "id": "COMET-CJ-1047",
+      "touchpoints": [
+        "Organic Search",
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 15,
+      "speed": 1.08,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#fbbf24"
+      ],
+      "narrative": "Path of 2 touches: Organic Search -> Email"
+    },
+    {
+      "id": "COMET-CJ-1048",
+      "touchpoints": [
+        "Social Media",
+        "Paid Search",
+        "Display Ads",
+        "Paid Search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 89,
+      "speed": 0.87,
+      "tail_length": 4,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8",
+        "#818cf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 4 touches: Social Media -> Paid Search -> Display Ads -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1049",
+      "touchpoints": [
+        "Social Media",
+        "Display Ads",
+        "Paid Search",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 52,
+      "speed": 1.07,
+      "tail_length": 4,
+      "trail_colors": [
+        "#f472b6",
+        "#818cf8",
+        "#38bdf8",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 4 touches: Social Media -> Display Ads -> Paid Search -> Direct"
+    },
+    {
+      "id": "COMET-CJ-1050",
+      "touchpoints": [
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.11,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "Path of 1 touches: Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1051",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.19,
+      "tail_length": 1,
+      "trail_colors": [
+        "#818cf8"
+      ],
+      "narrative": "Path of 1 touches: Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1052",
+      "touchpoints": [
+        "Organic Search",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 27,
+      "speed": 0.89,
+      "tail_length": 2,
+      "trail_colors": [
+        "#34d399",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Organic Search -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1053",
+      "touchpoints": [
+        "Email"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 0.87,
+      "tail_length": 1,
+      "trail_colors": [
+        "#fbbf24"
+      ],
+      "narrative": "Path of 1 touches: Email"
+    },
+    {
+      "id": "COMET-CJ-1054",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Referral"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 67,
+      "speed": 0.88,
+      "tail_length": 3,
+      "trail_colors": [
+        "#818cf8",
+        "#a78bfa",
+        "#2dd4bf"
+      ],
+      "narrative": "Path of 3 touches: Display Ads -> Direct -> Referral"
+    },
+    {
+      "id": "COMET-CJ-1055",
+      "touchpoints": [
+        "Paid Search",
+        "Email",
+        "Direct",
+        "Organic Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 57,
+      "speed": 0.97,
+      "tail_length": 4,
+      "trail_colors": [
+        "#38bdf8",
+        "#fbbf24",
+        "#a78bfa",
+        "#34d399"
+      ],
+      "narrative": "Path of 4 touches: Paid Search -> Email -> Direct -> Organic Search"
+    },
+    {
+      "id": "COMET-CJ-1056",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.05,
+      "tail_length": 1,
+      "trail_colors": [
+        "#818cf8"
+      ],
+      "narrative": "Path of 1 touches: Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1057",
+      "touchpoints": [
+        "Display Ads"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 0,
+      "speed": 1.23,
+      "tail_length": 1,
+      "trail_colors": [
+        "#818cf8"
+      ],
+      "narrative": "Path of 1 touches: Display Ads"
+    },
+    {
+      "id": "COMET-CJ-1058",
+      "touchpoints": [
+        "Display Ads",
+        "Paid Search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 31,
+      "speed": 1.3,
+      "tail_length": 2,
+      "trail_colors": [
+        "#818cf8",
+        "#38bdf8"
+      ],
+      "narrative": "Path of 2 touches: Display Ads -> Paid Search"
+    },
+    {
+      "id": "COMET-CJ-1059",
+      "touchpoints": [
+        "Display Ads",
+        "Direct",
+        "Direct"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 53,
+      "speed": 0.92,
+      "tail_length": 3,
+      "trail_colors": [
+        "#818cf8",
+        "#a78bfa",
+        "#a78bfa"
+      ],
+      "narrative": "Path of 3 touches: Display Ads -> Direct -> Direct"
+    }
+  ],
+  "nebulae": {
+    "naive_cloud": {
+      "label": "Last-Click Naive Allocation",
+      "color": "rgba(56, 189, 248, 0.22)",
+      "glow": "#38bdf8",
+      "bias_warning": "Last-Click allocates 38% to Direct and starves Display Ads (2.6%).",
+      "allocations": {
+        "Paid Search": 2869.0,
+        "Organic Search": 1030.0,
+        "Social Media": 81.0,
+        "Email": 1677.0,
+        "Display Ads": 263.0,
+        "Referral": 283.0,
+        "Direct": 3798.0
+      }
+    },
+    "robust_cloud": {
+      "label": "Causal AIPW Minimax-Regret Nebula",
+      "color": "rgba(244, 63, 94, 0.22)",
+      "glow": "#f43f5e",
+      "bias_warning": "Causal AIPW expands Display Ads allocation to 24% after verifying randomized uplift.",
+      "allocations": {
+        "Paid Search": 2800.0,
+        "Organic Search": 1200.0,
+        "Social Media": 1200.0,
+        "Email": 1200.0,
+        "Display Ads": 2400.0,
+        "Referral": 1200.0,
+        "Direct": 1200.0
+      }
+    },
+    "regret_divergence": 36.4
+  },
+  "stats": {
+    "total_entities": 13979592,
+    "conversions": 40774,
+    "conversion_rate": "0.292%",
+    "top_channel": "Paid Search & Display Ads (+84% Uplift)",
+    "most_fragile": "Referral & Social (Unobserved)",
+    "regret_savings": "$2,890 / 10k"
+  }
+}

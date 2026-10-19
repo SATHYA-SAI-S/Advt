@@ -45,6 +45,8 @@ addopts = "-ra"
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+extend-exclude = ["frontend"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

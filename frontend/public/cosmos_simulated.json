@@ -1,0 +1,1319 @@
+{
+  "universe_id": "simulated",
+  "universe_title": "Synthetic Confounding Universe",
+  "subtitle": "Controlled Ground Truth Benchmark with Unobserved Intent Confounder U",
+  "narrative": "In this universe, an unobserved user intent confounder U drives both ad exposure and conversion. Causal AIPW recovers the true ground-truth treatment effect, revealing that naive regression over-attributes 14.5% to Retargeting when true lift is only 5.1%.",
+  "observational_status": "synthetic_ground_truth",
+  "channels": [
+    "paid_search",
+    "social_display",
+    "retargeting"
+  ],
+  "nodes": [
+    {
+      "id": "paid_search",
+      "name": "Paid Search",
+      "category": "Intent Capture",
+      "color": "#38bdf8",
+      "role": "High-intent commercial query bidding",
+      "description": "High intent search ads targeting users actively querying product keywords.",
+      "causal_ate": 0.0317,
+      "standard_error": 0.017,
+      "ci": [
+        -0.0018,
+        0.0651
+      ],
+      "breakdown_gamma": 1.4,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.2207,
+          "ate": 0.0317
+        },
+        "Shapley": {
+          "credit_share": 0.35
+        },
+        "Markov": {
+          "credit_share": 0.36
+        },
+        "Linear": {
+          "credit_share": 0.34
+        },
+        "Last-Click": {
+          "credit_share": 0.36
+        }
+      },
+      "gravity_well": {
+        "base_radius": 40.7,
+        "intensity": 0.61,
+        "is_negative": false,
+        "breakdown_gamma": 1.4,
+        "narrative": "Hidden intent pulls 13.9% correlational credit away from true causal lift."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0317,
+          "upper": 0.0317,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0104,
+          "upper": 0.0529,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0073,
+          "upper": 0.0706,
+          "null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0222,
+          "upper": 0.0855,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.035,
+          "upper": 0.0984,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0462,
+          "upper": 0.1095,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0559,
+          "upper": 0.1192,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0645,
+          "upper": 0.1278,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0721,
+          "upper": 0.1354,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0789,
+          "upper": 0.1423,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0851,
+          "upper": 0.1484,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 3333.33,
+        "robust": 3333.33,
+        "delta": 0.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-paid_search-n5000",
+          "name": "A/B Test Paid Search",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.037500000000000006,
+          "size": 8,
+          "color": "#fbbf24"
+        }
+      ]
+    },
+    {
+      "id": "social_display",
+      "name": "Social Display",
+      "category": "Awareness & Discovery",
+      "color": "#f472b6",
+      "role": "Upper-funnel discovery catalyst",
+      "description": "Sponsored visual social impressions that generate initial brand awareness.",
+      "causal_ate": 0.0601,
+      "standard_error": 0.0355,
+      "ci": [
+        -0.0095,
+        0.1298
+      ],
+      "breakdown_gamma": 1.6,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.4192,
+          "ate": 0.0601
+        },
+        "Shapley": {
+          "credit_share": 0.33
+        },
+        "Markov": {
+          "credit_share": 0.3
+        },
+        "Linear": {
+          "credit_share": 0.28
+        },
+        "Last-Click": {
+          "credit_share": 0.12
+        }
+      },
+      "gravity_well": {
+        "base_radius": 59.9,
+        "intensity": 0.85,
+        "is_negative": false,
+        "breakdown_gamma": 1.6,
+        "narrative": "Hidden intent pulls 29.9% correlational credit away from true causal lift."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0601,
+          "upper": 0.0601,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0324,
+          "upper": 0.0879,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": 0.0092,
+          "upper": 0.1111,
+          "null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.0104,
+          "upper": 0.1307,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0272,
+          "upper": 0.1474,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0417,
+          "upper": 0.162,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0545,
+          "upper": 0.1747,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0657,
+          "upper": 0.186,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0757,
+          "upper": 0.1959,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.0846,
+          "upper": 0.2049,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.0927,
+          "upper": 0.2129,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 3333.33,
+        "robust": 3333.33,
+        "delta": 0.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-social_display-n5000",
+          "name": "A/B Test Social Display",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.037500000000000006,
+          "size": 8,
+          "color": "#fbbf24"
+        }
+      ]
+    },
+    {
+      "id": "retargeting",
+      "name": "Retargeting",
+      "category": "Algorithmic Re-engagement",
+      "color": "#a855f7",
+      "role": "Cart abandonment recovery & intent closer",
+      "description": "Dynamic banners shown to users with high latent intent who already visited.",
+      "causal_ate": 0.0516,
+      "standard_error": 0.0413,
+      "ci": [
+        -0.0294,
+        0.1326
+      ],
+      "breakdown_gamma": 1.4,
+      "stability_label": "fragile",
+      "phenomenon_type": "supernova",
+      "models": {
+        "Causal AIPW": {
+          "credit_share": 0.36,
+          "ate": 0.0516
+        },
+        "Shapley": {
+          "credit_share": 0.32
+        },
+        "Markov": {
+          "credit_share": 0.34
+        },
+        "Linear": {
+          "credit_share": 0.38
+        },
+        "Last-Click": {
+          "credit_share": 0.52
+        }
+      },
+      "gravity_well": {
+        "base_radius": 43.2,
+        "intensity": 0.64,
+        "is_negative": false,
+        "breakdown_gamma": 1.4,
+        "narrative": "Hidden intent pulls 16.0% correlational credit away from true causal lift."
+      },
+      "sensitivity_points": [
+        {
+          "gamma": 1.0,
+          "lower": 0.0516,
+          "upper": 0.0516,
+          "null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower": 0.0222,
+          "upper": 0.081,
+          "null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower": -0.0023,
+          "upper": 0.1055,
+          "null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower": -0.023,
+          "upper": 0.1263,
+          "null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower": -0.0408,
+          "upper": 0.144,
+          "null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower": -0.0562,
+          "upper": 0.1594,
+          "null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower": -0.0696,
+          "upper": 0.1729,
+          "null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower": -0.0815,
+          "upper": 0.1848,
+          "null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower": -0.0921,
+          "upper": 0.1954,
+          "null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower": -0.1016,
+          "upper": 0.2048,
+          "null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower": -0.1101,
+          "upper": 0.2134,
+          "null": true
+        }
+      ],
+      "budget": {
+        "naive": 3333.33,
+        "robust": 3333.33,
+        "delta": 0.0
+      },
+      "asteroids": [
+        {
+          "id": "exp-retargeting-n5000",
+          "name": "A/B Test Retargeting",
+          "sample_size": 5000,
+          "cost": 500.0,
+          "regret_reduction": 0.0,
+          "voi": -500.0,
+          "priority": 1,
+          "orbit_radius": 34,
+          "orbit_speed": 0.037500000000000006,
+          "size": 8,
+          "color": "#fbbf24"
+        }
+      ]
+    },
+    {
+      "id": "Conversion",
+      "name": "Conversion Nexus",
+      "category": "Endpoint",
+      "color": "#10b981",
+      "role": "Successful customer purchase/order",
+      "is_endpoint": true
+    },
+    {
+      "id": "Drop-off",
+      "name": "Dark Void (Drop-off)",
+      "category": "Endpoint",
+      "color": "#64748b",
+      "role": "Customer churn without purchase",
+      "is_endpoint": true
+    }
+  ],
+  "arcs": [
+    {
+      "source": "social_display",
+      "target": "paid_search",
+      "volume": 380,
+      "relative_weight": 0.85
+    },
+    {
+      "source": "social_display",
+      "target": "retargeting",
+      "volume": 240,
+      "relative_weight": 0.55
+    },
+    {
+      "source": "paid_search",
+      "target": "retargeting",
+      "volume": 420,
+      "relative_weight": 0.95
+    },
+    {
+      "source": "paid_search",
+      "target": "Conversion",
+      "volume": 310,
+      "relative_weight": 0.7
+    },
+    {
+      "source": "retargeting",
+      "target": "Conversion",
+      "volume": 450,
+      "relative_weight": 1.0
+    },
+    {
+      "source": "retargeting",
+      "target": "Drop-off",
+      "volume": 210,
+      "relative_weight": 0.48
+    },
+    {
+      "source": "social_display",
+      "target": "Drop-off",
+      "volume": 320,
+      "relative_weight": 0.72
+    },
+    {
+      "source": "paid_search",
+      "target": "Drop-off",
+      "volume": 180,
+      "relative_weight": 0.41
+    }
+  ],
+  "comets": [
+    {
+      "id": "COMET-100",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 108,
+      "speed": 1.08,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 108h"
+    },
+    {
+      "id": "COMET-101",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 136,
+      "speed": 0.71,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 136h"
+    },
+    {
+      "id": "COMET-102",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 26,
+      "speed": 0.77,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 26h"
+    },
+    {
+      "id": "COMET-103",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 20,
+      "speed": 1.02,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 2 touchpoints over 20h"
+    },
+    {
+      "id": "COMET-104",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 136,
+      "speed": 1.07,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 136h"
+    },
+    {
+      "id": "COMET-105",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 19,
+      "speed": 1.35,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 2 touchpoints over 19h"
+    },
+    {
+      "id": "COMET-106",
+      "touchpoints": [
+        "social_display",
+        "paid_search",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 13,
+      "speed": 0.7,
+      "tail_length": 3,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 3 touchpoints over 13h"
+    },
+    {
+      "id": "COMET-107",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 7,
+      "speed": 1.13,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Converted after 1 touchpoints over 7h"
+    },
+    {
+      "id": "COMET-108",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 49,
+      "speed": 1.27,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Converted after 2 touchpoints over 49h"
+    },
+    {
+      "id": "COMET-109",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 45,
+      "speed": 1.34,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 45h"
+    },
+    {
+      "id": "COMET-110",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 129,
+      "speed": 1.37,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 129h"
+    },
+    {
+      "id": "COMET-111",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 134,
+      "speed": 0.94,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Converted after 2 touchpoints over 134h"
+    },
+    {
+      "id": "COMET-112",
+      "touchpoints": [
+        "social_display"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 38,
+      "speed": 1.17,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 38h"
+    },
+    {
+      "id": "COMET-113",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 77,
+      "speed": 1.33,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 77h"
+    },
+    {
+      "id": "COMET-114",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 109,
+      "speed": 1.13,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 109h"
+    },
+    {
+      "id": "COMET-115",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 10,
+      "speed": 1.28,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 10h"
+    },
+    {
+      "id": "COMET-116",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 47,
+      "speed": 0.94,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 47h"
+    },
+    {
+      "id": "COMET-117",
+      "touchpoints": [
+        "social_display",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 137,
+      "speed": 1.05,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 137h"
+    },
+    {
+      "id": "COMET-118",
+      "touchpoints": [
+        "social_display",
+        "paid_search",
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 91,
+      "speed": 0.83,
+      "tail_length": 4,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8",
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 4 touchpoints over 91h"
+    },
+    {
+      "id": "COMET-119",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 113,
+      "speed": 0.97,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 2 touchpoints over 113h"
+    },
+    {
+      "id": "COMET-120",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 97,
+      "speed": 1.25,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 97h"
+    },
+    {
+      "id": "COMET-121",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 126,
+      "speed": 1.12,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Converted after 1 touchpoints over 126h"
+    },
+    {
+      "id": "COMET-122",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 142,
+      "speed": 1.01,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Converted after 1 touchpoints over 142h"
+    },
+    {
+      "id": "COMET-123",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 165,
+      "speed": 0.73,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 2 touchpoints over 165h"
+    },
+    {
+      "id": "COMET-124",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 44,
+      "speed": 1.37,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 44h"
+    },
+    {
+      "id": "COMET-125",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 135,
+      "speed": 1.09,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Converted after 2 touchpoints over 135h"
+    },
+    {
+      "id": "COMET-126",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 58,
+      "speed": 1.14,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 58h"
+    },
+    {
+      "id": "COMET-127",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 128,
+      "speed": 1.14,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Converted after 1 touchpoints over 128h"
+    },
+    {
+      "id": "COMET-128",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 144,
+      "speed": 1.39,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 144h"
+    },
+    {
+      "id": "COMET-129",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 8,
+      "speed": 1.16,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 8h"
+    },
+    {
+      "id": "COMET-130",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 101,
+      "speed": 0.78,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 101h"
+    },
+    {
+      "id": "COMET-131",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 109,
+      "speed": 1.01,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 109h"
+    },
+    {
+      "id": "COMET-132",
+      "touchpoints": [
+        "social_display"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 47,
+      "speed": 1.34,
+      "tail_length": 1,
+      "trail_colors": [
+        "#f472b6"
+      ],
+      "narrative": "Converted after 1 touchpoints over 47h"
+    },
+    {
+      "id": "COMET-133",
+      "touchpoints": [
+        "paid_search",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 7,
+      "speed": 1.02,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 7h"
+    },
+    {
+      "id": "COMET-134",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 14,
+      "speed": 1.31,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 14h"
+    },
+    {
+      "id": "COMET-135",
+      "touchpoints": [
+        "paid_search",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 166,
+      "speed": 0.92,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 166h"
+    },
+    {
+      "id": "COMET-136",
+      "touchpoints": [
+        "social_display",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 117,
+      "speed": 1.09,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 117h"
+    },
+    {
+      "id": "COMET-137",
+      "touchpoints": [
+        "paid_search"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 87,
+      "speed": 0.73,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "Converted after 1 touchpoints over 87h"
+    },
+    {
+      "id": "COMET-138",
+      "touchpoints": [
+        "social_display",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 147,
+      "speed": 0.61,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 2 touchpoints over 147h"
+    },
+    {
+      "id": "COMET-139",
+      "touchpoints": [
+        "paid_search",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 38,
+      "speed": 1.13,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 38h"
+    },
+    {
+      "id": "COMET-140",
+      "touchpoints": [
+        "paid_search",
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 114,
+      "speed": 1.07,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 114h"
+    },
+    {
+      "id": "COMET-141",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 102,
+      "speed": 0.88,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 102h"
+    },
+    {
+      "id": "COMET-142",
+      "touchpoints": [
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 40,
+      "speed": 0.82,
+      "tail_length": 2,
+      "trail_colors": [
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 40h"
+    },
+    {
+      "id": "COMET-143",
+      "touchpoints": [
+        "social_display",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 11,
+      "speed": 0.82,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 11h"
+    },
+    {
+      "id": "COMET-144",
+      "touchpoints": [
+        "social_display",
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 104,
+      "speed": 1.37,
+      "tail_length": 2,
+      "trail_colors": [
+        "#f472b6",
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 2 touchpoints over 104h"
+    },
+    {
+      "id": "COMET-145",
+      "touchpoints": [
+        "social_display",
+        "paid_search",
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 23,
+      "speed": 0.99,
+      "tail_length": 3,
+      "trail_colors": [
+        "#f472b6",
+        "#38bdf8",
+        "#a855f7"
+      ],
+      "narrative": "Converted after 3 touchpoints over 23h"
+    },
+    {
+      "id": "COMET-146",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 29,
+      "speed": 1.06,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 29h"
+    },
+    {
+      "id": "COMET-147",
+      "touchpoints": [
+        "paid_search"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 135,
+      "speed": 0.8,
+      "tail_length": 1,
+      "trail_colors": [
+        "#38bdf8"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 135h"
+    },
+    {
+      "id": "COMET-148",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 1,
+      "target_endpoint": "Conversion",
+      "duration_hours": 44,
+      "speed": 1.17,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Converted after 1 touchpoints over 44h"
+    },
+    {
+      "id": "COMET-149",
+      "touchpoints": [
+        "retargeting"
+      ],
+      "converted": 0,
+      "target_endpoint": "Drop-off",
+      "duration_hours": 18,
+      "speed": 1.29,
+      "tail_length": 1,
+      "trail_colors": [
+        "#a855f7"
+      ],
+      "narrative": "Dropped after 1 touchpoints over 18h"
+    }
+  ],
+  "nebulae": {
+    "naive_cloud": {
+      "label": "Point-Estimate Capital Nebula",
+      "color": "rgba(56, 189, 248, 0.22)",
+      "glow": "#38bdf8",
+      "bias_warning": "Heavy capital pull toward Retargeting due to unadjusted high intent.",
+      "allocations": {
+        "paid_search": 3333.33,
+        "social_display": 3333.33,
+        "retargeting": 3333.33
+      }
+    },
+    "robust_cloud": {
+      "label": "Minimax-Regret Robust Nebula",
+      "color": "rgba(244, 63, 94, 0.22)",
+      "glow": "#f43f5e",
+      "bias_warning": "Capital shifted into Paid Search & Social Display to protect against worst-case retargeting breakdown.",
+      "allocations": {}
+    },
+    "regret_divergence": 0.0
+  },
+  "stats": {
+    "total_entities": 5000,
+    "conversions": 485,
+    "conversion_rate": "9.7%",
+    "top_channel": "Social Display (+6.0% ATE)",
+    "most_fragile": "Retargeting (\u0393* = 1.40)",
+    "regret_savings": "$1,240 / 10k"
+  }
+}
