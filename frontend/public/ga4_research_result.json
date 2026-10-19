@@ -1,0 +1,1073 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-ga4-public-ecommerce-cohort-1792341844",
+  "dataset_id": "ga4-public-ecommerce-cohort",
+  "generated_at": "2026-10-18T16:44:04.869517+00:00",
+  "effect_estimates": [
+    {
+      "treatment_id": "google / organic",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": -0.0005670049333565018,
+      "standard_error": 0.0075514639077054035,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        -0.015367874192459094,
+        0.014233864325746089
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "(direct) / (none)",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": -0.008884975881265852,
+      "standard_error": 0.006717609265965614,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        -0.022051490042558457,
+        0.0042815382800267515
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "<Other> / <Other>",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.014607632329380919,
+      "standard_error": 0.01265311907560396,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        -0.010192481058802843,
+        0.03940774571756468
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "<Other> / referral",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.008299661454012739,
+      "standard_error": 0.013632915121412063,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        -0.01842085218395491,
+        0.03502017509198038
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "shop.googlemerchandisestore.com / referral",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": -0.005120767125566069,
+      "standard_error": 0.024946694301951892,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        -0.05401628795739178,
+        0.04377475370625964
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    }
+  ],
+  "overlap_diagnostics": [
+    {
+      "treatment_id": "google / organic",
+      "propensity_min": 0.13913547726779033,
+      "propensity_max": 0.4601491491081061,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 877.8878039269911,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.0033379426250372845,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_is_mobile",
+          "value": 0.0008516353570056729,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_desktop",
+          "value": 0.0016797705459882808,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_americas",
+          "value": 0.015740718472729173,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_chrome",
+          "value": 0.010271365658235323,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_mac",
+          "value": 0.0007569502539221287,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_windows",
+          "value": 0.017209006475102817,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "(direct) / (none)",
+      "propensity_min": 0.14449002726633942,
+      "propensity_max": 0.3238712959011275,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 690.0875357125539,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.0031641833663582667,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_is_mobile",
+          "value": 0.005964817100641127,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_desktop",
+          "value": 0.00045492501022659313,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_americas",
+          "value": 0.0015889244683589031,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_chrome",
+          "value": 0.005748292484266512,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_mac",
+          "value": 0.011381626724992195,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_windows",
+          "value": 0.0017407331605012075,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "<Other> / <Other>",
+      "propensity_min": 0.08936851036454024,
+      "propensity_max": 0.4024489725062867,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 564.6705210134403,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.005520844839449089,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_is_mobile",
+          "value": 0.0013544120791793418,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_desktop",
+          "value": 0.007257202130664928,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_americas",
+          "value": 0.00021030944021836385,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_chrome",
+          "value": 0.005309240088927248,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_mac",
+          "value": 0.047016405474362,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_windows",
+          "value": 0.004295935725731014,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "<Other> / referral",
+      "propensity_min": 0.03186127220505708,
+      "propensity_max": 0.17165273868767092,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.007,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 334.1252696620582,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.01024539023672208,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_is_mobile",
+          "value": 0.007927023852365397,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_desktop",
+          "value": 0.028189571911035924,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_americas",
+          "value": 0.010099096485896918,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_chrome",
+          "value": 0.07136264406402984,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_mac",
+          "value": 0.02395705008797832,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_windows",
+          "value": 0.030391946415267858,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "shop.googlemerchandisestore.com / referral",
+      "propensity_min": 0.021435702068601674,
+      "propensity_max": 0.09766434332879265,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.685,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 152.60625669785657,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.022031795917558033,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_is_mobile",
+          "value": 0.04549704233238891,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_desktop",
+          "value": 0.04594148084235353,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_americas",
+          "value": 0.05753399342160003,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_chrome",
+          "value": 0.0021439383583656078,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_mac",
+          "value": 0.03309873143133976,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_is_windows",
+          "value": 0.06421166981560042,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": true,
+      "warnings": [
+        "Severe propensity concentration / positivity violation: propensity range [0.021, 0.098], 68.5% of units have extreme propensity (<0.05 or >0.95)."
+      ]
+    }
+  ],
+  "sensitivity_analyses": [
+    {
+      "treatment_id": "google / organic",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: is_mobile: bias=0.0002 (implied Gamma=1.29); is_desktop: bias=0.0000 (implied Gamma=1.06); is_americas: bias=0.0003 (implied Gamma=1.45); is_chrome: bias=0.0000 (implied Gamma=1.07); is_mac: bias=0.0006 (implied Gamma=1.93); is_windows: bias=0.0004 (implied Gamma=1.53)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": -0.0005670049333565018,
+          "upper_bound": -0.0005670049333565018,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": -0.006023740012399448,
+          "upper_bound": 0.004889730145686445,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.010571019244935236,
+          "upper_bound": 0.009437009378222234,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.01441871705708091,
+          "upper_bound": 0.013284707190367905,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.017716743753205772,
+          "upper_bound": 0.016582733886492767,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.020575033556513977,
+          "upper_bound": 0.01944102368980097,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.023076037134408665,
+          "upper_bound": 0.02194202726769566,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.025282804997256915,
+          "upper_bound": 0.02414879513054391,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.027244376430899806,
+          "upper_bound": 0.0261103665641868,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.028999466661001335,
+          "upper_bound": 0.02786545679428833,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.030579047868092717,
+          "upper_bound": 0.029445038001379712,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "(direct) / (none)",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: is_mobile: bias=0.0001 (implied Gamma=1.01); is_desktop: bias=0.0001 (implied Gamma=1.01); is_americas: bias=0.0019 (implied Gamma=1.21); is_chrome: bias=0.0004 (implied Gamma=1.04); is_mac: bias=0.0000 (implied Gamma=1.00); is_windows: bias=0.0000 (implied Gamma=1.01)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": -0.008884975881265852,
+          "upper_bound": -0.008884975881265852,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": -0.013464196819402835,
+          "upper_bound": -0.004305754943128869,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.01728021426785032,
+          "upper_bound": -0.0004897374946813814,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.020509152108844353,
+          "upper_bound": 0.0027392003463126494,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.02327681311541066,
+          "upper_bound": 0.005506861352878959,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.025675452654434796,
+          "upper_bound": 0.007905500891903092,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.027774262251080917,
+          "upper_bound": 0.010004310488549214,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.029626153071651017,
+          "upper_bound": 0.011856201309119314,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.031272278245491114,
+          "upper_bound": 0.013502326482959407,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.03274512708524277,
+          "upper_bound": 0.014975175322711066,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.03407069104101927,
+          "upper_bound": 0.016300739278487564,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "<Other> / <Other>",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: is_mobile: bias=0.0003 (implied Gamma=1.02); is_desktop: bias=0.0004 (implied Gamma=1.03); is_americas: bias=0.0007 (implied Gamma=1.05); is_chrome: bias=0.0026 (implied Gamma=1.17); is_mac: bias=0.0003 (implied Gamma=1.02); is_windows: bias=0.0007 (implied Gamma=1.05)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.014607632329380919,
+          "upper_bound": 0.014607632329380919,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.006803063876209765,
+          "upper_bound": 0.022412200782552072,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": 0.00029925683190046813,
+          "upper_bound": 0.02891600782686137,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.005203964513284325,
+          "upper_bound": 0.034419229172046165,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.009921011380585576,
+          "upper_bound": 0.03913627603934741,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.014009118665579986,
+          "upper_bound": 0.04322438332434182,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.017586212539950102,
+          "upper_bound": 0.046801477198711944,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.020742471840864904,
+          "upper_bound": 0.049957736499626745,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.02354803566390029,
+          "upper_bound": 0.05276330032266213,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.026058276979247737,
+          "upper_bound": 0.05527354163800958,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.02831749416306044,
+          "upper_bound": 0.05753275882182228,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "<Other> / referral",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: is_mobile: bias=0.0001 (implied Gamma=1.01); is_desktop: bias=0.0004 (implied Gamma=1.05); is_americas: bias=0.0004 (implied Gamma=1.05); is_chrome: bias=0.0014 (implied Gamma=1.17); is_mac: bias=0.0020 (implied Gamma=1.24); is_windows: bias=0.0001 (implied Gamma=1.01)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.008299661454012739,
+          "upper_bound": 0.008299661454012739,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.00027343926932733853,
+          "upper_bound": 0.01632588363869814,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.006415079217910496,
+          "upper_bound": 0.023014402125935973,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.012074594860957901,
+          "upper_bound": 0.028673917768983377,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.016925608269284242,
+          "upper_bound": 0.03352493117730972,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.021129819889833736,
+          "upper_bound": 0.037729142797859216,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.024808505057814553,
+          "upper_bound": 0.04140782796584003,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.028054403735444676,
+          "upper_bound": 0.04465372664347015,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.030939647004449233,
+          "upper_bound": 0.04753896991247471,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.03352118045566383,
+          "upper_bound": 0.050120503363689305,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.03584456056175698,
+          "upper_bound": 0.05244388346978245,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "shop.googlemerchandisestore.com / referral",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: is_mobile: bias=0.0006 (implied Gamma=1.12); is_desktop: bias=0.0026 (implied Gamma=1.50); is_americas: bias=0.0058 (implied Gamma=2.12); is_chrome: bias=0.0097 (implied Gamma=2.86); is_mac: bias=0.0027 (implied Gamma=1.51); is_windows: bias=0.0006 (implied Gamma=1.12)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": -0.005120767125566069,
+          "upper_bound": -0.005120767125566069,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": -0.016391085935597568,
+          "upper_bound": 0.006149551684465429,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.025783018277290484,
+          "upper_bound": 0.015541484026158344,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.03373003795103065,
+          "upper_bound": 0.02348850369989851,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.040541769099950796,
+          "upper_bound": 0.030300234848818657,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.046445269429014904,
+          "upper_bound": 0.036203735177882765,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.05161083221694602,
+          "upper_bound": 0.04136929796581388,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.05616868173570875,
+          "upper_bound": 0.04592714748457661,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.06022010353016453,
+          "upper_bound": 0.04997856927903239,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.0638450598725723,
+          "upper_bound": 0.05360352562144017,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.06710752058073932,
+          "upper_bound": 0.05686598632960719,
+          "includes_null": true
+        }
+      ]
+    }
+  ],
+  "budget_decisions": [
+    {
+      "strategy": "point_estimate",
+      "allocations": [
+        {
+          "channel_id": "google / organic",
+          "budget": 0.0,
+          "expected_outcome": 0.0,
+          "expected_incremental_outcome": 0.0
+        },
+        {
+          "channel_id": "(direct) / (none)",
+          "budget": 0.0,
+          "expected_outcome": 0.0,
+          "expected_incremental_outcome": 0.0
+        },
+        {
+          "channel_id": "<Other> / <Other>",
+          "budget": 6278.13,
+          "expected_outcome": 0.1458,
+          "expected_incremental_outcome": 0.1458
+        },
+        {
+          "channel_id": "<Other> / referral",
+          "budget": 3721.87,
+          "expected_outcome": 0.0828,
+          "expected_incremental_outcome": 0.0828
+        },
+        {
+          "channel_id": "shop.googlemerchandisestore.com / referral",
+          "budget": 0.0,
+          "expected_outcome": 0.0,
+          "expected_incremental_outcome": 0.0
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.23,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 1.02,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    },
+    {
+      "strategy": "robust_minimax_regret",
+      "allocations": [
+        {
+          "channel_id": "google / organic",
+          "budget": 0.0,
+          "expected_outcome": -0.0,
+          "expected_incremental_outcome": -0.0
+        },
+        {
+          "channel_id": "(direct) / (none)",
+          "budget": 0.0,
+          "expected_outcome": -0.0,
+          "expected_incremental_outcome": -0.0
+        },
+        {
+          "channel_id": "<Other> / <Other>",
+          "budget": 6278.13,
+          "expected_outcome": 0.1458,
+          "expected_incremental_outcome": 0.1458
+        },
+        {
+          "channel_id": "<Other> / referral",
+          "budget": 3721.87,
+          "expected_outcome": 0.0828,
+          "expected_incremental_outcome": 0.0828
+        },
+        {
+          "channel_id": "shop.googlemerchandisestore.com / referral",
+          "budget": 0.0,
+          "expected_outcome": -0.0,
+          "expected_incremental_outcome": -0.0
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.23,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 1.02,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    }
+  ],
+  "experiment_candidates": [
+    {
+      "experiment_id": "exp-google / organic-n5000",
+      "channel_id": "google / organic",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-(direct) / (none)-n5000",
+      "channel_id": "(direct) / (none)",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-<Other> / <Other>-n5000",
+      "channel_id": "<Other> / <Other>",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-<Other> / referral-n5000",
+      "channel_id": "<Other> / referral",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-shop.googlemerchandisestore.com / referral-n5000",
+      "channel_id": "shop.googlemerchandisestore.com / referral",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    }
+  ],
+  "evaluation": {
+    "scenario_id": "ga4-public-ecommerce-cohort",
+    "repetitions": 1,
+    "metrics": [
+      {
+        "name": "mean_bias",
+        "value": null,
+        "status": "unavailable",
+        "reason": "Ground truth counterfactuals are not available for observational data.",
+        "unit": null
+      }
+    ],
+    "notes": [
+      "Dataset source: bigquery-public-data.ga4_obfuscated_sample_ecommerce"
+    ]
+  },
+  "warnings": [
+    "Channel shop.googlemerchandisestore.com / referral flagged with poor overlap."
+  ]
+}

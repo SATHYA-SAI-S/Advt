@@ -1,0 +1,636 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-simulator-mild_confounding-seed-42-1792392565",
+  "dataset_id": "simulator-mild_confounding-seed-42",
+  "generated_at": "2026-10-19T06:49:25.930734+00:00",
+  "effect_estimates": [
+    {
+      "treatment_id": "paid_search",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.020493885128429187,
+      "standard_error": 0.007174029114161167,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        0.0064327880646733015,
+        0.03455498219218507
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "social_display",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.020558446060666934,
+      "standard_error": 0.009367681996198848,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        0.0021977893481171934,
+        0.038919102773216675
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    },
+    {
+      "treatment_id": "retargeting",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.030552314318245045,
+      "standard_error": 0.011131077743625649,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        0.008735401940738775,
+        0.052369226695751316
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    }
+  ],
+  "overlap_diagnostics": [
+    {
+      "treatment_id": "paid_search",
+      "propensity_min": 0.02318521713889051,
+      "propensity_max": 0.7803179682976872,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.0018,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 3358.6316161772934,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.001840819093050522,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_age_group",
+          "value": 0.0029,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_device_mobile",
+          "value": 0.0075,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_intent_proxy",
+          "value": 0.0081,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "social_display",
+      "propensity_min": 0.015899985558387397,
+      "propensity_max": 0.46142795165848244,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.0464,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 1805.6253682319373,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.0027977305080966364,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_age_group",
+          "value": 0.0239,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_device_mobile",
+          "value": 0.0256,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_intent_proxy",
+          "value": 0.0009,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": false,
+      "warnings": []
+    },
+    {
+      "treatment_id": "retargeting",
+      "propensity_min": 0.01,
+      "propensity_max": 0.6218680249645352,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 0.2388,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 1309.1172063033105,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.006100538417830472,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_age_group",
+          "value": 0.0417,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_device_mobile",
+          "value": 0.0215,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_intent_proxy",
+          "value": 0.0905,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": true,
+      "warnings": [
+        "Severe propensity concentration / positivity violation: propensity range [0.010, 0.622], 23.9% of units have extreme propensity (<0.05 or >0.95)."
+      ]
+    }
+  ],
+  "sensitivity_analyses": [
+    {
+      "treatment_id": "paid_search",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: age_group: bias=0.0004 (implied Gamma=1.02); device_mobile: bias=0.0006 (implied Gamma=1.03); intent_proxy: bias=0.0110 (implied Gamma=1.53)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.020493885128429187,
+          "upper_bound": 0.020493885128429187,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.0035582283243879576,
+          "upper_bound": 0.03742954193247042,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.010554819012313067,
+          "upper_bound": 0.05154258926917144,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.022496628297213946,
+          "upper_bound": 0.06348439855407231,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.03273246482712898,
+          "upper_bound": 0.07372023508398735,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.041603523153055336,
+          "upper_bound": 0.08259129340991371,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.04936569918824091,
+          "upper_bound": 0.09035346944509928,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.05621467804281639,
+          "upper_bound": 0.09720244829967477,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.06230265924688351,
+          "upper_bound": 0.10329042950374188,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.0677498003242067,
+          "upper_bound": 0.10873757058106508,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.0726522272937976,
+          "upper_bound": 0.11363999755065597,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "social_display",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: age_group: bias=0.0003 (implied Gamma=1.01); device_mobile: bias=0.0014 (implied Gamma=1.07); intent_proxy: bias=0.0188 (implied Gamma=1.91)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.020558446060666934,
+          "upper_bound": 0.020558446060666934,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.0009223122789436683,
+          "upper_bound": 0.0401945798423902,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.015441132539159057,
+          "upper_bound": 0.05655802466049292,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.02928712430832291,
+          "upper_bound": 0.07040401642965678,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.041155117253320495,
+          "upper_bound": 0.08227200937465437,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.05144071113898506,
+          "upper_bound": 0.09255760326031894,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.06044060578894157,
+          "upper_bound": 0.10155749791027545,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.06838168930360905,
+          "upper_bound": 0.10949858142494293,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.07544043020553573,
+          "upper_bound": 0.1165573223268696,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.08175614574936484,
+          "upper_bound": 0.12287303787069871,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.08744028973881106,
+          "upper_bound": 0.12855718186014492,
+          "includes_null": true
+        }
+      ]
+    },
+    {
+      "treatment_id": "retargeting",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: age_group: bias=0.0011 (implied Gamma=1.03); device_mobile: bias=0.0002 (implied Gamma=1.00); intent_proxy: bias=0.0283 (implied Gamma=1.92)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.030552314318245045,
+          "upper_bound": 0.030552314318245045,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.010216390406263553,
+          "upper_bound": 0.050888238230226535,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": -0.006730212853721024,
+          "upper_bound": 0.06783484149021111,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": -0.021069646381400298,
+          "upper_bound": 0.08217427501789039,
+          "includes_null": true
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": -0.03336058940512538,
+          "upper_bound": 0.09446521804161548,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": -0.04401274002568711,
+          "upper_bound": 0.10511736866217719,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": -0.05333337181867865,
+          "upper_bound": 0.11443800045516875,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": -0.061557458694847626,
+          "upper_bound": 0.12266208733133771,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": -0.06886775814033116,
+          "upper_bound": 0.12997238677682127,
+          "includes_null": true
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": -0.07540855238102698,
+          "upper_bound": 0.13651318101751705,
+          "includes_null": true
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.0812952671976532,
+          "upper_bound": 0.14239989583414328,
+          "includes_null": true
+        }
+      ]
+    }
+  ],
+  "budget_decisions": [
+    {
+      "strategy": "point_estimate",
+      "allocations": [
+        {
+          "channel_id": "paid_search",
+          "budget": 3095.3,
+          "expected_outcome": 0.204,
+          "expected_incremental_outcome": 0.204
+        },
+        {
+          "channel_id": "social_display",
+          "budget": 2373.52,
+          "expected_outcome": 0.2049,
+          "expected_incremental_outcome": 0.2049
+        },
+        {
+          "channel_id": "retargeting",
+          "budget": 4531.18,
+          "expected_outcome": 0.3042,
+          "expected_incremental_outcome": 0.3042
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.71,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    },
+    {
+      "strategy": "robust_minimax_regret",
+      "allocations": [
+        {
+          "channel_id": "paid_search",
+          "budget": 3095.3,
+          "expected_outcome": 0.204,
+          "expected_incremental_outcome": 0.204
+        },
+        {
+          "channel_id": "social_display",
+          "budget": 2373.52,
+          "expected_outcome": 0.2049,
+          "expected_incremental_outcome": 0.2049
+        },
+        {
+          "channel_id": "retargeting",
+          "budget": 4531.18,
+          "expected_outcome": 0.3042,
+          "expected_incremental_outcome": 0.3042
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.71,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    }
+  ],
+  "experiment_candidates": [
+    {
+      "experiment_id": "exp-paid_search-n5000",
+      "channel_id": "paid_search",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-social_display-n5000",
+      "channel_id": "social_display",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    },
+    {
+      "experiment_id": "exp-retargeting-n5000",
+      "channel_id": "retargeting",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    }
+  ],
+  "evaluation": {
+    "scenario_id": "simulator-mild_confounding-seed-42",
+    "repetitions": 1,
+    "metrics": [
+      {
+        "name": "mean_bias",
+        "value": 0.0215,
+        "status": "available",
+        "reason": null,
+        "unit": "effect_units"
+      },
+      {
+        "name": "rmse",
+        "value": 0.0223,
+        "status": "available",
+        "reason": null,
+        "unit": "effect_units"
+      },
+      {
+        "name": "confidence_interval_coverage",
+        "value": 0.3333,
+        "status": "available",
+        "reason": null,
+        "unit": "rate"
+      }
+    ],
+    "notes": [
+      "Dataset source: synthetic_journey_generator"
+    ]
+  },
+  "warnings": [
+    "Channel retargeting flagged with poor overlap."
+  ]
+}

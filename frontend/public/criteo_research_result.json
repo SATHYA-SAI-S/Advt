@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-criteo-uplift-v2.1-n2000-1792341929",
+  "dataset_id": "criteo-uplift-v2.1-n2000",
+  "generated_at": "2026-10-18T16:45:29.329444+00:00",
+  "effect_estimates": [
+    {
+      "treatment_id": "criteo_display",
+      "outcome_id": "conversion",
+      "estimand": "ate",
+      "estimate": 0.005500017473697766,
+      "standard_error": 0.0016675405587202325,
+      "confidence_level": 0.95,
+      "confidence_interval": [
+        0.0022316379786061105,
+        0.008768396968789421
+      ],
+      "subgroup_id": null,
+      "method": "aipw_doubly_robust"
+    }
+  ],
+  "overlap_diagnostics": [
+    {
+      "treatment_id": "criteo_display",
+      "propensity_min": 0.99,
+      "propensity_max": 0.99,
+      "extreme_propensity_share": {
+        "name": "extreme_propensity_share",
+        "value": 1.0,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "effective_sample_size": {
+        "name": "effective_sample_size",
+        "value": 2000.0000000000005,
+        "status": "available",
+        "reason": null,
+        "unit": "units"
+      },
+      "maximum_weight_share": {
+        "name": "maximum_weight_share",
+        "value": 0.0005,
+        "status": "available",
+        "reason": null,
+        "unit": "fraction"
+      },
+      "covariate_balance": [
+        {
+          "name": "smd_covariate_f0",
+          "value": 5.0419,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f1",
+          "value": 216.3038,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f2",
+          "value": 34.9748,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f3",
+          "value": 7.0946,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f4",
+          "value": 40.3869,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f5",
+          "value": 16.5339,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f6",
+          "value": 1.165,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f7",
+          "value": 7.5077,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f8",
+          "value": 155.9994,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f9",
+          "value": 5.3199,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f10",
+          "value": 48.799,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        },
+        {
+          "name": "smd_covariate_f11",
+          "value": 12.8449,
+          "status": "available",
+          "reason": null,
+          "unit": "standardized_diff"
+        }
+      ],
+      "overlap_flag": true,
+      "warnings": [
+        "Severe propensity concentration / positivity violation: propensity range [0.990, 0.990], 100.0% of units have extreme propensity (<0.05 or >0.95).",
+        "Residual covariate imbalance detected: maximum post-weighting SMD is 216.304 (> 0.25)."
+      ]
+    }
+  ],
+  "sensitivity_analyses": [
+    {
+      "treatment_id": "criteo_display",
+      "outcome_id": "conversion",
+      "method": "marginal_sensitivity_model_dorn_guo",
+      "calibration_description": "Evaluated across Gamma in [1.0, 3.0]. Omitted-covariate benchmarks: f0: bias=0.0000 (implied Gamma=1.00); f1: bias=0.0000 (implied Gamma=1.00); f2: bias=0.0000 (implied Gamma=1.00); f3: bias=0.0000 (implied Gamma=1.00); f4: bias=0.0000 (implied Gamma=1.00); f5: bias=0.0000 (implied Gamma=1.00); f6: bias=0.0000 (implied Gamma=1.00); f7: bias=0.0000 (implied Gamma=1.00); f8: bias=0.0000 (implied Gamma=1.00); f9: bias=0.0000 (implied Gamma=1.00); f10: bias=0.0000 (implied Gamma=1.00); f11: bias=0.0000 (implied Gamma=1.00)",
+      "points": [
+        {
+          "gamma": 1.0,
+          "lower_bound": 0.005500017473697766,
+          "upper_bound": 0.005500017473697766,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.2,
+          "lower_bound": 0.0044974847387124475,
+          "upper_bound": 0.006502550208683085,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.4,
+          "lower_bound": 0.0036620407928913486,
+          "upper_bound": 0.007337994154504184,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.6,
+          "lower_bound": 0.0029551266848888797,
+          "upper_bound": 0.008044908262506652,
+          "includes_null": false
+        },
+        {
+          "gamma": 1.8,
+          "lower_bound": 0.0023492003066010493,
+          "upper_bound": 0.008650834640794483,
+          "includes_null": false
+        },
+        {
+          "gamma": 2.0,
+          "lower_bound": 0.0018240641120849301,
+          "upper_bound": 0.009175970835310602,
+          "includes_null": false
+        },
+        {
+          "gamma": 2.2,
+          "lower_bound": 0.0013645699418833252,
+          "upper_bound": 0.009635465005512208,
+          "includes_null": false
+        },
+        {
+          "gamma": 2.4,
+          "lower_bound": 0.0009591339093524987,
+          "upper_bound": 0.010040901038043034,
+          "includes_null": false
+        },
+        {
+          "gamma": 2.6,
+          "lower_bound": 0.0005987463248806509,
+          "upper_bound": 0.010401288622514882,
+          "includes_null": false
+        },
+        {
+          "gamma": 2.8,
+          "lower_bound": 0.0002762942756163681,
+          "upper_bound": 0.010723740671779164,
+          "includes_null": false
+        },
+        {
+          "gamma": 3.0,
+          "lower_bound": -0.000013912568721487911,
+          "upper_bound": 0.01101394751611702,
+          "includes_null": true
+        }
+      ]
+    }
+  ],
+  "budget_decisions": [
+    {
+      "strategy": "point_estimate",
+      "allocations": [
+        {
+          "channel_id": "criteo_display",
+          "budget": 10000.0,
+          "expected_outcome": 0.0549,
+          "expected_incremental_outcome": 0.0549
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.05,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    },
+    {
+      "strategy": "robust_minimax_regret",
+      "allocations": [
+        {
+          "channel_id": "criteo_display",
+          "budget": 10000.0,
+          "expected_outcome": 0.0549,
+          "expected_incremental_outcome": 0.0549
+        }
+      ],
+      "total_budget": 10000.0,
+      "expected_objective": {
+        "name": "expected_conversions",
+        "value": 0.05,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "worst_case_regret": {
+        "name": "worst_case_regret",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "conversions"
+      },
+      "stability": "unidentifiable",
+      "breakdown_gamma": {
+        "name": "breakdown_gamma",
+        "value": 3.0,
+        "status": "available",
+        "reason": null,
+        "unit": "odds_ratio"
+      },
+      "assumptions": [
+        "Concave conversion saturation model with parameter alpha=0.1",
+        "Regret tolerance set to 5% of point-estimate objective",
+        "Stability threshold set to Gamma* >= 1.5"
+      ]
+    }
+  ],
+  "experiment_candidates": [
+    {
+      "experiment_id": "exp-criteo_display-n5000",
+      "channel_id": "criteo_display",
+      "segment_id": null,
+      "sample_size": 5000,
+      "experiment_cost": 500.0,
+      "expected_regret_reduction": {
+        "name": "expected_regret_reduction",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "regret_units"
+      },
+      "value_of_information": {
+        "name": "net_value_of_information",
+        "value": -500.0,
+        "status": "available",
+        "reason": null,
+        "unit": "currency"
+      },
+      "selection_method": "voi_optimal"
+    }
+  ],
+  "evaluation": {
+    "scenario_id": "criteo-uplift-v2.1-n2000",
+    "repetitions": 1,
+    "metrics": [
+      {
+        "name": "mean_bias",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "effect_units"
+      },
+      {
+        "name": "rmse",
+        "value": 0.0,
+        "status": "available",
+        "reason": null,
+        "unit": "effect_units"
+      },
+      {
+        "name": "confidence_interval_coverage",
+        "value": 1.0,
+        "status": "available",
+        "reason": null,
+        "unit": "rate"
+      }
+    ],
+    "notes": [
+      "Dataset source: criteo-uplift-v2.1"
+    ]
+  },
+  "warnings": [
+    "Channel criteo_display flagged with poor overlap."
+  ]
+}
